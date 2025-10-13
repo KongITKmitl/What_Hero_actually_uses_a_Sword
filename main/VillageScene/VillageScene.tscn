@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://item/PixelFont1/retro-pixel-font-ttf.woff-v2025.08.24/cute-mono/retro-pixel-cute-mono.ttf.woff" type="DynamicFontData" id=1]
+[ext_resource path="res://main/VillageScene/VillageScene.py" type="Script" id=2]
+[ext_resource path="res://item/Background/VillageBG_NotfixedSize.png" type="Texture" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 10
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+content_margin_left = 5.0
+content_margin_right = 5.0
+content_margin_top = 5.0
+content_margin_bottom = 5.0
+bg_color = Color( 0.952941, 0.682353, 0.0431373, 1 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="VillageBG" type="Sprite" parent="."]
+position = Vector2( -13, -28 )
+scale = Vector2( 1.2, 1.2 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="TestGameplayButton" type="Button" parent="."]
+margin_left = 386.0
+margin_top = 143.0
+margin_right = 614.0
+margin_bottom = 191.0
+custom_colors/font_color_hover_pressed = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+custom_styles/hover = SubResource( 2 )
+custom_styles/normal = SubResource( 2 )
+text = "Think of this as a dialogue box,
+ then you press it to proceed
+ through and it get into boss fight."
+
+[connection signal="pressed" from="TestGameplayButton" to="." method="_on_TestGameplayButton_pressed"]
