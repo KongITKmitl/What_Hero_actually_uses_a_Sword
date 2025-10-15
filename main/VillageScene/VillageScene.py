@@ -18,7 +18,7 @@ class VillageScene(Node2D):
 	
 	def _on_TestGameplayButton_pressed(self):
 		self.get_node("TestGameplayButton").hide()
-		typingUI = ResourceLoader.load("res://main/Test(AnythingRandomGoesHere)/TypingUI.tscn").instance()
+		typingUI = ResourceLoader.load("res://main/UIscene/TypingUI.tscn").instance()
 		self.add_child(typingUI)
 
 		
