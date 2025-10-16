@@ -1,9 +1,23 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://item/asset/Node2D.gd" type="Script" id=1]
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node2D
+
+var line_edit: LineEdit
+var label: Label
+
+func _ready():
+	line_edit = $LineEdit
+	label = $Label
+	
+	line_edit.connect(\"text_entered\", self, \"_on_LineEdit_text_entered\")
+
+func _on_LineEdit_text_entered(new_text):
+	label.text = new_text
+"
 
 [node name="textboxtest" type="Node2D"]
-script = ExtResource( 1 )
+script = SubResource( 1 )
 
 [node name="LineEdit" type="LineEdit" parent="."]
 margin_left = 131.0
