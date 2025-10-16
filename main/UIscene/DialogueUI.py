@@ -6,12 +6,14 @@ dialogue_list = [
 	"Eventually, this day has come.",
 	"The day that I'm going to pass by my greatest spell to you.",
 	"Behold!!",
-	"Nice"
+	"Nice",
+	"Now, use those spell to save the world",
+	"And may be find the partner of your life."
 ]
 
 text_speed = 0.03
 waiting = False
-
+			
 @exposed
 class DialogueUI(Control):
 
@@ -36,6 +38,8 @@ class DialogueUI(Control):
 	
 	
 	def timer_setup(self):
+		gameplaytrigger = False
+
 		self.RdialogueContent.text = ''
 		self.current_char = 0
 
@@ -52,7 +56,7 @@ class DialogueUI(Control):
 
 		if Input.is_action_just_pressed("Pressed_Enter") and not waiting and not self.gameplaytrigger\
 		and self.current_dialogue_order < len(dialogue_list)-1:
-
+			
 			self.current_dialogue_order += 1
 			self.current_text = dialogue_list[self.current_dialogue_order]
 
@@ -68,9 +72,8 @@ class DialogueUI(Control):
 			
 			typingUI = ResourceLoader.load("res://main/UIscene/TypingUI.tscn").instance()
 			self.get_tree().get_root().add_child(typingUI)
-
 			self.hide()
-			game_stage = 1
+		
 
 	def _on_timer_timeout(self):
 		
@@ -84,5 +87,11 @@ class DialogueUI(Control):
 			self.timer.queue_free()
 			waiting = False
 			
+	def aftergameplay(self,*args):
+		self.show()
+		self.current_dialogue_order += 1
+		gameplaytrigger = False
+		self.current_text = dialogue_list[self.current_dialogue_order]
+		self.timer_setup()
+		
 
-			

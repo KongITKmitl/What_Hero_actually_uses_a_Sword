@@ -53,7 +53,7 @@ class TypingUI(Control):
 		print(num)
 		if 1 <= num <= 99:
 			#normal spell
-			num = random.choice(['magic20','magic40','magic60','magic80'])
+			num = random.choice(['magic20','magic40','magic60','magic80']) #'magic20','magic40','magic60','magic80'
 			self.text = random.choice(magiclist[num])
 		else:
 			self.text = random.choice(magiclist["magic100"])
@@ -102,6 +102,9 @@ class TypingUI(Control):
 						print('Raw damage = '+ str(self.points))
 						print('WPM = ' + str(self.wpm))
 						print('Damage (RawDamage * WPM) = ' + str(self.damage) )
+						
+						self.get_tree().current_scene.showUI()
+						self.queue_free()
 
 
 

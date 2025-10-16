@@ -15,10 +15,11 @@ class VillageScene(Node2D):
 		Initialization here.
 		"""	
 		
-		DialogueUI = ResourceLoader.load("res://main/UIscene/DialogueUI.tscn").instance()
-		self.add_child(DialogueUI)
-
+		self.DialogueUI = ResourceLoader.load("res://main/UIscene/DialogueUI.tscn").instance()
+		self.add_child(self.DialogueUI)
 
 		pass
+	def showUI(self, *args):
+		self.DialogueUI.aftergameplay()
 
-	
+
