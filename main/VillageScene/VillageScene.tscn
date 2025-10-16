@@ -1,42 +1,43 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://item/PixelFont1/retro-pixel-font-ttf.woff-v2025.08.24/cute-mono/retro-pixel-cute-mono.ttf.woff" type="DynamicFontData" id=1]
 [ext_resource path="res://main/VillageScene/VillageScene.py" type="Script" id=2]
 [ext_resource path="res://item/Background/VillageBG_NotfixedSize.png" type="Texture" id=3]
-
-[sub_resource type="DynamicFont" id=1]
-size = 10
-font_data = ExtResource( 1 )
-
-[sub_resource type="StyleBoxFlat" id=2]
-content_margin_left = 5.0
-content_margin_right = 5.0
-content_margin_top = 5.0
-content_margin_bottom = 5.0
-bg_color = Color( 0.952941, 0.682353, 0.0431373, 1 )
+[ext_resource path="res://item/SpriteAndMore/MCsprite.png" type="Texture" id=4]
+[ext_resource path="res://item/SpriteAndMore/SenseiSprite.png" type="Texture" id=5]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="VillageBG" type="Sprite" parent="."]
-position = Vector2( -2, -1 )
-scale = Vector2( 1.11632, 1.11728 )
+position = Vector2( -4, -13 )
+scale = Vector2( 0.999, 1 )
 texture = ExtResource( 3 )
 centered = false
 
-[node name="TestGameplayButton" type="Button" parent="."]
-margin_left = 386.0
-margin_top = 143.0
-margin_right = 614.0
-margin_bottom = 191.0
-custom_colors/font_color_hover_pressed = Color( 0, 0, 0, 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 1 )
-custom_styles/hover = SubResource( 2 )
-custom_styles/normal = SubResource( 2 )
-text = "Think of this as a dialogue box,
- then you press it to proceed
- through and it get into boss fight."
+[node name="VillageBG2" type="Sprite" parent="."]
+position = Vector2( 571, -13 )
+scale = Vector2( 0.999, 1 )
+texture = ExtResource( 3 )
+centered = false
 
-[connection signal="pressed" from="TestGameplayButton" to="." method="_on_TestGameplayButton_pressed"]
+[node name="MCSprite" type="Sprite" parent="."]
+position = Vector2( 147, 254 )
+texture = ExtResource( 4 )
+
+[node name="SenseiSprite" type="Sprite" parent="."]
+position = Vector2( 482, 258 )
+texture = ExtResource( 5 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -4.0
+margin_top = 288.0
+margin_right = 670.0
+margin_bottom = 365.0
+color = Color( 0.223529, 0.203922, 0.180392, 1 )
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+margin_left = -4.0
+margin_top = 284.0
+margin_right = 670.0
+margin_bottom = 300.0
+color = Color( 0.207843, 0.337255, 0.133333, 1 )

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Free-Summer-Pixel-Art-Backgrounds6.jpg-6aa9960307f3129809527c385c6fdb2e.stex"
+path="res://.import/MCsprite.png-bcc81f690b6e6fd72910348e5cb5b186.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://item/Background/Free-Summer-Pixel-Art-Backgrounds6.jpg"
-dest_files=[ "res://.import/Free-Summer-Pixel-Art-Backgrounds6.jpg-6aa9960307f3129809527c385c6fdb2e.stex" ]
+source_file="res://item/SpriteAndMore/MCsprite.png"
+dest_files=[ "res://.import/MCsprite.png-bcc81f690b6e6fd72910348e5cb5b186.stex" ]
 
 [params]
 

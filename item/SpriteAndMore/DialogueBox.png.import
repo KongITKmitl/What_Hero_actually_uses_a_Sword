@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Free-Summer-Pixel-Art-Backgrounds6.jpg-6aa9960307f3129809527c385c6fdb2e.stex"
+path="res://.import/DialogueBox.png-bfea25605ce4d8c49d9b40b8d1de10e2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://item/Background/Free-Summer-Pixel-Art-Backgrounds6.jpg"
-dest_files=[ "res://.import/Free-Summer-Pixel-Art-Backgrounds6.jpg-6aa9960307f3129809527c385c6fdb2e.stex" ]
+source_file="res://item/SpriteAndMore/DialogueBox.png"
+dest_files=[ "res://.import/DialogueBox.png-bfea25605ce4d8c49d9b40b8d1de10e2.stex" ]
 
 [params]
 
