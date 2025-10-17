@@ -72,6 +72,9 @@ class DialogueUI(Control):
 			
 			typingUI = ResourceLoader.load("res://main/UIscene/TypingUI.tscn").instance()
 			self.get_tree().get_root().add_child(typingUI)
+			
+			hpUI = ResourceLoader.load("res://main/UIscene/healthbar.tscn").instance()
+			self.get_tree().get_root().add_child(hpUI)
 			self.hide()
 		
 
@@ -87,11 +90,14 @@ class DialogueUI(Control):
 			self.timer.queue_free()
 			waiting = False
 			
-	def aftergameplay(self,*args):
+		"""pimmmmmmmmmmm"""
+	def aftergameplay(self,getdamage):
 		self.show()
+		"""pimmmmmmmmmmm"""
+		print(getdamage)
 		self.current_dialogue_order += 1
 		self.gameplaytrigger = False
 		self.current_text = dialogue_list[self.current_dialogue_order]
 		self.timer_setup()
-		
+
 

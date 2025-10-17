@@ -17,9 +17,13 @@ class VillageScene(Node2D):
 		
 		self.DialogueUI = ResourceLoader.load("res://main/UIscene/DialogueUI.tscn").instance()
 		self.add_child(self.DialogueUI)
-
+		
+		self.TypingUI = self.get_node("TypingUI")
 		pass
-	def showUI(self, *args):
-		self.DialogueUI.aftergameplay()
 
-
+	def showUI(self,getdamage):
+		self.DialogueUI.aftergameplay(getdamage)
+		
+	def send_damage(self,getdamage):
+		self.healthbar = self.get_node("healthbar.tscn")
+		self.healthbar.damage(getdamage)

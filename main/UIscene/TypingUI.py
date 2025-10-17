@@ -1,4 +1,4 @@
-from godot import exposed, export
+from godot import exposed, export, signal
 from godot import *
 import random
 import time
@@ -86,11 +86,13 @@ class TypingUI(Control):
 		minutes = elapsed / 60
 		wpm = (len(self.text) / 5) / minutes
 		damage = self.points * (wpm * 0.05)
-
+		
 		print("✅ Typing Complete!")
 		print(f"Score: {self.points}")
 		print(f"WPM: {round(wpm, 1)}")
 		print(f"Damage: {round(damage, 1)}")
+
+		self.getdamage = damage
 
 		self.damage_label.text = f"Damage: {round(damage, 1)}"
 		# ✅ ตั้ง Timer2 ให้ซ่อนข้อความหลัง 2 วิ
@@ -103,5 +105,7 @@ class TypingUI(Control):
 
 	def _hide_damage(self):
 		self.damage_label.text = ""
-		self.get_tree().current_scene.showUI()
+		"""pimmmmmmmmmmm"""
+		self.get_tree().current_scene.showUI(self.getdamage)
+		self.get_tree().current_scene.send_damage(self.getdamage)
 		self.queue_free()
