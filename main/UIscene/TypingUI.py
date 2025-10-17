@@ -94,7 +94,7 @@ class TypingUI(Control):
 
 		self.damage_label.text = f"Damage: {round(damage, 1)}"
 		# ✅ ตั้ง Timer2 ให้ซ่อนข้อความหลัง 2 วิ
-		self.timer2.wait_time = 2.0
+		self.timer2.wait_time = 1.0
 		self.timer2.one_shot = True
 		if not self.timer2.is_connected("timeout", self, "_hide_damage"):
 			self.timer2.connect("timeout", self, "_hide_damage")
