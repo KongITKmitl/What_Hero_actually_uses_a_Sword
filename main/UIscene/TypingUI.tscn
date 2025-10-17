@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://item/PixelFont1/retro-pixel-font-ttf.woff-v2025.08.24/cute-mono/retro-pixel-cute-mono.ttf.woff" type="DynamicFontData" id=1]
 [ext_resource path="res://main/UIscene/TypingUI.py" type="Script" id=2]
@@ -7,8 +7,6 @@
 size = 27
 extra_spacing_char = 7
 font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=3]
 
 [node name="TypingUI" type="Control"]
 margin_right = 640.0
@@ -74,7 +72,6 @@ margin_top = 17.0
 margin_right = 70.0
 margin_bottom = 40.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_fonts/font = SubResource( 3 )
 
 [node name="damageLabel" type="Label" parent="."]
 margin_left = 297.0
