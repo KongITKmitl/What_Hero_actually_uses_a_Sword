@@ -1,12 +1,25 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://item/PixelFont1/retro-pixel-font-ttf.woff-v2025.08.24/cute-mono/retro-pixel-cute-mono.ttf.woff" type="DynamicFontData" id=1]
 [ext_resource path="res://main/UIscene/TypingUI.py" type="Script" id=2]
+[ext_resource path="res://item/PixelFont1/retro-pixel-font-ttf.woff-v2025.08.24/cute-prop/retro-pixel-cute-prop.ttf.woff" type="DynamicFontData" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 27
 extra_spacing_char = 7
 font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 12
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 12
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
 
 [node name="TypingUI" type="Control"]
 margin_right = 640.0
@@ -72,11 +85,19 @@ margin_top = 17.0
 margin_right = 70.0
 margin_bottom = 40.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 2 )
 
 [node name="damageLabel" type="Label" parent="."]
-margin_left = 297.0
-margin_top = 77.0
-margin_right = 378.0
-margin_bottom = 110.0
+anchor_left = 0.505
+anchor_top = 0.208
+anchor_right = 0.505
+anchor_bottom = 0.208
+margin_left = -41.2
+margin_top = 2.12
+margin_right = 39.8
+margin_bottom = 35.12
+custom_fonts/font = SubResource( 3 )
+align = 1
+valign = 1
 
 [node name="Timer2" type="Timer" parent="."]
