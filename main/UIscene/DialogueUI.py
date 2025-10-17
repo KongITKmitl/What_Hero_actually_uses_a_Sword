@@ -38,7 +38,7 @@ class DialogueUI(Control):
 	
 	
 	def timer_setup(self):
-		gameplaytrigger = False
+		self.gameplaytrigger = False
 
 		self.RdialogueContent.text = ''
 		self.current_char = 0
@@ -90,7 +90,7 @@ class DialogueUI(Control):
 	def aftergameplay(self,*args):
 		self.show()
 		self.current_dialogue_order += 1
-		gameplaytrigger = False
+		self.gameplaytrigger = False
 		self.current_text = dialogue_list[self.current_dialogue_order]
 		self.timer_setup()
 		
