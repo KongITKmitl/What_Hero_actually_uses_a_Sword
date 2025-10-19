@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://item/PixelFont1/retro-pixel-font-ttf.woff-v2025.08.24/cute-mono/retro-pixel-cute-mono.ttf.woff" type="DynamicFontData" id=1]
 [ext_resource path="res://main/UIscene/TypingUI.py" type="Script" id=2]
@@ -9,8 +9,23 @@ size = 27
 extra_spacing_char = 7
 font_data = ExtResource( 1 )
 
+[sub_resource type="DynamicFont" id=4]
+size = 11
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.823529, 0.235294, 0.235294, 1 )
+
+[sub_resource type="Theme" id=7]
+ProgressBar/fonts/font = SubResource( 4 )
+ProgressBar/styles/bg = SubResource( 5 )
+ProgressBar/styles/fg = SubResource( 6 )
+
 [sub_resource type="DynamicFont" id=2]
-size = 12
+size = 10
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 3 )
@@ -75,15 +90,17 @@ clip_text = true
 [node name="Timer" type="Timer" parent="."]
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-margin_left = 4.0
-margin_right = 57.0
-margin_bottom = 14.0
+margin_left = -1.0
+margin_top = -19.0
+margin_right = 640.0
+margin_bottom = 7.0
+theme = SubResource( 7 )
 
 [node name="StatsLabel" type="Label" parent="."]
-margin_left = 6.0
-margin_top = 17.0
-margin_right = 70.0
-margin_bottom = 40.0
+margin_left = 9.0
+margin_top = 11.0
+margin_right = 73.0
+margin_bottom = 34.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 2 )
 

@@ -51,6 +51,7 @@ class TypingUI(Control):
 		self.timer.start()
 
 	def _input(self, event):
+		"""function  ที่รับinput จากแป้นพิมพ์"""
 		if self.c < len(self.text):
 			if event.unicode != 0:
 				char = chr(event.unicode)
@@ -58,7 +59,6 @@ class TypingUI(Control):
 
 				if char == expected:
 					self.points += 10
-					self.correct += 1
 					self.current_char.add_color_override("font_color", Color(0, 1, 0))
 				else:
 					self.current_char.add_color_override("font_color", Color(1, 0, 0))
@@ -72,42 +72,42 @@ class TypingUI(Control):
 					self._show_summary()
 					self.timer.stop()
 
+				self.calculate_wpm()
 
+	def calculate_wpm(self):
+		"""function ที่คำนวนค่าตัวเลขต่างๆ"""
+		progress = (self.c / len(self.text)) * 100
+		self.progress_bar.value = progress
 
-				progress = (self.c / len(self.text)) * 100
-				self.progress_bar.value = progress
-
-				accuracy = (self.correct / self.c) * 100 if self.c > 0 else 100
-				elapsed = time.time() - self.start_time
-				minutes = elapsed / 60
-				wpm = (self.c / 5) / minutes if minutes > 0 else 0
-				self.stats_label.text = f"WPM: {int(wpm)} | Accuracy: {int(accuracy)}%"
+		accuracy = (self.correct / self.c) * 100 if self.c > 0 else 100
+		elapsed = time.time() - self.start_time
+		self.minutes = elapsed / 60
+		self.wpm = (self.c / 5) / self.minutes if self.minutes > 0 else 0
+		self.stats_label.text = f"WPM: {int(self.wpm)} | Accuracy: {int(accuracy)}%"
 
 	def _show_summary(self):
-		elapsed = time.time() - self.start_time
-		minutes = elapsed / 60
-		wpm = (len(self.text) / 5) / minutes
-		damage = self.points * (wpm * 0.05)
-		
-		print("✅ Typing Complete!")
+		"""Show summary after typing each round"""
+		self.damage = self.points * (self.wpm * 0.05)
+
+		print("✅--Typing Complete!--")
 		print(f"Score: {self.points}")
-		print(f"WPM: {round(wpm, 1)}")
-		print(f"Damage: {round(damage, 1)}")
+		print(f"WPM: {round(self.wpm, 1)}")
+		print(f"Damage: {round(self.damage, 1)}")
 
-		self.getdamage = damage
+		self.damage_label.text = f"Damage: {round(self.damage, 1)}"
 
-		self.damage_label.text = f"Damage: {round(damage, 1)}"
-		# ✅ ตั้ง Timer2 ให้ซ่อนข้อความหลัง 2 วิ
+		#ตั้ง Timer2 ให้ซ่อนข้อความหลัง 2 วิ
 		self.timer2.wait_time = 1.0
 		self.timer2.one_shot = True
 		if not self.timer2.is_connected("timeout", self, "_hide_damage"):
 			self.timer2.connect("timeout", self, "_hide_damage")
 		self.timer2.start()
 
-
+	
 	def _hide_damage(self):
-		# inside TypingUI script
+		"""หลังจาก function show summary จบ"""
 		self.damage_label.text = ""
-		self.healthbar.take_damage(self.getdamage)
+		self.healthbar.take_damage(self.damage)
 		self.get_tree().current_scene.showUI()
+
 		self.queue_free()
