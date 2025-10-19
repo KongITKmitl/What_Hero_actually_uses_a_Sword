@@ -21,9 +21,7 @@ class VillageScene(Node2D):
 		self.TypingUI = self.get_node("TypingUI")
 		pass
 
-	def showUI(self,getdamage):
-		self.DialogueUI.aftergameplay(getdamage)
+	def showUI(self):
+		self.DialogueUI.aftergameplay()
 		
-	def send_damage(self,getdamage):
-		self.healthbar = self.get_node("healthbar.tscn")
-		self.healthbar.damage(getdamage)
+

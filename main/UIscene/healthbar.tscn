@@ -8,7 +8,7 @@ bg_color = Color( 1, 0, 0, 1 )
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0, 0, 0, 1 )
 
-[node name="Control" type="Control"]
+[node name="healthbar" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )

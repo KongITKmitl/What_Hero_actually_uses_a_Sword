@@ -5,7 +5,7 @@
 [ext_resource path="res://item/SpriteAndMore/MCsprite.png" type="Texture" id=4]
 [ext_resource path="res://item/SpriteAndMore/SenseiSprite.png" type="Texture" id=5]
 
-[node name="Node2D" type="Node2D"]
+[node name="Villagescene" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="VillageBG" type="Sprite" parent="."]

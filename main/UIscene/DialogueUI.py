@@ -70,11 +70,12 @@ class DialogueUI(Control):
 
 		elif Input.is_action_just_pressed("Pressed_Enter") and not waiting and self.gameplaytrigger:
 			
+			healthbar = ResourceLoader.load("res://main/UIscene/healthbar.tscn").instance()
+			self.get_tree().get_root().add_child(healthbar)
+			
 			typingUI = ResourceLoader.load("res://main/UIscene/TypingUI.tscn").instance()
 			self.get_tree().get_root().add_child(typingUI)
 			
-			hpUI = ResourceLoader.load("res://main/UIscene/healthbar.tscn").instance()
-			self.get_tree().get_root().add_child(hpUI)
 			self.hide()
 		
 
@@ -90,11 +91,10 @@ class DialogueUI(Control):
 			self.timer.queue_free()
 			waiting = False
 			
-		"""pimmmmmmmmmmm"""
-	def aftergameplay(self,getdamage):
+
+	def aftergameplay(self):
 		self.show()
-		"""pimmmmmmmmmmm"""
-		print(getdamage)
+
 		self.current_dialogue_order += 1
 		self.gameplaytrigger = False
 		self.current_text = dialogue_list[self.current_dialogue_order]

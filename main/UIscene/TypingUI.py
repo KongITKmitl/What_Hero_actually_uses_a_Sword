@@ -19,6 +19,8 @@ class TypingUI(Control):
 	b = export(str, default='foo')
 
 	def _ready(self):
+		
+		self.healthbar = self.get_node('../healthbar')
 		self.word_display = self.get_node("GridContainer/Panel2/word")
 		self.current_char = self.get_node("GridContainer/Panel/currentChar")
 		self.timer = self.get_node("Timer")
@@ -104,8 +106,8 @@ class TypingUI(Control):
 
 
 	def _hide_damage(self):
+		# inside TypingUI script
 		self.damage_label.text = ""
-		"""pimmmmmmmmmmm"""
-		self.get_tree().current_scene.showUI(self.getdamage)
-		self.get_tree().current_scene.send_damage(self.getdamage)
+		self.healthbar.take_damage(self.getdamage)
+		self.get_tree().current_scene.showUI()
 		self.queue_free()
