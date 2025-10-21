@@ -1,6 +1,7 @@
 from godot import exposed, export
 from godot import *
 import asyncio #เพื่อจะได้ใช้ Await ได้
+from main.UIscene import mainscript
 dialogue_list = [
 	"Good morning my dear disciple.",
 	"Eventually, this day has come.",
@@ -70,12 +71,7 @@ class DialogueUI(Control):
 
 		elif Input.is_action_just_pressed("Pressed_Enter") and not waiting and self.gameplaytrigger:
 			
-			healthbar = ResourceLoader.load("res://main/UIscene/healthbar.tscn").instance()
-			self.get_tree().get_root().add_child(healthbar)
-			
-			typingUI = ResourceLoader.load("res://main/UIscene/TypingUI.tscn").instance()
-			self.get_tree().get_root().add_child(typingUI)
-			
+			mainscript.main()
 			self.hide()
 		
 
