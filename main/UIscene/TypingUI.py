@@ -108,6 +108,6 @@ class TypingUI(Control):
 		"""หลังจาก function show summary จบ"""
 		self.damage_label.text = ""
 		self.healthbar.take_damage(self.damage)
-		self.get_tree().current_scene.showUI()
+		#self.get_tree().current_scene.showUI() #แสดงdialog
 
 		self.queue_free()

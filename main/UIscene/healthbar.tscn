@@ -27,3 +27,5 @@ custom_styles/fg = SubResource( 1 )
 custom_styles/bg = SubResource( 2 )
 max_value = 600.0
 value = 600.0
+
+[node name="Delay" type="Timer" parent="."]
