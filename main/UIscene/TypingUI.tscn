@@ -54,15 +54,17 @@ columns = 2
 [node name="Panel" type="Panel" parent="GridContainer"]
 
 [node name="ColorRect" type="ColorRect" parent="GridContainer/Panel"]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 9.5
+margin_top = 1.0
+margin_right = 49.5
+margin_bottom = 41.0
 color = Color( 0.211765, 0.211765, 0.211765, 1 )
 
 [node name="currentChar" type="Label" parent="GridContainer/Panel"]
-margin_left = 12.0
-margin_top = 2.0
-margin_right = 36.0
-margin_bottom = 39.0
+margin_left = 21.5
+margin_top = 3.0
+margin_right = 45.5
+margin_bottom = 40.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "T"
@@ -72,19 +74,20 @@ margin_left = 55.0
 margin_right = 55.0
 
 [node name="ColorRect" type="ColorRect" parent="GridContainer/Panel2"]
-margin_right = 265.0
-margin_bottom = 40.0
+margin_left = 9.5
+margin_top = 1.0
+margin_right = 274.5
+margin_bottom = 41.0
 color = Color( 0.211765, 0.211765, 0.211765, 1 )
 
 [node name="word" type="Label" parent="GridContainer/Panel2"]
-margin_left = 14.0
-margin_top = 1.0
-margin_right = 249.0
-margin_bottom = 38.0
+margin_left = 23.5
+margin_top = 2.0
+margin_right = 258.5
+margin_bottom = 39.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "testiiiiiiiiiiigggg"
-autowrap = true
 clip_text = true
 
 [node name="Timer" type="Timer" parent="."]

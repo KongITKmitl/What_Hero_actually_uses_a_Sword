@@ -18,15 +18,29 @@ class healthbar(Control):
 		global base_mon
 		self.progress_bar = self.get_node("MonsterBar")
 		self.monster_health = monster_healthlist[base_mon]
+		self.progress_bar.max_value = monster_healthlist[base_mon]
+		self.progress_bar.value = monster_healthlist[base_mon]
+		self.mcprogress_bar = self.get_node("MCHealthBar")
+		self.mc_health = ((monster_healthlist[base_mon]) / 4) * 5
+		self.mcprogress_bar.max_value = ((monster_healthlist[base_mon]) / 4) * 5
+		self.mcprogress_bar.value = ((monster_healthlist[base_mon]) / 4) * 5
 
 	def take_damage(self, damage):
 		global base_mon
 		self.monster_health -= damage
+		self.mc_health -= damage + (0.03 * damage)
 		if self.monster_health < 0:
 			self.monster_health = 0
+			self.get_tree().current_scene.showUI()
+			self.queue_free()
+			
+		elif self.mc_health < 0:
+			self.mc_health = 0
+			self.get_tree().change_scene("res://main/VillageScene/VillageScene.tscn")
 			
 		self.update_health_bar()
 		print(f"💥Monster HP = {self.monster_health}")
+		print(f"💥MC HP = {self.mc_health}")
 		
 		if self.monster_health > 0:
 			self.update_health_bar()
@@ -38,6 +52,7 @@ class healthbar(Control):
 	def update_health_bar(self):
 		# อัปเดตค่าหลอดเลือดใน ProgressBar
 		self.progress_bar.value = self.monster_health
+		self.mcprogress_bar.value = self.mc_health
 	
 	def spawn_typing_ui(self):
 		typingUI = ResourceLoader.load("res://main/UIscene/TypingUI.tscn").instance()

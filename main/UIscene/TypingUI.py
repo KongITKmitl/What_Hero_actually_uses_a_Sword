@@ -59,6 +59,7 @@ class TypingUI(Control):
 
 				if char == expected:
 					self.points += 10
+					self.correct += 1 
 					self.current_char.add_color_override("font_color", Color(0, 1, 0))
 				else:
 					self.current_char.add_color_override("font_color", Color(1, 0, 0))
