@@ -1,21 +1,27 @@
 from godot import exposed, export
 from godot import *
-from ..preload_resources import DialogueScene
 
 @exposed
 class Farmscene(Node2D):
 
-	# member variables here, example:
 	a = export(int)
 	b = export(str, default='foo')
 
 	def _ready(self):
-		# รอ plugin init เสร็จก่อน
 		self.get_tree().create_timer(0.2).connect("timeout", self, "_load_ui")
 
 	def _load_ui(self):
-		self.DialogueUI = DialogueScene.instance()  # instance จะ bind Python class
-		self.add_child(self.DialogueUI)
-		self.DialogueUI.setup_dialogue(38)     
+		# โหลด DialogueScene จากไฟล์ tscn โดยตรง
+		dialogue_scene_res = ResourceLoader.load("res://main/UIscene/DialogueScene.tscn")
+		if dialogue_scene_res:
+			dialogue_scene = dialogue_scene_res.instance()
+			self.add_child(dialogue_scene)
+
+			# ตรวจว่า node มีฟังก์ชัน setup_dialogue ก่อนเรียก
+			if hasattr(dialogue_scene, "setup_dialogue"):
+				dialogue_scene.setup_dialogue(38)
+		else:
+			print("❌ ไม่พบ DialogueScene.tscn ที่ระบุไว้!")
+
 	def changescene(self):
 		self.get_tree().change_scene("res://main/FarmScene/Farmscene.tscn")
