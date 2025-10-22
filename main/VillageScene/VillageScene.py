@@ -1,27 +1,18 @@
-from godot import exposed, export
-from godot import *
 
+from godot import *
+from ..preload_resources import DialogueScene
 
 @exposed
 class VillageScene(Node2D):
 
-	# member variables here, example:
-	a = export(int)
-	b = export(str, default='foo')
-
 	def _ready(self):
-		"""
-		Called every time the node is added to the scene.
-		Initialization here.
-		"""	
-		
-		self.DialogueUI = ResourceLoader.load("res://main/UIscene/DialogueUI.tscn").instance()
+		# รอ plugin init เสร็จก่อน
+		self.get_tree().create_timer(2).connect("timeout", self, "_load_ui")
+
+	def _load_ui(self):
+		self.DialogueUI = DialogueScene.instance()
+		print(self.DialogueUI)
 		self.add_child(self.DialogueUI)
-		
-		self.TypingUI = self.get_node("TypingUI")
-		pass
-
-	def showUI(self):
-		self.DialogueUI.aftergameplay()
-		
-
+		self.DialogueUI.setup_dialogue(22)     
+	def changescene(self):
+		self.get_tree().change_scene("res://main/FarmScene/Farmscene.tscn")

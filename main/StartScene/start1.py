@@ -17,7 +17,7 @@ class start1(Node2D):
 		pass
 	
 	def _on_StartButton_pressed(self):
-		self.get_tree().change_scene("res://main/VillageScene/VillageScene.tscn")
+		self.get_tree().change_scene("res://main/WizardScene/WizardScene.tscn")
 	
 	def _on_QuitButton_pressed(self):
 		self.get_tree().quit()

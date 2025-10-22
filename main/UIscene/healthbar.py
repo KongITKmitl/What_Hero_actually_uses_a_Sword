@@ -16,10 +16,14 @@ base_mon = 1
 class healthbar(Control):
 	def _ready(self):
 		global base_mon
+		
+		self.DialogueUI = self.get_tree().get_current_scene().get_node('dialogueUI')
+		
 		self.progress_bar = self.get_node("MonsterBar")
 		self.monster_health = monster_healthlist[base_mon]
 		self.progress_bar.max_value = monster_healthlist[base_mon]
 		self.progress_bar.value = monster_healthlist[base_mon]
+
 		self.mcprogress_bar = self.get_node("MCHealthBar")
 		self.mc_health = ((monster_healthlist[base_mon]) / 4) * 5
 		self.mcprogress_bar.max_value = ((monster_healthlist[base_mon]) / 4) * 5
@@ -29,11 +33,13 @@ class healthbar(Control):
 		global base_mon
 		self.monster_health -= damage
 		self.mc_health -= damage + (0.03 * damage)
+
 		if self.monster_health < 0:
 			self.monster_health = 0
-			self.get_tree().current_scene.showUI()
-			self.queue_free()
 			
+			self.DialogueUI.aftergameplay()
+			self.queue_free()
+
 		elif self.mc_health < 0:
 			self.mc_health = 0
 			self.get_tree().change_scene("res://main/VillageScene/VillageScene.tscn")
