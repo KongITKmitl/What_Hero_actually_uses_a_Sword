@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://main/FarmScene/Farmscene.py" type="Script" id=1]
 [ext_resource path="res://item/SpriteAndMore/MCsprite.png" type="Texture" id=2]
 [ext_resource path="res://item/SpriteAndMore/snake.png" type="Texture" id=3]
 [ext_resource path="res://item/SpriteAndMore/priestIDLE.png" type="Texture" id=4]
 [ext_resource path="res://item/Background/3.png" type="Texture" id=5]
+[ext_resource path="res://main/movement/mover.py" type="Script" id=6]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 4 )
@@ -74,17 +75,20 @@ texture = ExtResource( 5 )
 centered = false
 
 [node name="priest" type="AnimatedSprite" parent="."]
-position = Vector2( 152, 253 )
+position = Vector2( -105, 251 )
 frames = SubResource( 9 )
 playing = true
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 506, 252 )
-frames = SubResource( 11 )
+script = ExtResource( 6 )
 
 [node name="MCSprite" type="Sprite" parent="."]
-position = Vector2( 212, 254 )
+position = Vector2( -45, 252 )
 texture = ExtResource( 2 )
+script = ExtResource( 6 )
+
+[node name="snake" type="AnimatedSprite" parent="."]
+position = Vector2( 506, 300 )
+frames = SubResource( 11 )
+script = ExtResource( 6 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_left = -4.0

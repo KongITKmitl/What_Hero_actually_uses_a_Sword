@@ -4,7 +4,7 @@
 [ext_resource path="res://item/SpriteAndMore/SenseiIDLE.png" type="Texture" id=2]
 [ext_resource path="res://item/SpriteAndMore/MCsprite.png" type="Texture" id=3]
 [ext_resource path="res://item/Background/BGblueforest.png" type="Texture" id=4]
-[ext_resource path="res://item/Background/VillageBG_NotfixedSize.png" type="Texture" id=5]
+[ext_resource path="res://main/movement/mover.py" type="Script" id=5]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 2 )
@@ -64,6 +64,7 @@ centered = false
 [node name="MCSprite" type="Sprite" parent="."]
 position = Vector2( 147, 254 )
 texture = ExtResource( 3 )
+script = ExtResource( 5 )
 
 [node name="Sensei" type="AnimatedSprite" parent="."]
 position = Vector2( 479, 252 )
@@ -78,46 +79,6 @@ margin_bottom = 365.0
 color = Color( 0.121569, 0.0980392, 0.054902, 1 )
 
 [node name="ColorRect2" type="ColorRect" parent="."]
-margin_left = -4.0
-margin_top = 284.0
-margin_right = 670.0
-margin_bottom = 300.0
-color = Color( 0.0509804, 0.227451, 0.305882, 1 )
-
-[node name="VillageBG3" type="Sprite" parent="."]
-position = Vector2( 1146, -13 )
-scale = Vector2( 0.999, 1 )
-texture = ExtResource( 5 )
-centered = false
-
-[node name="VillageBG4" type="Sprite" parent="."]
-position = Vector2( 1721, -13 )
-scale = Vector2( 0.999, 1 )
-texture = ExtResource( 5 )
-centered = false
-
-[node name="ColorRect3" type="ColorRect" parent="."]
-margin_left = 1146.0
-margin_top = 288.0
-margin_right = 1820.0
-margin_bottom = 365.0
-color = Color( 0.223529, 0.203922, 0.180392, 1 )
-
-[node name="ColorRect4" type="ColorRect" parent="."]
-margin_left = 1146.0
-margin_top = 284.0
-margin_right = 1820.0
-margin_bottom = 300.0
-color = Color( 0.207843, 0.337255, 0.133333, 1 )
-
-[node name="ColorRect5" type="ColorRect" parent="."]
-margin_left = -4.0
-margin_top = 288.0
-margin_right = 670.0
-margin_bottom = 365.0
-color = Color( 0.121569, 0.0980392, 0.054902, 1 )
-
-[node name="ColorRect6" type="ColorRect" parent="."]
 margin_left = -4.0
 margin_top = 284.0
 margin_right = 670.0

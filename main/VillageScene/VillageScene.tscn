@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://item/SpriteAndMore/priestIDLE.png" type="Texture" id=1]
 [ext_resource path="res://main/VillageScene/VillageScene.py" type="Script" id=2]
 [ext_resource path="res://item/Background/VillageBG_NotfixedSize.png" type="Texture" id=3]
 [ext_resource path="res://item/SpriteAndMore/MCsprite.png" type="Texture" id=4]
+[ext_resource path="res://main/movement/mover.py" type="Script" id=5]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
@@ -55,20 +56,22 @@ texture = ExtResource( 3 )
 centered = false
 
 [node name="VillageBG2" type="Sprite" parent="."]
-position = Vector2( 571, -13 )
+position = Vector2( 570, -13 )
 scale = Vector2( 0.999, 1 )
 texture = ExtResource( 3 )
 centered = false
 
 [node name="priest" type="AnimatedSprite" parent="."]
-position = Vector2( 503, 252 )
+position = Vector2( 800, 252 )
 frames = SubResource( 9 )
 playing = true
 flip_h = true
+script = ExtResource( 5 )
 
 [node name="MCSprite" type="Sprite" parent="."]
-position = Vector2( 147, 254 )
+position = Vector2( -30, 252 )
 texture = ExtResource( 4 )
+script = ExtResource( 5 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_left = -4.0

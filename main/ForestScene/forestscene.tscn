@@ -1,9 +1,27 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://item/SpriteAndMore/priestIDLE.png" type="Texture" id=1]
-[ext_resource path="res://main/VillageScene/VillageScene.py" type="Script" id=2]
-[ext_resource path="res://item/Background/VillageBG_NotfixedSize.png" type="Texture" id=3]
-[ext_resource path="res://item/SpriteAndMore/MCsprite.png" type="Texture" id=4]
+[ext_resource path="res://item/SpriteAndMore/MCsprite.png" type="Texture" id=2]
+[ext_resource path="res://item/SpriteAndMore/snake.png" type="Texture" id=3]
+[ext_resource path="res://main/ForestScene/forestscene.py" type="Script" id=4]
+[ext_resource path="res://item/Background/BGgreenForest.png" type="Texture" id=5]
+[ext_resource path="res://item/PixelFont1/retro-pixel-font-ttf.woff-v2025.08.24/cute-mono/retro-pixel-cute-mono.ttf.woff" type="DynamicFontData" id=6]
+
+[sub_resource type="DynamicFont" id=13]
+size = 39
+font_data = ExtResource( 6 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="SpriteFrames" id=11]
+animations = [ {
+"frames": [ SubResource( 10 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
@@ -37,7 +55,7 @@ region = Rect2( 384, 0, 64, 64 )
 atlas = ExtResource( 1 )
 region = Rect2( 448, 0, 64, 64 )
 
-[sub_resource type="SpriteFrames" id=9]
+[sub_resource type="SpriteFrames" id=12]
 animations = [ {
 "frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
 "loop": true,
@@ -45,29 +63,43 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="Villagescene" type="Node2D"]
-script = ExtResource( 2 )
+[node name="forestscene" type="Node2D"]
+script = ExtResource( 4 )
 
 [node name="VillageBG" type="Sprite" parent="."]
 position = Vector2( -4, -13 )
 scale = Vector2( 0.999, 1 )
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 centered = false
 
 [node name="VillageBG2" type="Sprite" parent="."]
 position = Vector2( 571, -13 )
 scale = Vector2( 0.999, 1 )
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 centered = false
 
+[node name="Label" type="Label" parent="."]
+margin_left = 75.0
+margin_top = 43.0
+margin_right = 621.0
+margin_bottom = 222.0
+rect_scale = Vector2( 1.02274, 1.44281 )
+custom_fonts/font = SubResource( 13 )
+text = "Wachi Wachi Wachi Wachi Wachi Wachi Wachi Wachi Wachi Wachi Wachi Wachi "
+autowrap = true
+
+[node name="snake" type="AnimatedSprite" parent="."]
+position = Vector2( 506, 300 )
+frames = SubResource( 11 )
+
 [node name="priest" type="AnimatedSprite" parent="."]
-position = Vector2( 73, 250 )
-frames = SubResource( 9 )
+position = Vector2( -88, 252 )
+frames = SubResource( 12 )
 playing = true
 
 [node name="MCSprite" type="Sprite" parent="."]
-position = Vector2( 129, 254 )
-texture = ExtResource( 4 )
+position = Vector2( -28, 252 )
+texture = ExtResource( 2 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_left = -4.0

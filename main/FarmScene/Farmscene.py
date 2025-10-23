@@ -1,6 +1,6 @@
 from godot import exposed, export
 from godot import *
-
+from ..preload_resources import DialogueScene
 @exposed
 class Farmscene(Node2D):
 
@@ -8,20 +8,35 @@ class Farmscene(Node2D):
 	b = export(str, default='foo')
 
 	def _ready(self):
-		self.get_tree().create_timer(0.2).connect("timeout", self, "_load_ui")
+		self.MCSprite = self.get_node("MCSprite")
+		self.MCSprite.move_to(212)
+		#print(type(self.MCSprite))
+		
+		#บาทหลวงเดินเข้ามา
+		self.priest = self.get_node("priest")
+		self.priest.move_to(152)
+		
+		self.snake = self.get_node('snake')
 
-	def _load_ui(self):
+		self.get_tree().create_timer(4).connect("timeout", self, "showmonster")
+		
+
+	def showmonster(self):
+		self.snake.move_to_y(252)
+		self.get_tree().create_timer(2).connect("timeout", self, "start_dialogue")
+		
+	def start_dialogue(self):
 		# โหลด DialogueScene จากไฟล์ tscn โดยตรง
-		dialogue_scene_res = ResourceLoader.load("res://main/UIscene/DialogueScene.tscn")
-		if dialogue_scene_res:
-			dialogue_scene = dialogue_scene_res.instance()
-			self.add_child(dialogue_scene)
+		self.DialogueUI = DialogueScene.instance()
+		print(self.DialogueUI)
+		self.add_child(self.DialogueUI)
+		self.DialogueUI.setup_dialogue(38)   
 
-			# ตรวจว่า node มีฟังก์ชัน setup_dialogue ก่อนเรียก
-			if hasattr(dialogue_scene, "setup_dialogue"):
-				dialogue_scene.setup_dialogue(38)
-		else:
-			print("❌ ไม่พบ DialogueScene.tscn ที่ระบุไว้!")
-
-	def changescene(self):
-		self.get_tree().change_scene("res://main/FarmScene/Farmscene.tscn")
+	def done_dialogue(self):
+		self.snake.queue_free()
+		self.priest.move_to(700)
+		self.MCSprite.move_to(700)
+		self.get_tree().create_timer(10).connect("timeout", self, "change_scene")
+		
+	def change_scene(self):
+		self.get_tree().change_scene("res://main/ForestScene/forestscene.tscn")

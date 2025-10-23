@@ -15,11 +15,24 @@ class WizardScene(Node2D):
 		Initialization here.
 		"""
 		pass
+		
+		self.MCSprite = self.get_node('MCSprite')
+		self.Sensei = self.get_node('Sensei')
+		
 		self.DialogueUI = DialogueScene.instance()
 		print(self.DialogueUI)
 		self.add_child(self.DialogueUI)
 		self.DialogueUI.setup_dialogue(0)
 		
 		
-	def changescene(self):
+	def done_dialogue(self):
+		self.get_tree().create_timer(2).connect("timeout", self, "bf_change_scene")
+
+		
+	def bf_change_scene(self):
+		self.MCSprite.move_to(700)
+		self.Sensei.queue_free()
+		self.get_tree().create_timer(10).connect("timeout", self, "change_scene")
+		
+	def change_scene(self):
 		self.get_tree().change_scene("res://main/VillageScene/VillageScene.tscn")

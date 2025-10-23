@@ -44,6 +44,7 @@ dialogue_list = [
 	"don’t step on my grass, sss…",
 	"no passing, sss…",
 	"Well done, traveler… thy bravery is most delightful, and I cannot help but be intrigued by thy daring.",  # left dialogue -----------end farm scene(index41)
+	"Waiting for Wachi"
 ]
 
 text_speed = 0.03
@@ -173,8 +174,8 @@ class DialogueUI(Control):
 			self.gameplaytrigger = False
 
 	def check_newscene(self):
-		if self.current_dialogue_order in (22,37):
-			self.get_tree().get_current_scene().changescene()
+		if self.current_dialogue_order in (22,38,42):
+			self.get_tree().get_current_scene().done_dialogue()
 			self.queue_free()
 
 	def change_cg(self):

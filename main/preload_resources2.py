@@ -1,6 +1,9 @@
 from godot import ResourceLoader
+from main.preload_resources3 import healthbar, typingUI
 def get_healthbar():
-	return ResourceLoader.load("res://main/UIscene/healthbar.tscn")
+	return healthbar
 
 def get_typing_ui():
-	return ResourceLoader.load("res://main/UIscene/TypingUI.tscn")
+	return typingUI
+	
+print("helth:" , healthbar , "tping" , typingUI)
