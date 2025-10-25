@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://main/WizardScene/WizardScene.py" type="Script" id=1]
 [ext_resource path="res://item/SpriteAndMore/SenseiIDLE.png" type="Texture" id=2]
@@ -7,6 +7,89 @@
 [ext_resource path="res://main/movement/mover.py" type="Script" id=5]
 [ext_resource path="res://item/realasset/Layer_0002_7.png" type="Texture" id=6]
 [ext_resource path="res://item/realasset/Layer_0003_6.png" type="Texture" id=7]
+[ext_resource path="res://item/realasset/Layer_0004_Lights.png" type="Texture" id=8]
+[ext_resource path="res://item/realasset/TX Props with Shadow.png" type="Texture" id=9]
+[ext_resource path="res://item/realasset/Layer_0008_3.png" type="Texture" id=10]
+[ext_resource path="res://item/realasset/basic.png" type="Texture" id=11]
+
+[sub_resource type="TileSet" id=10]
+0/name = "TX Props with Shadow.png 0"
+0/texture = ExtResource( 9 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 432, 16, 64, 80 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+1/name = "TX Props with Shadow.png 1"
+1/texture = ExtResource( 9 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 416, 64, 64 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
+1/shapes = [  ]
+1/z_index = 0
+2/name = "TX Props with Shadow.png 2"
+2/texture = ExtResource( 9 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 352, 256, 96, 96 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape_one_way = false
+2/shape_one_way_margin = 0.0
+2/shapes = [  ]
+2/z_index = 0
+3/name = "basic.png 3"
+3/texture = ExtResource( 11 )
+3/tex_offset = Vector2( 0, 0 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( 0, 384, 144, 32 )
+3/tile_mode = 0
+3/occluder_offset = Vector2( 0, 0 )
+3/navigation_offset = Vector2( 0, 0 )
+3/shape_offset = Vector2( 0, 0 )
+3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+3/shape_one_way = false
+3/shape_one_way_margin = 0.0
+3/shapes = [  ]
+3/z_index = 0
+4/name = "basic.png 4"
+4/texture = ExtResource( 11 )
+4/tex_offset = Vector2( 0, 0 )
+4/modulate = Color( 1, 1, 1, 1 )
+4/region = Rect2( 864, 96, 192, 32 )
+4/tile_mode = 2
+4/autotile/icon_coordinate = Vector2( 0, 0 )
+4/autotile/tile_size = Vector2( 16, 16 )
+4/autotile/spacing = 0
+4/autotile/occluder_map = [  ]
+4/autotile/navpoly_map = [  ]
+4/autotile/priority_map = [  ]
+4/autotile/z_index_map = [  ]
+4/occluder_offset = Vector2( 0, 0 )
+4/navigation_offset = Vector2( 0, 0 )
+4/shape_offset = Vector2( 0, 0 )
+4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+4/shape_one_way = false
+4/shape_one_way_margin = 0.0
+4/shapes = [  ]
+4/z_index = 0
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 2 )
@@ -63,9 +146,13 @@ scale = Vector2( 1.91667, 1.80556 )
 texture = ExtResource( 4 )
 centered = false
 
+[node name="Layer00083" type="Sprite" parent="."]
+position = Vector2( 464, -72 )
+texture = ExtResource( 10 )
+
 [node name="Layer00027" type="Sprite" parent="."]
-position = Vector2( 464, 376 )
-scale = Vector2( 1, 0.654792 )
+position = Vector2( 464, 336 )
+scale = Vector2( 1, 0.44617 )
 texture = ExtResource( 6 )
 
 [node name="Layer00036" type="Sprite" parent="."]
@@ -78,7 +165,24 @@ position = Vector2( 147, 254 )
 texture = ExtResource( 3 )
 script = ExtResource( 5 )
 
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2( 575, 168 )
+tile_set = SubResource( 10 )
+cell_size = Vector2( 8, 8 )
+cell_custom_transform = Transform2D( 8, 0, 0, 8, 0, 0 )
+format = 1
+tile_data = PoolIntArray( 196608, 0, 0, 1048502, 4, 0 )
+
 [node name="Sensei" type="AnimatedSprite" parent="."]
 position = Vector2( 479, 252 )
 frames = SubResource( 9 )
 playing = true
+
+[node name="Layer0004Lights" type="Sprite" parent="."]
+position = Vector2( 376, -64 )
+scale = Vector2( 0.862069, 1 )
+texture = ExtResource( 8 )
+
+[node name="Layer0004Lights" type="Sprite" parent="Layer0004Lights"]
+position = Vector2( 528.96, 1.52588e-05 )
+texture = ExtResource( 8 )
