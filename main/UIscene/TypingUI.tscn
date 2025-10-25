@@ -80,7 +80,6 @@ margin_left = 55.0
 margin_right = 55.0
 
 [node name="NinePatchRect" type="NinePatchRect" parent="GridContainer/Panel2"]
-margin_left = 11.0
 margin_right = 275.0
 margin_bottom = 40.0
 rect_pivot_offset = Vector2( 27.5, 8 )
