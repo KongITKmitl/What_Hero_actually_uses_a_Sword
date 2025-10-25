@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/UntitledArtwork1.png-417459dc799146064d278867624fe053.stex"
+path="res://.import/UntitledArtwork1.png-3ee09c6521af8d071469e24d5486f1c9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://main/ForestScene/UntitledArtwork1.png"
-dest_files=[ "res://.import/UntitledArtwork1.png-417459dc799146064d278867624fe053.stex" ]
+source_file="res://item/asset/UntitledArtwork1.png"
+dest_files=[ "res://.import/UntitledArtwork1.png-3ee09c6521af8d071469e24d5486f1c9.stex" ]
 
 [params]
 

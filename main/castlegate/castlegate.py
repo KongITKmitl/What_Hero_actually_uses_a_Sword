@@ -2,7 +2,7 @@ from godot import exposed, export
 from godot import *
 from ..preload_resources import DialogueScene
 @exposed
-class forestscene(Node2D):
+class castlegate(Node2D):
 
 	a = export(int)
 	b = export(str, default='foo')
@@ -18,7 +18,8 @@ class forestscene(Node2D):
 		
 		self.monster = self.get_node('monster')
 
-		self.get_tree().create_timer(4).connect("timeout", self, "showmonster")
+		self.get_tree().create_timer(4).connect("timeout", self, "start_dialogue")
+		
 		
 
 	def showmonster(self):
@@ -26,11 +27,10 @@ class forestscene(Node2D):
 		self.get_tree().create_timer(2).connect("timeout", self, "start_dialogue")
 		
 	def start_dialogue(self):
-		# โหลด DialogueScene จากไฟล์ tscn โดยตรง
 		self.DialogueUI = DialogueScene.instance()
 		print(self.DialogueUI)
 		self.add_child(self.DialogueUI)
-		self.DialogueUI.setup_dialogue(42)   
+		self.DialogueUI.setup_dialogue(59)   
 
 	def done_dialogue(self):
 		self.monster.queue_free()

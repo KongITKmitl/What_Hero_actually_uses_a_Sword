@@ -29,8 +29,6 @@ class TypingUI(Control):
 		self.damage_label = self.get_node("damageLabel")
 		self.timer2 = self.get_node("Timer2")  # ✅ Timer2 สำหรับซ่อนข้อความดาเมจ
 
-		self.timer.connect("timeout", self, "_on_Timer_timeout")
-
 		num = random.randrange(1, 101)
 		if 1 <= num <= 99:
 			num = random.choice(["magic20", "magic40", "magic60", "magic80"])
@@ -52,6 +50,15 @@ class TypingUI(Control):
 
 	def _input(self, event):
 		"""function  ที่รับinput จากแป้นพิมพ์"""
+
+		# ตรวจสอบว่า event เป็นการกดปุ่มจริง
+		if not event or not event.is_class("InputEventKey"):
+			return
+
+		# ตรวจสอบว่ากดปุ่มลง
+		if not event.pressed:
+			return
+		
 		if self.c < len(self.text):
 			if event.unicode != 0:
 				char = chr(event.unicode)

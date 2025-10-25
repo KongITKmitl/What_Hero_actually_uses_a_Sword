@@ -15,7 +15,7 @@ dialogue_list = [
 	"When thou casteth a spell, thou must utter the incantation with utmost care.",
 	"For a single misplaced word may lessen thy power, yet a perfect chant shall rend mountains asunder!",
 	"So keep thy focus sharp, hmm?",
-	"Very well then begin!" ,#fight---------
+	"Very well then begin!" ,#fight--------- 13
 	"Well done, my dear !",
 	"Thou hast done splendidly. Methinks thou art ready for what lieth ahead.",
 	"Now then, about thy mission~",
@@ -44,7 +44,31 @@ dialogue_list = [
 	"don’t step on my grass, sss…",
 	"no passing, sss…",
 	"Well done, traveler… thy bravery is most delightful, and I cannot help but be intrigued by thy daring.",  # left dialogue -----------end farm scene(index41)
-	"Waiting for Wachi"
+	"What the hell is that supposed to be…?",#l-------scene forest----------
+	"A Rattlepiranha? Seriously!?", #l 43
+	"Why so startled ?",
+	"This is a fantasy world, after all. Didst thou expect only rabbits and butterflies?",
+	"By the Light… it speaks!", #l
+	"And with wit sharper than its fangs, I daresay.", #l
+	"You’ve gotta be kidding me. What’s next, a talking potato with wings?", #l 48
+	"Mock me while thou still draw breath, mortal.",
+	"When my tail rings… it tolls for thee. Cling-cling-cling!",#Typing game start!-------- index 50
+	"Heh… may thy courage not sink as swiftly as I do… glub…",
+	"Rest easy, creature. Even monsters may find peace in the great current beyond.", #l
+	"Well fought, my Hero. Perhaps the waters favor thee yet.", #-------End scene forest index 53
+	"hat in the blazes…? Something’s rising from the ground!" ,#l  ------Demon town scene---------
+	"So... a mortal dares tread upon my hallowed ground.",
+	"Know this — none who enter shall ever depart!",
+	"Take it, and embrace your fate — the Bone Shard of Death!", # start game index 57
+	"Heh, some “Bone Shard of Death” you turned out to be. Just bones, nothing more.", #l -----end scene demon town index 58
+	"Well, well... an uninvited guest, how delightful.",#------- Castle gate scene------
+	"From afar, I can scarce tell — art thou man or maid?",
+	"If a maiden, thy flesh must be sweet indeed...",
+	"If not, the taste may be foul, yet filling all the same.",
+	"Either way... I shall feast. Heh-heh-heh...", #start game index 63
+	"A pig demon, how precious… and utterly vile.",#l
+	"Touch me, and I’ll be scratching till I need a restoration elixir from the arcane merchant!",#l -------end scene castle gate index 65
+	
 ]
 
 text_speed = 0.03
@@ -161,20 +185,20 @@ class DialogueUI(Control):
 			self.create_blackscreen()
 		elif 1 <= self.current_dialogue_order <= 4 or 22 <= self.current_dialogue_order <= 37:
 			self.create_cg()
-		elif self.current_dialogue_order == 41:
+		elif self.current_dialogue_order in (41,42,43,46,47,48,52,53,54,58,64,65): 
 			self.create_left()
 		else:
 			self.create_right()
 			
 	def check_if_gameplay(self):
 		"""เมื่อถึงบทพูด index = .... ให้เข้า gameplay typing"""
-		if self.current_dialogue_order in (13,40):
+		if self.current_dialogue_order in (13,40,50,57,63):
 			self.gameplaytrigger = True
 		else:
 			self.gameplaytrigger = False
 
 	def check_newscene(self):
-		if self.current_dialogue_order in (22,38,42):
+		if self.current_dialogue_order in (22,38,42,54,59,66):
 			self.get_tree().get_current_scene().done_dialogue()
 			self.queue_free()
 

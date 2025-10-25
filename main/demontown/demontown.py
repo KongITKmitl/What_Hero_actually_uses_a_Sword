@@ -2,7 +2,7 @@ from godot import exposed, export
 from godot import *
 from ..preload_resources import DialogueScene
 @exposed
-class forestscene(Node2D):
+class demontown(Node2D):
 
 	a = export(int)
 	b = export(str, default='foo')
@@ -26,11 +26,10 @@ class forestscene(Node2D):
 		self.get_tree().create_timer(2).connect("timeout", self, "start_dialogue")
 		
 	def start_dialogue(self):
-		# โหลด DialogueScene จากไฟล์ tscn โดยตรง
 		self.DialogueUI = DialogueScene.instance()
 		print(self.DialogueUI)
 		self.add_child(self.DialogueUI)
-		self.DialogueUI.setup_dialogue(42)   
+		self.DialogueUI.setup_dialogue(54)   
 
 	def done_dialogue(self):
 		self.monster.queue_free()
@@ -39,4 +38,4 @@ class forestscene(Node2D):
 		self.get_tree().create_timer(10).connect("timeout", self, "change_scene")
 		
 	def change_scene(self):
-		self.get_tree().change_scene("res://main/demontown/demontown.tscn")
+		self.get_tree().change_scene("res://main/castlegate/castlegate.tscn")
