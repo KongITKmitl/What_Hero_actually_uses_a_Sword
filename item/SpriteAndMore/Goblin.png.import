@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Kinght.png-a374cb561d8b6a7fffa5bb591c960480.stex"
+path="res://.import/Goblin.png-821b6d52c9a9a3c6d27cb6129bc9715d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://item/SpriteAndMore/Kinght.png"
-dest_files=[ "res://.import/Kinght.png-a374cb561d8b6a7fffa5bb591c960480.stex" ]
+source_file="res://item/SpriteAndMore/Goblin.png"
+dest_files=[ "res://.import/Goblin.png-821b6d52c9a9a3c6d27cb6129bc9715d.stex" ]
 
 [params]
 

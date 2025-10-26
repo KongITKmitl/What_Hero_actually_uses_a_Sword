@@ -68,7 +68,32 @@ dialogue_list = [
 	"Either way... I shall feast. Heh-heh-heh...", #start game index 63
 	"A pig demon, how precious… and utterly vile.",#l
 	"Touch me, and I’ll be scratching till I need a restoration elixir from the arcane merchant!",#l -------end scene castle gate index 65
-	
+	"So thou hast come at last… O chosen Hero.", #---------StartBoss scene------ index 66
+	"Pray, tell—", #l
+	"Where dost thou keep the Princess?", #l
+	"Hm?",#cg ? index 69
+	"Dost that not fall to thee to utter, brave one?",
+	"Nay, 'tis of no import now. The Princess, thou seekest?",
+	"See with thine own eyes, and judge for thyself.",
+	"                                                               ", #เลื่อนไปดูกรง # cage cg index 73
+	"Then come—let us bring this tale to its turning point.", #start typing index 74
+	"...",
+	"Alas...",
+	"This hath dragged on far longer than mine expectation.",
+	"Know this: I seized the Princess not from malice,",
+	"but in accordance with ancient rite and custom.",
+	"What a tiresome affair...",
+	"Let us end this folly, swiftly and without further delay!", #Fight phase 2 index 81
+	"Urgh… No more…",
+	"Thou hast bested me, O silent one.",
+	"I yield. The Princess is thine to reclaim.",
+	"At long last, I may take my leave—perhaps to lands unknown,",
+	"to taste a fleeting moment of peace…",
+	"What?", #l index 87
+	"Is that all?", #l
+	"Hath the tale come to its end?", #l
+	"Aye.",
+	"Now be swift, and leave this place, ere I rethink my mercy.", #จากนั้นกรงหล่นทับ
 ]
 
 text_speed = 0.03
@@ -128,33 +153,36 @@ class DialogueUI(Control):
 
 	def _process(self,delta):
 		"""Always run"""
+		if Input.is_action_just_pressed("Pressed_Enter"):
+			if not self.waiting and not self.gameplaytrigger:
+				self.next_dialogue()
+			elif not self.waiting and self.gameplaytrigger:
+				self.start_gameplay()
 
-		if Input.is_action_just_pressed("Pressed_Enter") and not self.waiting and not self.gameplaytrigger\
-		and self.current_dialogue_order < len(dialogue_list)-1:
-			
+	def next_dialogue(self):
+		if not self.waiting and not self.gameplaytrigger and self.current_dialogue_order < len(dialogue_list) - 1:
 			self.current_dialogue_order += 1
 			self.current_text = dialogue_list[self.current_dialogue_order]
 			self.label.text = ''
 			self.timer_setup()
-			
+
 			self.check_newscene()
 			self.check_dialogue_display()
 			self.change_cg()
 			self.check_if_gameplay()
-			
 
-		elif Input.is_action_just_pressed("Pressed_Enter") and not self.waiting and self.gameplaytrigger:
+
+	def start_gameplay(self):
+		if not self.waiting and self.gameplaytrigger:
 			self.label.text = ''
-			
-			
+
 			self.healthbar_ui = get_healthbar().instance()
 			self.get_tree().get_root().add_child(self.healthbar_ui)
 
 			self.typing_ui = get_typing_ui().instance()
 			self.get_tree().get_root().add_child(self.typing_ui)
-			
+
 			self.hide()
-		
 
 	def _on_timer_timeout(self):
 		
@@ -185,14 +213,22 @@ class DialogueUI(Control):
 			self.create_blackscreen()
 		elif 1 <= self.current_dialogue_order <= 4 or 22 <= self.current_dialogue_order <= 37:
 			self.create_cg()
-		elif self.current_dialogue_order in (41,42,43,46,47,48,52,53,54,58,64,65): 
+		elif self.current_dialogue_order in (41,42,43,46,47,48,52,53,54,58,64,65,67,68,87,88,89): 
 			self.create_left()
 		else:
 			self.create_right()
+			if self.current_dialogue_order == 73:
+				self.get_tree().get_current_scene().pan_camera()
+				self.RightDialogueBox.visible = False
+				self.get_tree().create_timer(4.5).connect("timeout", self, "auto_change_dialogue")
 			
+	def auto_change_dialogue(self):
+		if self.current_dialogue_order == 73:
+			self.next_dialogue()
+		
 	def check_if_gameplay(self):
 		"""เมื่อถึงบทพูด index = .... ให้เข้า gameplay typing"""
-		if self.current_dialogue_order in (13,40,50,57,63):
+		if self.current_dialogue_order in (13,40,50,57,63,74,81):
 			self.gameplaytrigger = True
 		else:
 			self.gameplaytrigger = False

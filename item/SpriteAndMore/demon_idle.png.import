@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Kinght.png-a374cb561d8b6a7fffa5bb591c960480.stex"
+path="res://.import/demon_idle.png-4eee30f1faf104fc1d621052aedb2f0b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://item/SpriteAndMore/Kinght.png"
-dest_files=[ "res://.import/Kinght.png-a374cb561d8b6a7fffa5bb591c960480.stex" ]
+source_file="res://item/SpriteAndMore/demon_idle.png"
+dest_files=[ "res://.import/demon_idle.png-4eee30f1faf104fc1d621052aedb2f0b.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Kinght.png-a374cb561d8b6a7fffa5bb591c960480.stex"
+path="res://.import/Skeleton.png-215e4a4ac0b60deccb305b5352a577ce.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://item/SpriteAndMore/Kinght.png"
-dest_files=[ "res://.import/Kinght.png-a374cb561d8b6a7fffa5bb591c960480.stex" ]
+source_file="res://item/SpriteAndMore/Skeleton.png"
+dest_files=[ "res://.import/Skeleton.png-215e4a4ac0b60deccb305b5352a577ce.stex" ]
 
 [params]
 
