@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://main/WizardScene/WizardScene.py" type="Script" id=1]
 [ext_resource path="res://item/SpriteAndMore/SenseiIDLE.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://item/realasset/TX Props with Shadow.png" type="Texture" id=9]
 [ext_resource path="res://item/realasset/Layer_0008_3.png" type="Texture" id=10]
 [ext_resource path="res://item/realasset/basic.png" type="Texture" id=11]
+[ext_resource path="res://item/SpriteAndMore/Kinght.png" type="Texture" id=12]
 
 [sub_resource type="TileSet" id=10]
 0/name = "TX Props with Shadow.png 0"
@@ -131,6 +132,34 @@ animations = [ {
 "speed": 3.0
 } ]
 
+[sub_resource type="AtlasTexture" id=11]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=12]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 64, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=13]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 128, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=14]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 192, 0, 64, 64 )
+
+[sub_resource type="SpriteFrames" id=15]
+animations = [ {
+"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
 [node name="WizardScene" type="Node2D"]
 script = ExtResource( 1 )
 
@@ -171,7 +200,7 @@ tile_set = SubResource( 10 )
 cell_size = Vector2( 8, 8 )
 cell_custom_transform = Transform2D( 8, 0, 0, 8, 0, 0 )
 format = 1
-tile_data = PoolIntArray( 196608, 0, 0, 1048502, 4, 0 )
+tile_data = PoolIntArray( 196608, 0, 0, 524237, 3, 0, 1048502, 4, 0 )
 
 [node name="Sensei" type="AnimatedSprite" parent="."]
 position = Vector2( 479, 252 )
@@ -186,3 +215,9 @@ texture = ExtResource( 8 )
 [node name="Layer0004Lights" type="Sprite" parent="Layer0004Lights"]
 position = Vector2( 528.96, 1.52588e-05 )
 texture = ExtResource( 8 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 351, 255 )
+scale = Vector2( 0.671875, 0.703125 )
+frames = SubResource( 15 )
+playing = true
