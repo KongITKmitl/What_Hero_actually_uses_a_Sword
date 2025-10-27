@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=2]
+[gd_scene load_steps=85 format=2]
 
 [ext_resource path="res://main/WizardScene/WizardScene.py" type="Script" id=1]
 [ext_resource path="res://item/SpriteAndMore/SenseiIDLE.png" type="Texture" id=2]
@@ -18,6 +18,26 @@
 [ext_resource path="res://item/Effect/Monsterdissapear_spriteframes.tres" type="SpriteFrames" id=16]
 [ext_resource path="res://item/Effect/652.png" type="Texture" id=17]
 [ext_resource path="res://item/Effect/MonsterDMG_spriteframes.tres" type="SpriteFrames" id=18]
+[ext_resource path="res://item/Effect/Starlight.png" type="Texture" id=19]
+
+[sub_resource type="Curve" id=116]
+min_value = -360.0
+max_value = 360.0
+_data = [ Vector2( 0, -360 ), 0.0, 0.0, 0, 0, Vector2( 1, 360 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=119]
+curve = SubResource( 116 )
+
+[sub_resource type="ParticlesMaterial" id=118]
+emission_shape = 2
+emission_box_extents = Vector3( 500, 200, 1 )
+flag_disable_z = true
+gravity = Vector3( -150, 150, 0 )
+initial_velocity = 15.0
+initial_velocity_random = 0.36
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle_curve = SubResource( 119 )
 
 [sub_resource type="TileSet" id=10]
 0/name = "TX Props with Shadow.png 0"
@@ -372,7 +392,7 @@ animations = [ {
 script = ExtResource( 1 )
 
 [node name="VillageBG" type="Sprite" parent="."]
-position = Vector2( 0.00012207, -13 )
+position = Vector2( 0, -13 )
 scale = Vector2( 1.99653, 1.80556 )
 texture = ExtResource( 4 )
 centered = false
@@ -382,6 +402,15 @@ position = Vector2( 575, -13 )
 scale = Vector2( 1.91667, 1.80556 )
 texture = ExtResource( 4 )
 centered = false
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( 373, 84 )
+scale = Vector2( 0.820439, 0.816694 )
+amount = 30
+lifetime = 2.0
+visibility_rect = Rect2( -500, -200, 200, 200 )
+process_material = SubResource( 118 )
+texture = ExtResource( 19 )
 
 [node name="Layer00083" type="Sprite" parent="."]
 position = Vector2( 476, -63 )
@@ -404,6 +433,15 @@ cell_size = Vector2( 8, 8 )
 cell_custom_transform = Transform2D( 8, 0, 0, 8, 0, 0 )
 format = 1
 tile_data = PoolIntArray( 196608, 0, 0, 524237, 3, 0, 1048502, 4, 0 )
+
+[node name="Particles2D2" type="Particles2D" parent="."]
+position = Vector2( 679.024, 152.602 )
+scale = Vector2( 0.67312, 0.66699 )
+amount = 10
+lifetime = 2.0
+visibility_rect = Rect2( -500, -200, 200, 200 )
+process_material = SubResource( 118 )
+texture = ExtResource( 19 )
 
 [node name="MCSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 150, 252 )
