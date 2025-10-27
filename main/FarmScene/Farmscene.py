@@ -17,7 +17,7 @@ class Farmscene(Node2D):
 		self.priest.move_to(152)
 		
 		self.snake = self.get_node('snake')
-
+		self.dissapear = self.get_node('DissapearEffect')
 		self.get_tree().create_timer(4).connect("timeout", self, "showmonster")
 		
 
@@ -33,7 +33,9 @@ class Farmscene(Node2D):
 		self.DialogueUI.setup_dialogue(38)   
 
 	def done_dialogue(self):
+		self.dissapear.play_animation()
 		self.snake.queue_free()
+		
 		self.priest.move_to(700)
 		self.MCSprite.move_to(700)
 		self.get_tree().create_timer(10).connect("timeout", self, "change_scene")

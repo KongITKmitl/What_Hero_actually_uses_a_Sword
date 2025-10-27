@@ -29,6 +29,8 @@ class healthbar(Control):
 		self.mcprogress_bar.max_value = ((monster_healthlist[base_mon]) / 4) * 5
 		self.mcprogress_bar.value = ((monster_healthlist[base_mon]) / 4) * 5
 
+		self.monEffect = self.get_tree().get_current_scene().get_node('MonsterDMG_effect') #Node ของที่แสดง Effect monster ตอนถูกโจมตี
+
 	def take_damage(self, damage):
 		global base_mon
 		self.monster_health -= damage
@@ -45,6 +47,9 @@ class healthbar(Control):
 			self.get_tree().change_scene("res://main/VillageScene/VillageScene.tscn")
 			
 		self.update_health_bar()
+		
+		self.monEffect.play_animation() #แสดง animation มอนเต้อถูกโจมตี
+
 		print(f"💥Monster HP = {self.monster_health}")
 		print(f"💥MC HP = {self.mc_health}")
 		

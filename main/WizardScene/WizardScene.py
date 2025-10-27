@@ -24,14 +24,22 @@ class WizardScene(Node2D):
 		self.add_child(self.DialogueUI)
 		self.DialogueUI.setup_dialogue(0)
 		
-		
+		self.monster = self.get_node('monster')
+		self.dissapear = self.get_node('DissapearEffect')
+		self.sdissapear = self.get_node('SenseiDissapearEffect')
+
 	def done_dialogue(self):
+		self.dissapear.play_animation()
+		self.monster.queue_free()
 		self.get_tree().create_timer(2).connect("timeout", self, "bf_change_scene")
 
 		
 	def bf_change_scene(self):
 		self.MCSprite.move_to(700)
+		
 		self.Sensei.queue_free()
+		self.sdissapear.play_animation()
+
 		self.get_tree().create_timer(10).connect("timeout", self, "change_scene")
 		
 	def change_scene(self):

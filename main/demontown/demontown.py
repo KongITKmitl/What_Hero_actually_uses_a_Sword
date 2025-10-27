@@ -17,6 +17,7 @@ class demontown(Node2D):
 		self.priest.move_to(152)
 		
 		self.monster = self.get_node('monster')
+		self.dissapear = self.get_node('DissapearEffect')
 
 		self.get_tree().create_timer(4).connect("timeout", self, "showmonster")
 		
@@ -33,6 +34,7 @@ class demontown(Node2D):
 
 	def done_dialogue(self):
 		self.monster.queue_free()
+		self.dissapear.play_animation()
 		self.priest.move_to(700)
 		self.MCSprite.move_to(700)
 		self.get_tree().create_timer(10).connect("timeout", self, "change_scene")

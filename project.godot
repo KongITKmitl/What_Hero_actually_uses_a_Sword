@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="What Hero Actually Uses A Sword"
-run/main_scene="res://main/BossScene/BossScene.tscn"
+run/main_scene="res://main/WizardScene/WizardScene.tscn"
 config/icon="res://icon.png"
 
 [display]

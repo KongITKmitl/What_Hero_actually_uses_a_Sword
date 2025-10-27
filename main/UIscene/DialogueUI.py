@@ -96,7 +96,7 @@ dialogue_list = [
 	"Now be swift, and leave this place, ere I rethink my mercy.", #จากนั้นกรงหล่นทับ
 ]
 
-text_speed = 0.03
+text_speed = 0.0001
 
 			
 @exposed
