@@ -444,7 +444,7 @@ min_value = -360.0
 max_value = 360.0
 _data = [ Vector2( 0, -360 ), 0.0, 0.0, 0, 0, Vector2( 1, 360 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=117]
+[sub_resource type="CurveTexture" id=120]
 curve = SubResource( 118 )
 
 [sub_resource type="ParticlesMaterial" id=119]
@@ -456,7 +456,7 @@ initial_velocity = 15.0
 initial_velocity_random = 0.36
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
-angle_curve = SubResource( 117 )
+angle_curve = SubResource( 120 )
 
 [sub_resource type="AtlasTexture" id=23]
 atlas = ExtResource( 4 )

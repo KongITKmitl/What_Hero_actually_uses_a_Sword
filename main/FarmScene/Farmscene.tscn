@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://main/FarmScene/Farmscene.py" type="Script" id=1]
 [ext_resource path="res://item/SpriteAndMore/MCspriteIDLE.png" type="Texture" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://item/Effect/Monsterdissapear_spriteframes.tres" type="SpriteFrames" id=15]
 [ext_resource path="res://main/UIscene/EffectPlayer.py" type="Script" id=16]
 [ext_resource path="res://item/Effect/MonsterDMG_spriteframes.tres" type="SpriteFrames" id=17]
+[ext_resource path="res://item/Effect/weed.png" type="Texture" id=18]
 
 [sub_resource type="TileSet" id=12]
 0/name = "TX Plant with Shadow.png 0"
@@ -216,6 +217,25 @@
 13/shapes = [  ]
 13/z_index = 0
 
+[sub_resource type="Curve" id=118]
+min_value = -360.0
+max_value = 360.0
+_data = [ Vector2( 0, -360 ), 0.0, 0.0, 0, 0, Vector2( 1, 360 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=117]
+curve = SubResource( 118 )
+
+[sub_resource type="ParticlesMaterial" id=119]
+emission_shape = 2
+emission_box_extents = Vector3( 500, 200, 1 )
+flag_disable_z = true
+gravity = Vector3( -130, -40, 0 )
+initial_velocity = 15.0
+initial_velocity_random = 0.36
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle_curve = SubResource( 117 )
+
 [sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 3 )
 region = Rect2( 0, 0, 64, 64 )
@@ -330,6 +350,15 @@ position = Vector2( 184, 200 )
 scale = Vector2( 1.31727, 1.28752 )
 texture = ExtResource( 7 )
 flip_h = true
+
+[node name="Particles2D2" type="Particles2D" parent="."]
+position = Vector2( 552, 272 )
+scale = Vector2( 0.892477, 0.911084 )
+amount = 20
+lifetime = 7.68
+visibility_rect = Rect2( -400, -200, 100, 200 )
+process_material = SubResource( 119 )
+texture = ExtResource( 18 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 12 )
