@@ -1,0 +1,103 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://item/PixelFont1/retro-pixel-font-ttf.woff-v2025.08.24/cute-prop/retro-pixel-cute-prop.ttf.woff" type="DynamicFontData" id=1]
+[ext_resource path="res://main/EndCreditScene/EndCreditScene.py" type="Script" id=2]
+[ext_resource path="res://main/movement/mover.py" type="Script" id=3]
+[ext_resource path="res://main/UIscene/EffectPlayer.py" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 12
+font_data = ExtResource( 1 )
+
+[node name="EndCreditScene" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="AvoidScriptError2" type="Sprite" parent="."]
+position = Vector2( -4, -6 )
+script = ExtResource( 3 )
+
+[node name="AvoidScriptError1" type="Sprite" parent="."]
+position = Vector2( -2, -3 )
+script = ExtResource( 4 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -2.0
+margin_top = -3.0
+margin_right = 645.0
+margin_bottom = 369.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="content" type="Label" parent="."]
+anchor_right = 1.0
+margin_left = 211.0
+margin_top = 395.181
+margin_right = 433.0
+margin_bottom = 1712.18
+custom_fonts/font = SubResource( 1 )
+text = "End Credit
+
+What Hero actually uses a Sword!?!
+by Monkeynology
+
+credit
+blablabla
+blablabla
+blablabla
+blablabla
+blablabla
+blablabla
+blablabla
+blablabla
+blablabla
+blablabla
+blablabla
+
+blablabla
+blablabla
+blablabla
+blablabla
+blablabla
+blablabla
+blablabla
+blablabla
+
+blablabla
+blablabla
+blablabla
+
+blablabla
+blablabla
+blablabla
+blablabla
+
+blablabla
+blablabla
+blablabla
+
+blablabla
+blablabla
+blablabla
+blablabla
+blablabla
+blablabla
+
+blablabla
+blablabla
+blablabla
+blablabla
+
+blablabla
+blablabla
+blablabla
+blablabla
+blablabla
+
+blablabla
+blablabla
+blablabla
+blablabla
+blablabla
+
+blablabla
+blablabla"
+align = 1

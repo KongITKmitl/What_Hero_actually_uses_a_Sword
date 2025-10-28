@@ -94,6 +94,47 @@ dialogue_list = [
 	"Hath the tale come to its end?", #l
 	"Aye.",
 	"Now be swift, and leave this place, ere I rethink my mercy.", #จากนั้นกรงหล่นทับ
+	"        ", #pan camera index 92
+	"...",
+	"…Wait a moment.",
+	"Wha—!?",
+	"...",
+	"A-As this hath been my first time donning the mantle of the Demon Lord,",
+	"I shall bestow upon thee a token — a gift most rare —",
+	"for being the first to lay me low.",
+	"Take this, and may fate guide thy steps henceforth.",
+	"Fare thee well, noble Hero.",
+	"Thou hast obtained: Reviving Draught ×1", # Blackscreen? index 102
+	"A choice now lieth before thee...",
+	"Only one soul may return to the realm of the living.",
+	"Choose wisely, for fate shall not grant thee this mercy twice." ,#display choice by going into new scene index 105
+	"My deepest condolences, noble Hero.", #start Ending: The Princess index 106
+	"Your companion was truly courageous.",
+	"Those words would come to be spoken to the Hero",
+	"more often than any other.",
+	"Truly… I am sorry, my Hero.",
+	"And yet, I am grateful — so very grateful — that you chose me.",
+	"Thank you.",
+	"...Hmm.",
+	"Beneath the warm, amber sky,",
+	"they offered their silent prayers for the great sacrifice that had been made.",
+	"A single bouquet was laid upon the resting place.",
+	"Two figures stood quietly before the grave —",
+	"united in both grief and remembrance.",
+	"Ending: The Princess", #blackscreen ---> credit index 119
+	"A-Are you certain about this…? My Hero?", #start Ending: The Priest index 120
+	"I can scarcely believe you would choose me.",
+	"Aye… yet it seems our time draws short.",
+	"Our fate, perhaps, was sealed long ago. Heh…",
+	"I can tell just by looking at us…",
+	"But, you know… this is the first time I’ve heard you speak.",
+	"Truly? Heh…",
+	"Amidst the curses and cries that filled the air,",
+	"only two voices remained —",
+	"soft laughter, shared between companions,",
+	"echoing faintly through the chaos.",
+	"Ending: The Priest", #blackscreen --> credit index 131
+	"END", #index 132
 ]
 
 text_speed = 0.0001
@@ -110,6 +151,7 @@ class DialogueUI(Control):
 		self.current_dialogue_order = start_dialogue_order
 		self.current_text = dialogue_list[self.current_dialogue_order]
 		self.current_char = 0
+		self.Ingame = False
 		self.gameplaytrigger = False
 		self.waiting = False
 		
@@ -154,9 +196,9 @@ class DialogueUI(Control):
 	def _process(self,delta):
 		"""Always run"""
 		if Input.is_action_just_pressed("Pressed_Enter"):
-			if not self.waiting and not self.gameplaytrigger:
+			if not self.waiting and not self.gameplaytrigger and not self.Ingame:
 				self.next_dialogue()
-			elif not self.waiting and self.gameplaytrigger:
+			elif not self.waiting and self.gameplaytrigger and not self.Ingame:
 				self.start_gameplay()
 
 	def next_dialogue(self):
@@ -174,6 +216,7 @@ class DialogueUI(Control):
 
 	def start_gameplay(self):
 		if not self.waiting and self.gameplaytrigger:
+			self.Ingame = True
 			self.label.text = ''
 
 			self.healthbar_ui = get_healthbar().instance()
@@ -202,6 +245,7 @@ class DialogueUI(Control):
 
 		self.current_dialogue_order += 1
 		self.gameplaytrigger = False
+		self.Ingame = False
 		self.current_text = dialogue_list[self.current_dialogue_order]
 		
 		self.check_dialogue_display()
@@ -209,21 +253,22 @@ class DialogueUI(Control):
 		self.timer_setup()
 	
 	def check_dialogue_display(self):
-		if self.current_dialogue_order == 0:
+		if self.current_dialogue_order in (0,102,103,104,105,119,131):
 			self.create_blackscreen()
-		elif 1 <= self.current_dialogue_order <= 4 or 22 <= self.current_dialogue_order <= 37:
+		elif 1 <= self.current_dialogue_order <= 4 or 22 <= self.current_dialogue_order <= 37 \
+		or 106 <= self.current_dialogue_order <= 118 or 120 <= self.current_dialogue_order <= 130:
 			self.create_cg()
 		elif self.current_dialogue_order in (41,42,43,46,47,48,52,53,54,58,64,65,67,68,87,88,89): 
 			self.create_left()
 		else:
 			self.create_right()
-			if self.current_dialogue_order == 73:
+			if self.current_dialogue_order in (73,92):
 				self.get_tree().get_current_scene().pan_camera()
 				self.RightDialogueBox.visible = False
 				self.get_tree().create_timer(4.5).connect("timeout", self, "auto_change_dialogue")
 			
 	def auto_change_dialogue(self):
-		if self.current_dialogue_order == 73:
+		if self.current_dialogue_order in (73,92):
 			self.next_dialogue()
 		
 	def check_if_gameplay(self):
@@ -234,7 +279,7 @@ class DialogueUI(Control):
 			self.gameplaytrigger = False
 
 	def check_newscene(self):
-		if self.current_dialogue_order in (22,38,42,54,59,66):
+		if self.current_dialogue_order in (22,38,42,54,59,66,106,120,132):
 			self.get_tree().get_current_scene().done_dialogue()
 			self.queue_free()
 
@@ -243,6 +288,10 @@ class DialogueUI(Control):
 			self.cg.texture = ResourceLoader.load("res://item/SpriteAndMore/CG1_Wizard.png")
 		if self.current_dialogue_order == 22:
 			self.cg.texture = ResourceLoader.load("res://item/SpriteAndMore/CG1_villageScene.png")
+		if self.current_dialogue_order == 106:
+			self.cg.texture = ResourceLoader.load("res://item/SpriteAndMore/CG_EndingPrincess.png")
+		if self.current_dialogue_order == 120:
+			self.cg.texture = ResourceLoader.load("res://item/SpriteAndMore/CG_EndingPriest.png")
 
 	def create_blackscreen(self):
 		self.label = self.blackscreenlabel

@@ -38,13 +38,10 @@ class BossScene(Node2D):
 		self.DialogueUI.setup_dialogue(66)   
 
 	def done_dialogue(self):
-		self.monster.queue_free()
-		self.priest.move_to(700)
-		self.MCSprite.move_to(700)
-		self.get_tree().create_timer(10).connect("timeout", self, "change_scene")
+		self.change_scene()
 		
 	def change_scene(self):
-		self.get_tree().change_scene("res://main/BossScene/BossScene.tscn")
+		self.get_tree().change_scene("res://main/EndingScene/EndingScene.tscn")
 	
 	def pan_camera(self):
 		self.camera.move_to(100,False,120)
