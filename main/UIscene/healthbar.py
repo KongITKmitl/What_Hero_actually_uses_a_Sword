@@ -23,6 +23,8 @@ class healthbar(Control):
 		print("[LOG] _ready() called — base_mon =", base_mon)
 		self.DialogueUI = self.get_tree().get_current_scene().get_node('dialogueUI')
 
+		self.monEffect = self.get_tree().get_current_scene().get_node('MonsterDMG_effect') #Node ของที่แสดง Effect monster ตอนถูกโจมตี
+		
 		# รีเซ็ตค่าพลังชีวิตทุกครั้งที่ Scene โหลด
 		self.monster_health = monster_healthlist[base_mon]
 		self.mc_health = ((monster_healthlist[base_mon]) / 4) * 5
@@ -58,6 +60,8 @@ class healthbar(Control):
 		prev_health = self.monster_health
 		self.monster_health -= damage
 		self.progress_bar.value = max(self.monster_health, 0)
+
+		self.monEffect.play_animation() #แสดง animation มอนเต้อถูกโจมตี
 
 		actual_damage = prev_health - self.monster_health
 		self.pending_mc_damage += actual_damage * 2
@@ -111,6 +115,7 @@ class healthbar(Control):
 		print(f"[LOG] _on_die_timeout() — resetting base_mon from {base_mon} to 1, then changing scene")
 		base_mon = 1
 		self.get_tree().change_scene("res://main/StartScene/start1.tscn")
+		self.queue_free()
 
 	def spawn_typing_ui(self):
 		print("[LOG] spawn_typing_ui() called")
