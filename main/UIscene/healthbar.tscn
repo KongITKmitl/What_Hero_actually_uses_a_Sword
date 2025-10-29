@@ -53,3 +53,10 @@ custom_styles/fg = SubResource( 1 )
 custom_styles/bg = SubResource( 2 )
 max_value = 600.0
 value = 600.0
+
+[node name="DIE" type="Label" parent="."]
+margin_left = 285.0
+margin_top = 114.0
+margin_right = 339.0
+margin_bottom = 128.0
+text = "YOU DIE"
