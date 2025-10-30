@@ -1,13 +1,7 @@
 from godot import exposed, export
 from godot import *
-
-
 @exposed
-class start1(Node2D):
-
-	# member variables here, example:
-	a = export(int)
-	b = export(str, default='foo')
+class Start1(Node2D):
 
 	def _ready(self):
 		"""

@@ -1,6 +1,6 @@
 from godot import exposed, export
 from godot import *
-from ..preload_resources2 import get_healthbar, get_typing_ui
+from main.preload_resources2 import get_healthbar, get_typing_ui
 dialogue_list = [
 	"Thou awakeneth, stirred by a gentle yet mischievous voice.", # Black screen
 	"Hey~~ Thou there, awake already, will thee?", #cg

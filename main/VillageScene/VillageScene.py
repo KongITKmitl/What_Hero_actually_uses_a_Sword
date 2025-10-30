@@ -1,6 +1,6 @@
 
 from godot import *
-from ..preload_resources import DialogueScene
+from main.preload_resources import DialogueScene
 @exposed
 class VillageScene(Node2D):
 	speed = 50

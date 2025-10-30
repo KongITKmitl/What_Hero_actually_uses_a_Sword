@@ -23,7 +23,7 @@ class demontown(Node2D):
 		
 
 	def showmonster(self):
-		self.monster.move_to_y(252)
+		self.monster.move_to_y(256)
 		self.get_tree().create_timer(2).connect("timeout", self, "start_dialogue")
 		
 	def start_dialogue(self):

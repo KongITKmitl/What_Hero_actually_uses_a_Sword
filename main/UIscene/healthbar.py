@@ -28,6 +28,8 @@ class healthbar(Control):
 		# ดึง node ที่จำเป็นจากซีนหลัก
 		self.DialogueUI = self.get_tree().get_current_scene().get_node('dialogueUI')
 		self.monEffect = self.get_tree().get_current_scene().get_node('MonsterDMG_effect')
+		self.playerEffect = self.get_tree().get_current_scene().get_node('PlayerDMG_effect')
+		self.healEffect = self.get_tree().get_current_scene().get_node('PlayerHEAL_effect')
 
 		# รีเซ็ตค่าพลังชีวิตเริ่มต้น
 		self.monster_health = monster_healthlist[base_mon]
@@ -89,6 +91,9 @@ class healthbar(Control):
 
 		self.mcprogress_bar.value = max(self.mc_health, 0)
 
+		# แสดงอนิเมชัน mc โดนตี
+		self.playerEffect.play_animation()
+
 		# ถ้า MC ตาย
 		if self.mc_health <= 0:
 			self.mc_health = 0
@@ -111,6 +116,10 @@ class healthbar(Control):
 			max_mc_health = ((monster_healthlist[base_mon]) / 4) * 5
 			heal_amount = max_mc_health * 0.32
 			self.mc_health += heal_amount
+			
+			# แสดงอนิเมชัน healing
+			self.healEffect.play_animation()
+			
 			print(f"[LOG] MC healed after 2s delay — heal +{heal_amount}, new HP = {self.mc_health}")
 			self.mcprogress_bar.value = min(self.mc_health, self.mcprogress_bar.max_value)
 
