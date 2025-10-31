@@ -1,4 +1,4 @@
-[gd_scene load_steps=138 format=2]
+[gd_scene load_steps=141 format=2]
 
 [ext_resource path="res://main/WizardScene/WizardScene.py" type="Script" id=1]
 [ext_resource path="res://item/SpriteAndMore/SenseiIDLE.png" type="Texture" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://item/Effect/286.png" type="Texture" id=21]
 [ext_resource path="res://item/Effect/heal.png" type="Texture" id=22]
 [ext_resource path="res://item/SoundEffect/WizardSceneBG.mp3" type="AudioStream" id=23]
+[ext_resource path="res://item/SpriteAndMore/MCwalk.png" type="Texture" id=24]
 
 [sub_resource type="Curve" id=116]
 min_value = -360.0
@@ -121,42 +122,6 @@ angle_curve = SubResource( 119 )
 4/shape_one_way_margin = 0.0
 4/shapes = [  ]
 4/z_index = 0
-
-[sub_resource type="AtlasTexture" id=23]
-atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=13]
-atlas = ExtResource( 3 )
-region = Rect2( 64, 64, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=14]
-atlas = ExtResource( 3 )
-region = Rect2( 0, 64, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=15]
-atlas = ExtResource( 3 )
-region = Rect2( 128, 64, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=16]
-atlas = ExtResource( 3 )
-region = Rect2( 0, 128, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=17]
-atlas = ExtResource( 3 )
-region = Rect2( 64, 128, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=18]
-atlas = ExtResource( 3 )
-region = Rect2( 128, 128, 64, 64 )
-
-[sub_resource type="SpriteFrames" id=20]
-animations = [ {
-"frames": [ SubResource( 23 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 23 ) ],
-"loop": true,
-"name": "default",
-"speed": 4.0
-} ]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 2 )
@@ -607,6 +572,55 @@ animations = [ {
 "speed": 10.0
 } ]
 
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 3 )
+region = Rect2( 64, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 3 )
+region = Rect2( 128, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 3 )
+region = Rect2( 64, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 3 )
+region = Rect2( 128, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=138]
+atlas = ExtResource( 24 )
+region = Rect2( 0, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=139]
+atlas = ExtResource( 24 )
+region = Rect2( 64, 64, 64, 64 )
+
+[sub_resource type="SpriteFrames" id=20]
+animations = [ {
+"frames": [ SubResource( 23 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 23 ) ],
+"loop": true,
+"name": "default",
+"speed": 4.0
+}, {
+"frames": [ SubResource( 138 ), SubResource( 139 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
+} ]
+
 [node name="WizardScene" type="Node2D"]
 script = ExtResource( 1 )
 
@@ -662,12 +676,6 @@ visibility_rect = Rect2( -500, -200, 200, 200 )
 process_material = SubResource( 118 )
 texture = ExtResource( 19 )
 
-[node name="MCSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 150, 252 )
-frames = SubResource( 20 )
-playing = true
-script = ExtResource( 5 )
-
 [node name="Sensei" type="AnimatedSprite" parent="."]
 position = Vector2( 479, 252 )
 frames = SubResource( 9 )
@@ -705,6 +713,7 @@ script = ExtResource( 14 )
 [node name="PlayerDMG_effect" type="AnimatedSprite" parent="."]
 position = Vector2( 149, 253 )
 scale = Vector2( 0.822724, 0.773699 )
+z_index = 1
 frames = ExtResource( 20 )
 animation = "dmg1"
 script = ExtResource( 14 )
@@ -712,6 +721,7 @@ script = ExtResource( 14 )
 [node name="PlayerHEAL_effect" type="AnimatedSprite" parent="."]
 position = Vector2( 150, 253 )
 scale = Vector2( 0.676875, 0.598609 )
+z_index = 1
 frames = SubResource( 137 )
 animation = "h3"
 script = ExtResource( 14 )
@@ -727,3 +737,11 @@ script = ExtResource( 14 )
 stream = ExtResource( 23 )
 volume_db = -20.986
 autoplay = true
+
+[node name="MCSprite" type="Node2D" parent="."]
+script = ExtResource( 5 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="MCSprite"]
+position = Vector2( 150, 252 )
+frames = SubResource( 20 )
+playing = true

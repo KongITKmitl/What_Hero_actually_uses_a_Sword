@@ -1,5 +1,6 @@
 from godot import exposed, Vector2, AudioStreamPlayer, AudioStreamSample, ResourceLoader
-from godot.bindings import Node2D 
+from godot.bindings import Node2D
+from godot import AnimatedSprite
 
 @exposed
 class Mover(Node2D):
@@ -13,6 +14,7 @@ class Mover(Node2D):
 	def _ready(self):
 		self.set_process(True)
 		self.SFXpath = 'res://item/SoundEffect/SFXgrasswalking.ogg'
+		self.anim = self.get_node("AnimatedSprite")
 
 	def move_to(self, new_x, flip=False, new_speed=None):
 		self.target_x = new_x
@@ -21,10 +23,16 @@ class Mover(Node2D):
 		if new_speed is not None:
 			self.speed = new_speed
 		self.play_sound(self.SFXpath)
+		
+		if self.anim:
+			self.anim.play("walk")
 
 	def move_to_y(self, new_y):
 		self.target_y = new_y
 		self.target_y_active = True
+		
+		if self.anim:
+			self.anim.play("walk")
 
 	def _process(self, delta):
 		new_x = self.position.x
@@ -56,6 +64,10 @@ class Mover(Node2D):
 			self.scale = Vector2(-abs(self.scale.x), self.scale.y)
 		else:
 			self.scale = Vector2(abs(self.scale.x), self.scale.y)
+			
+		moving = self.target_x_active or self.target_y_active
+		if not moving and self.anim and self.anim.is_playing():
+			self.anim.play("default")
 
 	def play_sound(self, path):
 		self.sound = AudioStreamPlayer.new()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=101 format=2]
+[gd_scene load_steps=104 format=2]
 
 [ext_resource path="res://main/FarmScene/Farmscene.py" type="Script" id=1]
 [ext_resource path="res://item/SpriteAndMore/MCspriteIDLE.png" type="Texture" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://item/Effect/PlayerDMG_spriteframes.tres" type="SpriteFrames" id=19]
 [ext_resource path="res://item/Effect/286.png" type="Texture" id=20]
 [ext_resource path="res://item/Effect/heal.png" type="Texture" id=21]
+[ext_resource path="res://item/SpriteAndMore/MCwalk.png" type="Texture" id=22]
 
 [sub_resource type="TileSet" id=12]
 0/name = "TX Plant with Shadow.png 0"
@@ -347,12 +348,25 @@ region = Rect2( 64, 128, 64, 64 )
 atlas = ExtResource( 2 )
 region = Rect2( 128, 128, 64, 64 )
 
-[sub_resource type="SpriteFrames" id=20]
+[sub_resource type="AtlasTexture" id=138]
+atlas = ExtResource( 22 )
+region = Rect2( 0, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=139]
+atlas = ExtResource( 22 )
+region = Rect2( 64, 64, 64, 64 )
+
+[sub_resource type="SpriteFrames" id=140]
 animations = [ {
 "frames": [ SubResource( 23 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 23 ) ],
 "loop": true,
 "name": "default",
 "speed": 4.0
+}, {
+"frames": [ SubResource( 138 ), SubResource( 139 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
 } ]
 
 [sub_resource type="AtlasTexture" id=29]
@@ -639,11 +653,13 @@ frames = SubResource( 9 )
 playing = true
 script = ExtResource( 6 )
 
-[node name="MCSprite" type="AnimatedSprite" parent="."]
+[node name="MCSprite" type="Node2D" parent="."]
 position = Vector2( -45, 252 )
-frames = SubResource( 20 )
-playing = true
 script = ExtResource( 6 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="MCSprite"]
+frames = SubResource( 140 )
+playing = true
 
 [node name="PlayerDMG_effect" type="AnimatedSprite" parent="."]
 position = Vector2( 212, 259.758 )

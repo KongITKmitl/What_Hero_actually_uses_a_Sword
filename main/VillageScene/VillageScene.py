@@ -1,6 +1,7 @@
 
 from godot import *
 from main.preload_resources import DialogueScene
+from godot import AnimatedSprite
 @exposed
 class VillageScene(Node2D):
 	speed = 50
@@ -11,7 +12,7 @@ class VillageScene(Node2D):
 		self.MCSprite = self.get_node("MCSprite")
 		self.MCSprite.move_to(250)
 		#print(type(self.MCSprite))
-		
+				
 		#บาทหลวงเดินเข้ามา
 		self.priest = self.get_node("priest")
 		self.priest.move_to(300)

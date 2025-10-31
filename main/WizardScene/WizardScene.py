@@ -1,6 +1,7 @@
 from godot import exposed, export
 from godot import *
 from main.preload_resources import DialogueScene
+from godot import AnimatedSprite
 
 @exposed
 class WizardScene(Node2D):
