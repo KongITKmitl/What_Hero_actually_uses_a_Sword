@@ -9,11 +9,13 @@ class BossScene(Node2D):
 
 	def _ready(self):
 		self.MCSprite = self.get_node("MCSprite")
+		self.MCSprite.change_walk_sound('res://item/SoundEffect/SFXhallwalking.ogg')
 		self.MCSprite.move_to(212)
 		#print(type(self.MCSprite))
 		
 		#บาทหลวงเดินเข้ามา
 		self.priest = self.get_node("priest")
+		self.priest.change_walk_sound('res://item/SoundEffect/SFXhallwalking.ogg')
 		self.priest.move_to(152)
 		
 		self.monster = self.get_node('monster')

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/SFXhallwalking.mp3-4b5a7705941f9321011b15c2b35f1cc8.mp3str"
+
+[deps]
+
+source_file="res://item/SoundEffect/SFXhallwalking.mp3"
+dest_files=[ "res://.import/SFXhallwalking.mp3-4b5a7705941f9321011b15c2b35f1cc8.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

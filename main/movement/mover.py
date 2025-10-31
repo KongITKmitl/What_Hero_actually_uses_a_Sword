@@ -1,5 +1,5 @@
-from godot import exposed, Vector2
-from godot.bindings import Node2D
+from godot import exposed, Vector2, AudioStreamPlayer, AudioStreamSample, ResourceLoader
+from godot.bindings import Node2D 
 
 @exposed
 class Mover(Node2D):
@@ -12,6 +12,7 @@ class Mover(Node2D):
 
 	def _ready(self):
 		self.set_process(True)
+		self.SFXpath = 'res://item/SoundEffect/SFXgrasswalking.ogg'
 
 	def move_to(self, new_x, flip=False, new_speed=None):
 		self.target_x = new_x
@@ -19,6 +20,7 @@ class Mover(Node2D):
 		self.target_x_active = True
 		if new_speed is not None:
 			self.speed = new_speed
+		self.play_sound(self.SFXpath)
 
 	def move_to_y(self, new_y):
 		self.target_y = new_y
@@ -36,6 +38,7 @@ class Mover(Node2D):
 			new_x = self.position.x + direction_x * move_x
 			if distance_x == 0:
 				self.target_x_active = False  # reached target
+				self.sound.stop()
 
 		# Y movement
 		if self.target_y_active:
@@ -53,3 +56,13 @@ class Mover(Node2D):
 			self.scale = Vector2(-abs(self.scale.x), self.scale.y)
 		else:
 			self.scale = Vector2(abs(self.scale.x), self.scale.y)
+
+	def play_sound(self, path):
+		self.sound = AudioStreamPlayer.new()
+		self.sound.stream = ResourceLoader.load(path)
+		self.add_child(self.sound)
+
+		self.sound.play()
+
+	def change_walk_sound(self,path):
+		self.SFXpath = path
