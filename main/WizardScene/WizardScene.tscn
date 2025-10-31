@@ -22,7 +22,7 @@
 [ext_resource path="res://item/Effect/PlayerDMG_spriteframes.tres" type="SpriteFrames" id=20]
 [ext_resource path="res://item/Effect/286.png" type="Texture" id=21]
 [ext_resource path="res://item/Effect/heal.png" type="Texture" id=22]
-[ext_resource path="res://item/SoundEffect/calming-medieval-melody.mp3" type="AudioStream" id=23]
+[ext_resource path="res://item/SoundEffect/WizardSceneBG.mp3" type="AudioStream" id=23]
 
 [sub_resource type="Curve" id=116]
 min_value = -360.0
