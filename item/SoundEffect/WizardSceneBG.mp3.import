@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/WizardSceneBG.mp3-87603aa0d4ac8e11858fd5f4d10489cb.mp3str"
+
+[deps]
+
+source_file="res://item/SoundEffect/WizardSceneBG.mp3"
+dest_files=[ "res://.import/WizardSceneBG.mp3-87603aa0d4ac8e11858fd5f4d10489cb.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
