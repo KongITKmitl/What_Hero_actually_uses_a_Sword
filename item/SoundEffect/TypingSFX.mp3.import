@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/TypingSFX.mp3-ecf261c949048c61202b3b3adc029511.mp3str"
+
+[deps]
+
+source_file="res://item/SoundEffect/TypingSFX.mp3"
+dest_files=[ "res://.import/TypingSFX.mp3-ecf261c949048c61202b3b3adc029511.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

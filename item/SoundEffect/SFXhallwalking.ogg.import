@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/SFXhallwalking.ogg-416b0172475bb727fdcc898ac11ae6ef.oggstr"
+
+[deps]
+
+source_file="res://item/SoundEffect/SFXhallwalking.ogg"
+dest_files=[ "res://.import/SFXhallwalking.ogg-416b0172475bb727fdcc898ac11ae6ef.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

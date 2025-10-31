@@ -29,6 +29,9 @@ class TypingUI(Control):
 		self.damage_label = self.get_node("damageLabel")
 		self.timer2 = self.get_node("Timer2")  # ✅ Timer2 สำหรับซ่อนข้อความดาเมจ
 
+		self.SFXtyping = self.get_node('SFXtyping')
+		self.SFXwrong = self.get_node('SFXwrong')
+
 		num = random.randrange(1, 101)
 		if 1 <= num <= 99:
 			num = random.choice(["magic20", "magic40", "magic60", "magic80"])
@@ -68,8 +71,10 @@ class TypingUI(Control):
 					self.points += 10
 					self.correct += 1 
 					self.current_char.add_color_override("font_color", Color(0, 1, 0))
+					self.SFXtyping.play()
 				else:
 					self.current_char.add_color_override("font_color", Color(1, 0, 0))
+					self.SFXwrong.play()
 
 				self.c += 1
 

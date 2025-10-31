@@ -28,6 +28,8 @@ class healthbar(Control):
 		# ดึง node ที่จำเป็นจากซีนหลัก
 		self.DialogueUI = self.get_tree().get_current_scene().get_node('dialogueUI')
 		self.monEffect = self.get_tree().get_current_scene().get_node('MonsterDMG_effect')
+		self.playerEffect = self.get_tree().get_current_scene().get_node('PlayerDMG_effect')
+		self.healEffect = self.get_tree().get_current_scene().get_node('PlayerHEAL_effect')
 
 		# รีเซ็ตค่าพลังชีวิตเริ่มต้น
 		self.monster_health = monster_healthlist[base_mon]
@@ -79,7 +81,7 @@ class healthbar(Control):
 			self.DialogueUI.aftergameplay()  # แจ้งจบฉากการต่อสู้
 			self.queue_free()  # ลบ healthbar ออกจากซีน
 			base_mon += 1
-			print("monster_die")
+			print("[LOG] Monster died — next base_mon =", base_mon)
 
 	def _on_delay_timeout(self):
 		"""เรียกเมื่อครบเวลา delay จะเอา damage ที่ค้างไว้ไปหักเลือด MC"""
@@ -87,10 +89,10 @@ class healthbar(Control):
 		self.mc_health -= self.pending_mc_damage
 		self.pending_mc_damage = 0
 
-		# ดีเลย์ 2 วิ ก่อนฮีล
-		self.get_tree().create_timer(2.0).connect("timeout", self, "_on_heal_delay")
-
 		self.mcprogress_bar.value = max(self.mc_health, 0)
+
+		# แสดงอนิเมชัน mc โดนตี
+		self.playerEffect.play_animation()
 
 		# ถ้า MC ตาย
 		if self.mc_health <= 0:
@@ -99,13 +101,14 @@ class healthbar(Control):
 			print("[LOG] MC died — showing DIE label, will wait 3s then change scene")
 			self.get_tree().create_timer(3.0).connect("timeout", self, "_on_die_timeout")
 		else:
-			# ถ้ายังไม่ตาย ให้สร้าง UI พิมพ์ใหม่
-			if self.monster_health > 0:
-				self.spawn_typing_ui()
+			# ดีเลย์ 2 วิ ก่อนฮีล ถ้า MC ยังไม่ตาย
+			self.get_tree().create_timer(2.0).connect("timeout", self, "_on_heal_delay")
 
 	def _on_heal_delay(self):
-		"""หลังดีเลย์ 2 วิ จะค่อยเรียกฮีล"""
+		"""หลังดีเลย์ 2 วิ จะค่อยเรียกฮีล และ spawn Typing UI หลังฮีลเสร็จ"""
 		self.heal_mc_if_low()
+		if self.monster_health > 0 and self.mc_health > 0:
+			self.spawn_typing_ui()
 
 	def heal_mc_if_low(self):
 		"""ฮีล MC ถ้าเลือดเหลือน้อยกว่า 100"""
@@ -113,14 +116,19 @@ class healthbar(Control):
 			max_mc_health = ((monster_healthlist[base_mon]) / 4) * 5
 			heal_amount = max_mc_health * 0.32
 			self.mc_health += heal_amount
+			
+			# แสดงอนิเมชัน healing
+			self.healEffect.play_animation()
+			
 			print(f"[LOG] MC healed after 2s delay — heal +{heal_amount}, new HP = {self.mc_health}")
 			self.mcprogress_bar.value = min(self.mc_health, self.mcprogress_bar.max_value)
 
 	def _on_die_timeout(self):
-		"""หลังจากดีเลย์ 3 วิ จะรีเซ็ต base_mon และเปลี่ยนซีนกลับไปเริ่มต้น"""
-		global base_mon
-		base_mon = 1
-		self.get_tree().change_scene("res://main/StartScene/start1.tscn")
+		"""หลังจากดีเลย์ 3 วิ จะรีโหลดฉากปัจจุบันใหม่โดยไม่รีเซ็ต base_mon"""
+		current_scene = self.get_tree().get_current_scene()
+		scene_path = current_scene.filename  # ดึง path ของ scene ปัจจุบัน
+		print(f"[LOG] Reloading current scene: {scene_path} with base_mon = {base_mon}")
+		self.get_tree().change_scene(scene_path)
 		self.queue_free()
 
 	def spawn_typing_ui(self):

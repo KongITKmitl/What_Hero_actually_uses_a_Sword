@@ -1,6 +1,6 @@
 from godot import exposed, export
 from godot import *
-from ..preload_resources import DialogueScene
+from main.preload_resources import DialogueScene
 @exposed
 class forestscene(Node2D):
 
