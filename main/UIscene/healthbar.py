@@ -57,6 +57,9 @@ class healthbar(Control):
 		
 		# เสียง
 		self.mc_die_sound = self.get_node("mc_die")
+		self.mon_damage = self.get_node("montakedamage")
+		self.mc_damage = self.get_node("mctakedamage")
+		self.priest_heal = self.get_node("heal")
 
 		print("[LOG] Ready complete")
 
@@ -102,8 +105,8 @@ class healthbar(Control):
 			self.mc_health = 0
 			self.die_lable.show()  # แสดงคำว่า DIE
 			print("[LOG] MC died — showing DIE label, will wait 3s then change scene")
-			self.get_tree().create_timer(3.0).connect("timeout", self, "_on_die_timeout")
 			self.mc_die_sound.play()
+			self.get_tree().create_timer(3.0).connect("timeout", self, "_on_die_timeout")
 		else:
 			# ดีเลย์ 2 วิ ก่อนฮีล ถ้า MC ยังไม่ตาย
 			self.get_tree().create_timer(2.0).connect("timeout", self, "_on_heal_delay")
