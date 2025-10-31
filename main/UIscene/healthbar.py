@@ -54,6 +54,9 @@ class healthbar(Control):
 		self.delay_timer = self.get_node("Delay")
 		self.delay_timer.connect("timeout", self, "_on_delay_timeout")
 		self.delay_timer.stop()
+		
+		# เสียง
+		self.mc_die_sound = self.get_node("mc_die")
 
 		print("[LOG] Ready complete")
 
@@ -100,6 +103,7 @@ class healthbar(Control):
 			self.die_lable.show()  # แสดงคำว่า DIE
 			print("[LOG] MC died — showing DIE label, will wait 3s then change scene")
 			self.get_tree().create_timer(3.0).connect("timeout", self, "_on_die_timeout")
+			self.mc_die_sound.play()
 		else:
 			# ดีเลย์ 2 วิ ก่อนฮีล ถ้า MC ยังไม่ตาย
 			self.get_tree().create_timer(2.0).connect("timeout", self, "_on_heal_delay")
@@ -111,16 +115,18 @@ class healthbar(Control):
 			self.spawn_typing_ui()
 
 	def heal_mc_if_low(self):
-		"""ฮีล MC ถ้าเลือดเหลือน้อยกว่า 100"""
-		if 1 <= self.mc_health <= 100:
-			max_mc_health = ((monster_healthlist[base_mon]) / 4) * 5
-			heal_amount = max_mc_health * 0.32
+		"""ฮีล MC ถ้าเลือดเหลือน้อยกว่า 10% ของ HP สูงสุด"""
+		max_mc_health = ((monster_healthlist[base_mon]) / 4) * 5
+		threshold = max_mc_health * 0.1  # 10% ของ HP สูงสุด
+
+		if self.mc_health < threshold and self.mc_health > 0:
+			heal_amount = max_mc_health * 0.15
 			self.mc_health += heal_amount
-			
+
 			# แสดงอนิเมชัน healing
 			self.healEffect.play_animation()
-			
-			print(f"[LOG] MC healed after 2s delay — heal +{heal_amount}, new HP = {self.mc_health}")
+
+			print(f"[LOG] MC healed (HP <10%) — heal +{heal_amount}, new HP = {self.mc_health}")
 			self.mcprogress_bar.value = min(self.mc_health, self.mcprogress_bar.max_value)
 
 	def _on_die_timeout(self):

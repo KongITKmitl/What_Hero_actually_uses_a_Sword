@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://main/UIscene/healthbar.py" type="Script" id=1]
 [ext_resource path="res://item/PixelFont1/retro-pixel-font-ttf.woff-v2025.08.24/cute-mono/retro-pixel-cute-mono.ttf.woff" type="DynamicFontData" id=2]
 [ext_resource path="res://item/PixelFont1/retro-pixel-font-ttf.woff-v2025.08.24/petty-5h/retro-pixel-petty-5h.ttf.woff" type="DynamicFontData" id=3]
+[ext_resource path="res://item/SoundEffect/death1.mp3" type="AudioStream" id=4]
 
 [sub_resource type="DynamicFont" id=3]
 size = 7
@@ -69,3 +70,6 @@ margin_bottom = 142.0
 custom_colors/font_color = Color( 0.866667, 0.286275, 0.286275, 1 )
 custom_fonts/font = SubResource( 4 )
 text = "YOU DIE"
+
+[node name="mc_die" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
