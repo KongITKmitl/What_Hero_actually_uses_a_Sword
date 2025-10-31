@@ -55,92 +55,97 @@ class healthbar(Control):
 		self.delay_timer.connect("timeout", self, "_on_delay_timeout")
 		self.delay_timer.stop()
 		
-		# เสียง
+		# เสียงทั้งหมด
 		self.mc_die_sound = self.get_node("mc_die")
-		self.mon_damage = self.get_node("montakedamage")
-		self.mc_damage = self.get_node("mctakedamage")
-		self.priest_heal = self.get_node("heal")
+		self.mon_damage = self.get_node("montakedamage")   # เสียงมอนโดนโจมตี
+		self.mc_damage = self.get_node("mctakedamage")     # เสียง MC โดนโจมตี
+		self.priest_heal = self.get_node("heal")           # เสียงตอนฮีล
 
 		print("[LOG] Ready complete")
 
+
 	def take_damage(self, damage):
-		"""เรียกตอนมอนโดนโจมตี"""
 		global base_mon
 		prev_health = self.monster_health
 		self.monster_health -= damage
 		self.progress_bar.value = max(self.monster_health, 0)
 
-		# แสดงอนิเมชันมอนโดนตี
+		# เอฟเฟกต์และเสียงตอนมอนโดนโจมตี
 		self.monEffect.play_animation()
+		self.mon_damage.play()
+		print(f"[LOG] Monster took {damage} damage → {self.monster_health}/{self.progress_bar.max_value}")
 
 		# ดาเมจที่ MC จะได้รับ = ดาเมจจริงที่มอนโดน × 1.5
 		actual_damage = prev_health - self.monster_health
 		self.pending_mc_damage += actual_damage * 1.5
 
-		# ถ้ายังไม่มี timer ให้เริ่มนับดีเลย์
+		# เริ่มนับดีเลย์ 1.5 วิ เพื่อให้มอนสวนกลับ
 		if self.delay_timer.is_stopped():
 			self.delay_timer.start(1.5)
 
 		# ถ้ามอนตาย
 		if self.monster_health <= 0:
 			self.monster_health = 0
-			self.DialogueUI.aftergameplay()  # แจ้งจบฉากการต่อสู้
-			self.queue_free()  # ลบ healthbar ออกจากซีน
+			self.DialogueUI.aftergameplay()
+			print("[LOG] Monster died — next base_mon =", base_mon + 1)
 			base_mon += 1
-			print("[LOG] Monster died — next base_mon =", base_mon)
+			self.queue_free()
+
 
 	def _on_delay_timeout(self):
-		"""เรียกเมื่อครบเวลา delay จะเอา damage ที่ค้างไว้ไปหักเลือด MC"""
 		self.delay_timer.stop()
 		self.mc_health -= self.pending_mc_damage
 		self.pending_mc_damage = 0
-
 		self.mcprogress_bar.value = max(self.mc_health, 0)
 
-		# แสดงอนิเมชัน mc โดนตี
+		# เอฟเฟกต์และเสียงตอน MC โดนโจมตี
 		self.playerEffect.play_animation()
+		self.mc_damage.play()
+		print(f"[LOG] MC took damage → {self.mc_health}/{self.mcprogress_bar.max_value}")
 
 		# ถ้า MC ตาย
 		if self.mc_health <= 0:
 			self.mc_health = 0
-			self.die_lable.show()  # แสดงคำว่า DIE
-			print("[LOG] MC died — showing DIE label, will wait 3s then change scene")
+			self.die_lable.show()
 			self.mc_die_sound.play()
+			print("[LOG] MC died — showing DIE label, will wait 3s then change scene")
 			self.get_tree().create_timer(3.0).connect("timeout", self, "_on_die_timeout")
 		else:
-			# ดีเลย์ 2 วิ ก่อนฮีล ถ้า MC ยังไม่ตาย
+			# ดีเลย์ 2 วิ ก่อนฮีล
 			self.get_tree().create_timer(2.0).connect("timeout", self, "_on_heal_delay")
 
+
 	def _on_heal_delay(self):
-		"""หลังดีเลย์ 2 วิ จะค่อยเรียกฮีล และ spawn Typing UI หลังฮีลเสร็จ"""
 		self.heal_mc_if_low()
 		if self.monster_health > 0 and self.mc_health > 0:
 			self.spawn_typing_ui()
 
+
 	def heal_mc_if_low(self):
-		"""ฮีล MC ถ้าเลือดเหลือน้อยกว่า 10% ของ HP สูงสุด"""
 		max_mc_health = ((monster_healthlist[base_mon]) / 4) * 5
 		threshold = max_mc_health * 0.1  # 10% ของ HP สูงสุด
 
 		if self.mc_health < threshold and self.mc_health > 0:
 			heal_amount = max_mc_health * 0.15
 			self.mc_health += heal_amount
-
-			# แสดงอนิเมชัน healing
-			self.healEffect.play_animation()
-
-			print(f"[LOG] MC healed (HP <10%) — heal +{heal_amount}, new HP = {self.mc_health}")
 			self.mcprogress_bar.value = min(self.mc_health, self.mcprogress_bar.max_value)
 
+			# เอฟเฟกต์และเสียงตอนฮีล
+			self.healEffect.play_animation()
+			self.priest_heal.play()
+
+			print(f"[LOG] MC healed (HP <10%) — heal +{heal_amount}, new HP = {self.mc_health}")
+
+
 	def _on_die_timeout(self):
-		"""หลังจากดีเลย์ 3 วิ จะรีโหลดฉากปัจจุบันใหม่โดยไม่รีเซ็ต base_mon"""
 		current_scene = self.get_tree().get_current_scene()
-		scene_path = current_scene.filename  # ดึง path ของ scene ปัจจุบัน
-		print(f"[LOG] Reloading current scene: {scene_path} with base_mon = {base_mon}")
+		scene_path = current_scene.filename
+		print(f"[LOG] Reloading scene: {scene_path} with base_mon = {base_mon}")
 		self.get_tree().change_scene(scene_path)
 		self.queue_free()
 
+
 	def spawn_typing_ui(self):
-		"""สร้าง UI พิมพ์ (TypingUI) ขึ้นมาใหม่"""
 		typingUI = ResourceLoader.load("res://main/UIscene/TypingUI.tscn").instance()
 		self.get_tree().get_root().add_child(typingUI)
+		print("[LOG] Spawned TypingUI for next battle")

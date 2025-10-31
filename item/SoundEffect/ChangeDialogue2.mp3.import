@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ChangeDialogue2.mp3-850c679da71b0b2764d266b3472fd9b3.mp3str"
+
+[deps]
+
+source_file="res://item/SoundEffect/ChangeDialogue2.mp3"
+dest_files=[ "res://.import/ChangeDialogue2.mp3-850c679da71b0b2764d266b3472fd9b3.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

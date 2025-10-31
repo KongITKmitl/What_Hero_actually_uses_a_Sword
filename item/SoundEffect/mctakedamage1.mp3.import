@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/mctakedamage1.mp3-ccda0b6cda5d51d5e22e239363d7a33f.mp3str"
+
+[deps]
+
+source_file="res://item/SoundEffect/mctakedamage1.mp3"
+dest_files=[ "res://.import/mctakedamage1.mp3-ccda0b6cda5d51d5e22e239363d7a33f.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

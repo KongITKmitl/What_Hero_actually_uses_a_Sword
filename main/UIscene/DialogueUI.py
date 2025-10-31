@@ -177,6 +177,9 @@ class DialogueUI(Control):
 		self.cgLabel = self.get_node('cgLabel')
 		self.cg = self.get_node('cg')
 		
+		
+		#เสียง
+		self.next_dialog_sound = self.get_node("nextdialog")
 
 
 	def timer_setup(self):
@@ -207,6 +210,8 @@ class DialogueUI(Control):
 			self.current_text = dialogue_list[self.current_dialogue_order]
 			self.label.text = ''
 			self.timer_setup()
+			
+			self.next_dialog_sound.play()
 
 			self.check_newscene()
 			self.check_dialogue_display()

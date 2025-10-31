@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://item/SpriteAndMore/DialogueBox.png" type="Texture" id=1]
 [ext_resource path="res://item/PixelFont1/retro-pixel-font-ttf.woff-v2025.08.24/cute-mono/retro-pixel-cute-mono.ttf.woff" type="DynamicFontData" id=2]
 [ext_resource path="res://main/UIscene/DialogueUI.py" type="Script" id=3]
 [ext_resource path="res://item/SpriteAndMore/CG_placeholder.png" type="Texture" id=4]
+[ext_resource path="res://item/SoundEffect/ChangeDialogue2.mp3" type="AudioStream" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 10
@@ -72,3 +73,7 @@ custom_fonts/font = SubResource( 1 )
 align = 1
 valign = 1
 autowrap = true
+
+[node name="nextdialog" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -16.384

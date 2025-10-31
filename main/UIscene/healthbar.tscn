@@ -1,9 +1,12 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://main/UIscene/healthbar.py" type="Script" id=1]
 [ext_resource path="res://item/PixelFont1/retro-pixel-font-ttf.woff-v2025.08.24/cute-mono/retro-pixel-cute-mono.ttf.woff" type="DynamicFontData" id=2]
 [ext_resource path="res://item/PixelFont1/retro-pixel-font-ttf.woff-v2025.08.24/petty-5h/retro-pixel-petty-5h.ttf.woff" type="DynamicFontData" id=3]
 [ext_resource path="res://item/SoundEffect/death1.mp3" type="AudioStream" id=4]
+[ext_resource path="res://item/SoundEffect/heal01.mp3" type="AudioStream" id=5]
+[ext_resource path="res://item/SoundEffect/mctakedamage1.mp3" type="AudioStream" id=7]
+[ext_resource path="res://item/SoundEffect/montakedamage1.mp3" type="AudioStream" id=8]
 
 [sub_resource type="DynamicFont" id=3]
 size = 7
@@ -73,11 +76,16 @@ text = "YOU DIE"
 
 [node name="mc_die" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
+volume_db = -15.672
 
 [node name="montakedamage" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -16.384
 
 [node name="mctakedamage" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -14.959
 
 [node name="heal" type="AudioStreamPlayer" parent="."]
-
-[node name="win" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -14.959
