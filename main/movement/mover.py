@@ -17,12 +17,9 @@ class Mover(Node2D):
 
 	def _ready(self):
 		self.set_process(True)
-<<<<<<< HEAD
 		self.sprite = self.get_node("AnimatedSprite")
 		self.sprite.play("default") 
-=======
 		self.SFXpath = 'res://item/SoundEffect/SFXgrasswalking.ogg'
->>>>>>> 639fe3ca66125bfb788d748b7014b3e8a20937dc
 
 	def move_to(self, new_x, flip=False, new_speed=None):
 		self.target_x = new_x
