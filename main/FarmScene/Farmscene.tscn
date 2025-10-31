@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=74 format=2]
 
 [ext_resource path="res://main/FarmScene/Farmscene.py" type="Script" id=1]
 [ext_resource path="res://item/SpriteAndMore/MCspriteIDLE.png" type="Texture" id=2]
@@ -18,6 +18,29 @@
 [ext_resource path="res://main/UIscene/EffectPlayer.py" type="Script" id=16]
 [ext_resource path="res://item/Effect/MonsterDMG_spriteframes.tres" type="SpriteFrames" id=17]
 [ext_resource path="res://item/Effect/weed.png" type="Texture" id=18]
+[ext_resource path="res://item/SpriteAndMore/MCcasting/MCcasting19.png" type="Texture" id=19]
+[ext_resource path="res://item/SpriteAndMore/MCcasting/MCcasting17.png" type="Texture" id=20]
+[ext_resource path="res://item/SpriteAndMore/MCcasting/MCcasting22.png" type="Texture" id=21]
+[ext_resource path="res://item/SpriteAndMore/MCcasting/MCcasting12.png" type="Texture" id=22]
+[ext_resource path="res://item/SpriteAndMore/MCcasting/MCcasting15.png" type="Texture" id=23]
+[ext_resource path="res://item/SpriteAndMore/MCcasting/MCcasting20.png" type="Texture" id=24]
+[ext_resource path="res://item/SpriteAndMore/MCcasting/MCcasting13.png" type="Texture" id=25]
+[ext_resource path="res://item/SpriteAndMore/MCcasting/MCcasting21.png" type="Texture" id=26]
+[ext_resource path="res://item/SpriteAndMore/MCcasting/MCcasting16.png" type="Texture" id=27]
+[ext_resource path="res://item/SpriteAndMore/MCcasting/MCcasting18.png" type="Texture" id=28]
+[ext_resource path="res://item/SpriteAndMore/MCcasting/MCcasting14.png" type="Texture" id=29]
+[ext_resource path="res://item/SpriteAndMore/MCwalk.png" type="Texture" id=30]
+[ext_resource path="res://item/SpriteAndMore/MCcasting/MCcasting1.png" type="Texture" id=31]
+[ext_resource path="res://item/SpriteAndMore/MCcasting/MCcasting2.png" type="Texture" id=32]
+[ext_resource path="res://item/SpriteAndMore/MCcasting/MCcasting3.png" type="Texture" id=33]
+[ext_resource path="res://item/SpriteAndMore/MCcasting/MCcasting4.png" type="Texture" id=34]
+[ext_resource path="res://item/SpriteAndMore/MCcasting/MCcasting5.png" type="Texture" id=35]
+[ext_resource path="res://item/SpriteAndMore/MCcasting/MCcasting10.png" type="Texture" id=36]
+[ext_resource path="res://item/SpriteAndMore/MCcasting/MCcasting11.png" type="Texture" id=37]
+[ext_resource path="res://item/SpriteAndMore/MCcasting/MCcasting6.png" type="Texture" id=38]
+[ext_resource path="res://item/SpriteAndMore/MCcasting/MCcasting7.png" type="Texture" id=39]
+[ext_resource path="res://item/SpriteAndMore/MCcasting/MCcasting8.png" type="Texture" id=40]
+[ext_resource path="res://item/SpriteAndMore/MCcasting/MCcasting9.png" type="Texture" id=41]
 
 [sub_resource type="TileSet" id=12]
 0/name = "TX Plant with Shadow.png 0"
@@ -352,12 +375,32 @@ region = Rect2( 64, 128, 64, 64 )
 atlas = ExtResource( 2 )
 region = Rect2( 128, 128, 64, 64 )
 
-[sub_resource type="SpriteFrames" id=20]
+[sub_resource type="AtlasTexture" id=128]
+flags = 4
+atlas = ExtResource( 30 )
+region = Rect2( 0, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=129]
+flags = 4
+atlas = ExtResource( 30 )
+region = Rect2( 64, 64, 64, 64 )
+
+[sub_resource type="SpriteFrames" id=130]
 animations = [ {
+"frames": [ ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 22 ), ExtResource( 25 ), ExtResource( 29 ), ExtResource( 23 ), ExtResource( 27 ), ExtResource( 20 ), ExtResource( 28 ), ExtResource( 19 ), ExtResource( 24 ), ExtResource( 26 ), ExtResource( 21 ) ],
+"loop": true,
+"name": "casting",
+"speed": 7.0
+}, {
 "frames": [ SubResource( 23 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 23 ) ],
 "loop": true,
 "name": "default",
 "speed": 4.0
+}, {
+"frames": [ SubResource( 128 ), SubResource( 129 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
 } ]
 
 [node name="Farmscene" type="Node2D"]
@@ -429,12 +472,6 @@ frames = SubResource( 9 )
 playing = true
 script = ExtResource( 6 )
 
-[node name="MCSprite" type="AnimatedSprite" parent="."]
-position = Vector2( -45, 252 )
-frames = SubResource( 20 )
-playing = true
-script = ExtResource( 6 )
-
 [node name="4" type="Sprite" parent="."]
 position = Vector2( 328, 144 )
 scale = Vector2( 1.33333, 1.3642 )
@@ -453,3 +490,12 @@ texture = ExtResource( 13 )
 position = Vector2( 176, -72 )
 scale = Vector2( 1.12069, 1.1053 )
 texture = ExtResource( 14 )
+
+[node name="MCSprite" type="AnimatedSprite" parent="."]
+position = Vector2( -168, 250 )
+scale = Vector2( 0.972, 0.93 )
+frames = SubResource( 130 )
+playing = true
+script = ExtResource( 6 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MCSprite"]

@@ -1,5 +1,5 @@
 from godot import exposed, Vector2
-from godot.bindings import Node2D
+from godot.bindings import Node2D, AnimatedSprite
 
 @exposed
 class Mover(Node2D):
@@ -12,6 +12,8 @@ class Mover(Node2D):
 
 	def _ready(self):
 		self.set_process(True)
+		self.sprite = self.get_node("AnimatedSprite")
+		self.sprite.play("default") 
 
 	def move_to(self, new_x, flip=False, new_speed=None):
 		self.target_x = new_x

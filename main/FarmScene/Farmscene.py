@@ -9,6 +9,7 @@ class Farmscene(Node2D):
 
 	def _ready(self):
 		self.MCSprite = self.get_node("MCSprite")
+		self.MCSprite.play("walk")
 		self.MCSprite.move_to(212)
 		#print(type(self.MCSprite))
 		

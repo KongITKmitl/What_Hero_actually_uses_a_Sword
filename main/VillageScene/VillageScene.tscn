@@ -603,7 +603,7 @@ animations = [ {
 script = ExtResource( 2 )
 
 [node name="VillageBG" type="Sprite" parent="."]
-position = Vector2( -40.0001, -184 )
+position = Vector2( -53.0001, -184 )
 scale = Vector2( 0.565972, 0.555556 )
 texture = ExtResource( 12 )
 centered = false

@@ -28,6 +28,7 @@ singletons=[ "res://pythonscript.gdnlib" ]
 [global]
 
 texture=false
+fil=false
 
 [gui]
 
@@ -54,5 +55,6 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+quality/filters/anisotropic_filter_level=1
 quality/filters/use_nearest_mipmap_filter=true
 environment/default_environment="res://default_env.tres"

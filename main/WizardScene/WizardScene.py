@@ -35,6 +35,7 @@ class WizardScene(Node2D):
 
 		
 	def bf_change_scene(self):
+		self.MCSprite.play("walk")
 		self.MCSprite.move_to(700)
 		
 		self.Sensei.queue_free()

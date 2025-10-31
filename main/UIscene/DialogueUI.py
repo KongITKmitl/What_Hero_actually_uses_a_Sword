@@ -177,6 +177,7 @@ class DialogueUI(Control):
 		self.cgLabel = self.get_node('cgLabel')
 		self.cg = self.get_node('cg')
 		
+		
 
 
 	def timer_setup(self):
@@ -218,7 +219,8 @@ class DialogueUI(Control):
 		if not self.waiting and self.gameplaytrigger:
 			self.Ingame = True
 			self.label.text = ''
-
+			self.MCSprite = self.get_tree().get_current_scene().get_node("MCSprite")
+			self.MCSprite.play("casting")
 			self.healthbar_ui = get_healthbar().instance()
 			self.get_tree().get_root().add_child(self.healthbar_ui)
 
@@ -247,6 +249,11 @@ class DialogueUI(Control):
 		self.gameplaytrigger = False
 		self.Ingame = False
 		self.current_text = dialogue_list[self.current_dialogue_order]
+		
+		main_scene = self.get_tree().get_current_scene()
+		if main_scene.has_node("MCSprite"):
+			mc_sprite = main_scene.get_node("MCSprite")
+			mc_sprite.play("default")
 		
 		self.check_dialogue_display()
 		self.change_cg()
