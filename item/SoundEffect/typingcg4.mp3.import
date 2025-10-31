@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/typingcg4.mp3-b2265f965a821957ce4824ab40e41317.mp3str"
+
+[deps]
+
+source_file="res://item/SoundEffect/typingcg4.mp3"
+dest_files=[ "res://.import/typingcg4.mp3-b2265f965a821957ce4824ab40e41317.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

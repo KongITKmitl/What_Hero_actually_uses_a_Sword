@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/typecg.mp3-116fefffcc2ec079370e3ccda8af2d9d.mp3str"
+
+[deps]
+
+source_file="res://item/SoundEffect/typecg.mp3"
+dest_files=[ "res://.import/typecg.mp3-116fefffcc2ec079370e3ccda8af2d9d.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

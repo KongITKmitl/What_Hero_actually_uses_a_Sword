@@ -137,7 +137,8 @@ dialogue_list = [
 	"END", #index 132
 ]
 
-text_speed = 0.0001
+text_speed = 0.03
+
 
 			
 @exposed
@@ -180,7 +181,7 @@ class DialogueUI(Control):
 		
 		#เสียง
 		self.next_dialog_sound = self.get_node("nextdialog")
-
+		self.type_cg = self.get_node("typecg")
 
 	def timer_setup(self):
 		self.gameplaytrigger = False
@@ -234,13 +235,16 @@ class DialogueUI(Control):
 
 	def _on_timer_timeout(self):
 		
+		#พิมพ์cg
 		if self.current_char < len(self.current_text):
 			self.label.text += GDString(self.current_text[self.current_char])
+			self.type_cg.play()
 			self.current_char += 1
 			self.timer.start()
 			self.waiting = True
 		else:
 			print(self.current_dialogue_order)
+			self.type_cg.stop()
 			self.timer.queue_free()
 			self.waiting = False
 			
