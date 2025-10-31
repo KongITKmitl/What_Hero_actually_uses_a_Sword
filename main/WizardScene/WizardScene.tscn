@@ -1,4 +1,4 @@
-[gd_scene load_steps=137 format=2]
+[gd_scene load_steps=138 format=2]
 
 [ext_resource path="res://main/WizardScene/WizardScene.py" type="Script" id=1]
 [ext_resource path="res://item/SpriteAndMore/SenseiIDLE.png" type="Texture" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://item/Effect/PlayerDMG_spriteframes.tres" type="SpriteFrames" id=20]
 [ext_resource path="res://item/Effect/286.png" type="Texture" id=21]
 [ext_resource path="res://item/Effect/heal.png" type="Texture" id=22]
+[ext_resource path="res://item/SoundEffect/calming-medieval-melody.mp3" type="AudioStream" id=23]
 
 [sub_resource type="Curve" id=116]
 min_value = -360.0
@@ -721,3 +722,8 @@ scale = Vector2( 0.976563, 0.929687 )
 frames = ExtResource( 16 )
 animation = "m4"
 script = ExtResource( 14 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 23 )
+volume_db = -20.986
+autoplay = true
