@@ -1,17 +1,26 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=84 format=2]
+=======
+[gd_scene load_steps=35 format=2]
+>>>>>>> Stashed changes
 
 [ext_resource path="res://item/SpriteAndMore/priestIDLE.png" type="Texture" id=1]
 [ext_resource path="res://item/SpriteAndMore/Goblin.png" type="Texture" id=2]
 [ext_resource path="res://item/SpriteAndMore/MCspriteIDLE.png" type="Texture" id=3]
-[ext_resource path="res://item/Background/background 1/background 3/orig.png" type="Texture" id=4]
+[ext_resource path="res://item/itemgoblin/Objects.png" type="Texture" id=4]
 [ext_resource path="res://main/movement/mover.py" type="Script" id=5]
 [ext_resource path="res://main/castlegate/castlegate.py" type="Script" id=6]
 [ext_resource path="res://item/Effect/Monsterdissapear_spriteframes.tres" type="SpriteFrames" id=7]
 [ext_resource path="res://main/UIscene/EffectPlayer.py" type="Script" id=8]
 [ext_resource path="res://item/Effect/MonsterDMG_spriteframes.tres" type="SpriteFrames" id=9]
+<<<<<<< Updated upstream
 [ext_resource path="res://item/Effect/PlayerDMG_spriteframes.tres" type="SpriteFrames" id=10]
 [ext_resource path="res://item/Effect/286.png" type="Texture" id=11]
 [ext_resource path="res://item/Effect/heal.png" type="Texture" id=12]
+=======
+[ext_resource path="res://item/itemgoblin/Plan 2.png" type="Texture" id=17]
+[ext_resource path="res://item/itemgoblin/Plan 3.png" type="Texture" id=18]
+>>>>>>> Stashed changes
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
@@ -113,6 +122,7 @@ animations = [ {
 "speed": 4.0
 } ]
 
+<<<<<<< Updated upstream
 [sub_resource type="AtlasTexture" id=29]
 atlas = ExtResource( 12 )
 region = Rect2( 0, 192, 64, 64 )
@@ -327,15 +337,156 @@ animations = [ {
 "name": "h4",
 "speed": 10.0
 } ]
+=======
+[sub_resource type="TileSet" id=26]
+0/name = "Objects.png 0"
+0/texture = ExtResource( 4 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 334, 319, 54, 44 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+1/name = "Objects.png 1"
+1/texture = ExtResource( 4 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 415, 329, 53, 59 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
+1/shapes = [  ]
+1/z_index = 0
+2/name = "Objects.png 2"
+2/texture = ExtResource( 4 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 415, 387, 49, 43 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape_one_way = false
+2/shape_one_way_margin = 0.0
+2/shapes = [  ]
+2/z_index = 0
+3/name = "Objects.png 3"
+3/texture = ExtResource( 4 )
+3/tex_offset = Vector2( 0, 0 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( 244, 388, 43, 36 )
+3/tile_mode = 0
+3/occluder_offset = Vector2( 0, 0 )
+3/navigation_offset = Vector2( 0, 0 )
+3/shape_offset = Vector2( 0, 0 )
+3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+3/shape_one_way = false
+3/shape_one_way_margin = 0.0
+3/shapes = [  ]
+3/z_index = 0
+4/name = "Objects.png 4"
+4/texture = ExtResource( 4 )
+4/tex_offset = Vector2( 0, 0 )
+4/modulate = Color( 1, 1, 1, 1 )
+4/region = Rect2( 192, 385, 50, 43 )
+4/tile_mode = 0
+4/occluder_offset = Vector2( 0, 0 )
+4/navigation_offset = Vector2( 0, 0 )
+4/shape_offset = Vector2( 0, 0 )
+4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+4/shape_one_way = false
+4/shape_one_way_margin = 0.0
+4/shapes = [  ]
+4/z_index = 0
+5/name = "Objects.png 5"
+5/texture = ExtResource( 4 )
+5/tex_offset = Vector2( 0, 0 )
+5/modulate = Color( 1, 1, 1, 1 )
+5/region = Rect2( 356, 421, 29, 22 )
+5/tile_mode = 0
+5/occluder_offset = Vector2( 0, 0 )
+5/navigation_offset = Vector2( 0, 0 )
+5/shape_offset = Vector2( 0, 0 )
+5/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+5/shape_one_way = false
+5/shape_one_way_margin = 0.0
+5/shapes = [  ]
+5/z_index = 0
+6/name = "Objects.png 6"
+6/texture = ExtResource( 4 )
+6/tex_offset = Vector2( 0, 0 )
+6/modulate = Color( 1, 1, 1, 1 )
+6/region = Rect2( 337, 372, 50, 35 )
+6/tile_mode = 0
+6/occluder_offset = Vector2( 0, 0 )
+6/navigation_offset = Vector2( 0, 0 )
+6/shape_offset = Vector2( 0, 0 )
+6/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+6/shape_one_way = false
+6/shape_one_way_margin = 0.0
+6/shapes = [  ]
+6/z_index = 0
+7/name = "Objects.png 7"
+7/texture = ExtResource( 4 )
+7/tex_offset = Vector2( 0, 0 )
+7/modulate = Color( 1, 1, 1, 1 )
+7/region = Rect2( 290, 381, 45, 35 )
+7/tile_mode = 0
+7/occluder_offset = Vector2( 0, 0 )
+7/navigation_offset = Vector2( 0, 0 )
+7/shape_offset = Vector2( 0, 0 )
+7/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+7/shape_one_way = false
+7/shape_one_way_margin = 0.0
+7/shapes = [  ]
+7/z_index = 0
+8/name = "Objects.png 8"
+8/texture = ExtResource( 4 )
+8/tex_offset = Vector2( 0, 0 )
+8/modulate = Color( 1, 1, 1, 1 )
+8/region = Rect2( 24, 435, 80, 62 )
+8/tile_mode = 0
+8/occluder_offset = Vector2( 0, 0 )
+8/navigation_offset = Vector2( 0, 0 )
+8/shape_offset = Vector2( 0, 0 )
+8/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+8/shape_one_way = false
+8/shape_one_way_margin = 0.0
+8/shapes = [  ]
+8/z_index = 0
+>>>>>>> Stashed changes
 
 [node name="castlegate" type="Node2D"]
 script = ExtResource( 6 )
 
-[node name="VillageBG" type="Sprite" parent="."]
-position = Vector2( -7, -12 )
-scale = Vector2( 1.14757, 1.08951 )
-texture = ExtResource( 4 )
-centered = false
+[node name="floor2" type="TextureRect" parent="."]
+margin_left = -167.0
+margin_top = -142.0
+margin_right = 750.0
+margin_bottom = 360.0
+texture = ExtResource( 17 )
+expand = true
+stretch_mode = 6
+
+[node name="window2" type="TextureRect" parent="."]
+margin_left = -362.0
+margin_top = -34.0
+margin_right = 1000.0
+margin_bottom = 332.0
+texture = ExtResource( 18 )
+expand = true
+stretch_mode = 6
 
 [node name="priest" type="AnimatedSprite" parent="."]
 position = Vector2( -105, 251 )
@@ -370,6 +521,7 @@ animation = "m4"
 script = ExtResource( 8 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 margin_left = -4.0
 margin_top = 288.0
 margin_right = 670.0
@@ -377,12 +529,14 @@ margin_bottom = 365.0
 color = Color( 0.223529, 0.203922, 0.180392, 1 )
 
 [node name="ColorRect2" type="ColorRect" parent="."]
+visible = false
 margin_left = -4.0
 margin_top = 284.0
 margin_right = 670.0
 margin_bottom = 300.0
 color = Color( 0.207843, 0.337255, 0.133333, 1 )
 
+<<<<<<< Updated upstream
 [node name="PlayerDMG_effect" type="AnimatedSprite" parent="."]
 position = Vector2( 212, 259.758 )
 scale = Vector2( 0.822724, 0.773699 )
@@ -396,3 +550,10 @@ scale = Vector2( 0.676875, 0.598609 )
 frames = SubResource( 136 )
 animation = "h3"
 script = ExtResource( 8 )
+=======
+[node name="กะโหลก" type="TileMap" parent="."]
+tile_set = SubResource( 26 )
+cell_size = Vector2( 8, 8 )
+format = 1
+tile_data = PoolIntArray( 131084, 0, 0, 2097159, 1, 0, 2097215, 8, 0, 2359311, 3, 0, 2359323, 0, 0, 2359339, 4, 0, 2424903, 3, 0, 2555906, 7, 0, 2555962, 6, 0 )
+>>>>>>> Stashed changes
