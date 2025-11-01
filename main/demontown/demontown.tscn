@@ -1,4 +1,4 @@
-[gd_scene load_steps=149 format=2]
+[gd_scene load_steps=153 format=2]
 
 [ext_resource path="res://item/SpriteAndMore/priestIDLE.png" type="Texture" id=1]
 [ext_resource path="res://item/SpriteAndMore/Skeleton.png" type="Texture" id=2]
@@ -51,6 +51,7 @@
 [ext_resource path="res://item/SoundEffect/DemonTownBGM.mp3" type="AudioStream" id=49]
 [ext_resource path="res://item/itembosstown/pinkfloor.png" type="Texture" id=50]
 [ext_resource path="res://item/itembosstown/tile pink.png" type="Texture" id=51]
+[ext_resource path="res://item/Effect/น้ำแข็งใส.png" type="Texture" id=52]
 
 [sub_resource type="TileSet" id=27]
 0/name = "Platformer Asset All H.png 0"
@@ -588,6 +589,25 @@ animations = [ {
 3/shapes = [  ]
 3/z_index = 0
 
+[sub_resource type="Curve" id=169]
+min_value = -360.0
+max_value = 360.0
+_data = [ Vector2( 0, -360 ), 0.0, 0.0, 0, 0, Vector2( 1, 360 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=120]
+curve = SubResource( 169 )
+
+[sub_resource type="ParticlesMaterial" id=170]
+emission_shape = 2
+emission_box_extents = Vector3( 500, 200, 1 )
+flag_disable_z = true
+gravity = Vector3( -140, 50, 0 )
+initial_velocity = 15.0
+initial_velocity_random = 0.36
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle_curve = SubResource( 120 )
+
 [sub_resource type="TileSet" id=26]
 0/name = "floor.png 0"
 0/texture = ExtResource( 10 )
@@ -995,6 +1015,24 @@ margin_top = 284.0
 margin_right = 670.0
 margin_bottom = 300.0
 color = Color( 0.729412, 0.376471, 0.682353, 1 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( 368, 144 )
+scale = Vector2( 0.842972, 0.863573 )
+amount = 30
+lifetime = 2.25
+visibility_rect = Rect2( -300, -200, 50, 50 )
+process_material = SubResource( 170 )
+texture = ExtResource( 52 )
+
+[node name="Particles2D2" type="Particles2D" parent="."]
+position = Vector2( 368, 144 )
+scale = Vector2( 0.842972, 0.863573 )
+amount = 30
+lifetime = 2.25
+visibility_rect = Rect2( -300, -200, 50, 50 )
+process_material = SubResource( 170 )
+texture = ExtResource( 52 )
 
 [node name="พื้้น" type="TileMap" parent="."]
 position = Vector2( 0, -1 )
