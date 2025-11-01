@@ -53,7 +53,7 @@ min_value = -360.0
 max_value = 360.0
 _data = [ Vector2( 0, -360 ), 0.0, 0.0, 0, 0, Vector2( 1, 360 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=119]
+[sub_resource type="CurveTexture" id=148]
 curve = SubResource( 116 )
 
 [sub_resource type="ParticlesMaterial" id=118]
@@ -65,7 +65,7 @@ initial_velocity = 15.0
 initial_velocity_random = 0.36
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
-angle_curve = SubResource( 119 )
+angle_curve = SubResource( 148 )
 
 [sub_resource type="TileSet" id=10]
 0/name = "TX Props with Shadow.png 0"
