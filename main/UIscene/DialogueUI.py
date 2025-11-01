@@ -292,11 +292,21 @@ class DialogueUI(Control):
 					self.get_tree().create_timer(6).connect("timeout", self, "auto_change_dialogue")
 				self.get_tree().get_current_scene().pan_camera(self.priest_walk)
 				self.BossDialogueBox.visible = False
-				
 		else:
 			self.create_right()
 			
+		if self.current_dialogue_order in (76,81,83):
+			if self.current_dialogue_order == 76:
+				self.get_tree().get_current_scene().demon_animation("change-face")
+				self.get_tree().create_timer(3).connect("timeout", self, "change_animation_unloop_to_loop")
+			elif self.current_dialogue_order == 81:
+				self.get_tree().get_current_scene().demon_animation("idle-phase2")
+			elif self.current_dialogue_order == 83:
+				self.get_tree().get_current_scene().demon_animation("default")
 			
+	def change_animation_unloop_to_loop(self):
+		self.get_tree().get_current_scene().demon_animation("pre-phase2")
+		
 	def auto_change_dialogue(self):
 		if self.current_dialogue_order in (73,92):
 			self.next_dialogue()

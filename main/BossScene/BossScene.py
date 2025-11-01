@@ -19,6 +19,7 @@ class BossScene(Node2D):
 		self.priest.move_to(152)
 		
 		self.monster = self.get_node('monster')
+		self.monster.play("default")
 		
 		self.camera = self.get_node('Camera2D')
 
@@ -50,6 +51,11 @@ class BossScene(Node2D):
 		self.get_tree().create_timer(4).connect("timeout", self, "reset_camera")
 		if walk:
 			self.priest.move_to(675)
+			
 	def reset_camera(self):
 		self.camera.move_to(0,False,120)
+		
+	def demon_animation(self,a):
+		self.monster.play(a)
+		
 

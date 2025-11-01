@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="What Hero Actually Uses A Sword"
-run/main_scene="res://main/StartScene/start1.tscn"
+run/main_scene="res://main/BossScene/BossScene.tscn"
 config/icon="res://item/SpriteAndMore/Icon.png"
 <<<<<<<Updatedupstreamrun/main_scene="res://main/StartScene/start1.tscn"
 
