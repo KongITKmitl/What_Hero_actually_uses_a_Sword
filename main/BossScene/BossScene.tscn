@@ -1,4 +1,4 @@
-[gd_scene load_steps=134 format=2]
+[gd_scene load_steps=136 format=2]
 
 [ext_resource path="res://item/SpriteAndMore/demon_idle.png" type="Texture" id=1]
 [ext_resource path="res://item/Background/orengesky.png" type="Texture" id=2]
@@ -38,6 +38,8 @@
 [ext_resource path="res://item/SpriteAndMore/PriestWALK.png" type="Texture" id=36]
 [ext_resource path="res://item/SpriteAndMore/PriestHEAL.png" type="Texture" id=37]
 [ext_resource path="res://item/SoundEffect/bossBGM.mp3" type="AudioStream" id=38]
+[ext_resource path="res://item/realasset/castalbg/cas2 (2).png" type="Texture" id=39]
+[ext_resource path="res://item/itemgoblin/Plan 2.png" type="Texture" id=41]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 4 )
@@ -494,6 +496,20 @@ scale = Vector2( 1.31692, 1.18703 )
 texture = ExtResource( 2 )
 centered = false
 
+[node name="floor" type="TextureRect" parent="."]
+margin_left = -488.0
+margin_top = -184.0
+margin_right = 802.0
+margin_bottom = 375.0
+texture = ExtResource( 41 )
+expand = true
+stretch_mode = 6
+
+[node name="Cas2(2)" type="Sprite" parent="floor"]
+position = Vector2( 808, 384 )
+scale = Vector2( 1.125, 1 )
+texture = ExtResource( 39 )
+
 [node name="priest" type="Node2D" parent="."]
 position = Vector2( -105, 252 )
 script = ExtResource( 5 )
@@ -512,13 +528,6 @@ position = Vector2( 0, 2 )
 frames = SubResource( 168 )
 playing = true
 
-[node name="ColorRect3" type="ColorRect" parent="."]
-margin_left = 646.0
-margin_top = -11.0
-margin_right = 707.0
-margin_bottom = 75.0
-color = Color( 0.223529, 0.203922, 0.180392, 1 )
-
 [node name="princess" type="AnimatedSprite" parent="."]
 position = Vector2( 675, 54 )
 frames = SubResource( 28 )
@@ -536,20 +545,6 @@ scale = Vector2( 2.98633, 2.76367 )
 frames = ExtResource( 8 )
 animation = "atk9"
 script = ExtResource( 9 )
-
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -4.0
-margin_top = 288.0
-margin_right = 1285.0
-margin_bottom = 365.0
-color = Color( 0.223529, 0.203922, 0.180392, 1 )
-
-[node name="ColorRect2" type="ColorRect" parent="."]
-margin_left = -4.0
-margin_top = 284.0
-margin_right = 1285.0
-margin_bottom = 300.0
-color = Color( 0.211765, 0.247059, 0.192157, 1 )
 
 [node name="PlayerDMG_effect" type="AnimatedSprite" parent="."]
 position = Vector2( 212, 259.758 )
