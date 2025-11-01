@@ -50,6 +50,10 @@ class healthbar(Control):
 		# Label "DIE" สำหรับตอน MC ตาย
 		self.die_lable = self.get_node("DIE")
 		self.die_lable.hide()
+		
+		#transition ตอนตาย
+		self.DeadTransition = self.get_node('DeadTransition')
+		self.DeadTransition.hide()
 
 		# Timer ดีเลย์หักเลือด MC หลังมอนโดนโจมตี
 		self.delay_timer = self.get_node("Delay")
@@ -111,6 +115,7 @@ class healthbar(Control):
 			self.mc_die_sound.play()
 			print("[LOG] MC died — showing DIE label, will wait 3s then change scene")
 			self.get_tree().create_timer(3.0).connect("timeout", self, "_on_die_timeout")
+			self.get_tree().create_timer(2.4).connect("timeout", self, "playtransition")
 		else:
 			# ดีเลย์ 2 วิ ก่อนฮีล
 			self.get_tree().create_timer(2.0).connect("timeout", self, "_on_heal_delay")
@@ -146,6 +151,9 @@ class healthbar(Control):
 		self.get_tree().change_scene(scene_path)
 		self.queue_free()
 
+	def playtransition(self):
+		self.DeadTransition.show()
+		self.DeadTransition.play('default')
 
 	def spawn_typing_ui(self):
 		typingUI = ResourceLoader.load("res://main/UIscene/TypingUI.tscn").instance()
