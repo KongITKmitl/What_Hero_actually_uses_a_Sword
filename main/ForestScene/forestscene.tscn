@@ -1,10 +1,10 @@
-[gd_scene load_steps=128 format=2]
+[gd_scene load_steps=135 format=2]
 
 [ext_resource path="res://item/SpriteAndMore/priestIDLE.png" type="Texture" id=1]
 [ext_resource path="res://item/SpriteAndMore/MCspriteIDLE.png" type="Texture" id=2]
 [ext_resource path="res://item/SpriteAndMore/monster.png" type="Texture" id=3]
 [ext_resource path="res://main/ForestScene/forestscene.py" type="Script" id=4]
-[ext_resource path="res://item/Background/BGgreenForest.png" type="Texture" id=5]
+[ext_resource path="res://item/Background/FOREST PARALLAX BACKGROUNDS (320x180px)/FOREST PARALLAX BACKGROUNDS (320x180px)/bg_2/bg-2_LAYER-4.png" type="Texture" id=5]
 [ext_resource path="res://main/movement/mover.py" type="Script" id=6]
 [ext_resource path="res://item/Effect/Monsterdissapear_spriteframes.tres" type="SpriteFrames" id=7]
 [ext_resource path="res://main/UIscene/EffectPlayer.py" type="Script" id=8]
@@ -37,6 +37,13 @@
 [ext_resource path="res://item/SpriteAndMore/MCcasting/MCcasting18.png" type="Texture" id=35]
 [ext_resource path="res://item/SpriteAndMore/PriestWALK.png" type="Texture" id=36]
 [ext_resource path="res://item/SpriteAndMore/PriestHEAL.png" type="Texture" id=37]
+[ext_resource path="res://item/Background/FOREST PARALLAX BACKGROUNDS (320x180px)/FOREST PARALLAX BACKGROUNDS (320x180px)/bg_2/bg-2_LAYER-3.png" type="Texture" id=38]
+[ext_resource path="res://item/Background/FOREST PARALLAX BACKGROUNDS (320x180px)/FOREST PARALLAX BACKGROUNDS (320x180px)/bg_2/bg-2_LAYER-2.png" type="Texture" id=39]
+[ext_resource path="res://item/Background/FOREST PARALLAX BACKGROUNDS (320x180px)/FOREST PARALLAX BACKGROUNDS (320x180px)/bg_2/bg-2_LAYER-1.png" type="Texture" id=40]
+[ext_resource path="res://item/Background/FOREST PARALLAX BACKGROUNDS (320x180px)/Sunset/6.png" type="Texture" id=41]
+[ext_resource path="res://item/Background/FOREST PARALLAX BACKGROUNDS (320x180px)/Sunset/5.png" type="Texture" id=42]
+[ext_resource path="res://item/Background/FOREST PARALLAX BACKGROUNDS (320x180px)/Sunset/8.png" type="Texture" id=43]
+[ext_resource path="res://item/Background/FOREST PARALLAX BACKGROUNDS (320x180px)/FOREST PARALLAX BACKGROUNDS (320x180px)/bg_2/bg-2_LAYER-5.png" type="Texture" id=44]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
@@ -160,7 +167,7 @@ animations = [ {
 "frames": [ SubResource( 147 ), SubResource( 148 ), SubResource( 149 ), SubResource( 150 ), SubResource( 151 ), SubResource( 152 ), SubResource( 153 ), SubResource( 154 ), SubResource( 155 ), SubResource( 156 ), SubResource( 157 ), SubResource( 158 ), SubResource( 159 ), SubResource( 160 ) ],
 "loop": true,
 "name": "heal",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [ SubResource( 141 ), SubResource( 142 ), SubResource( 143 ), SubResource( 144 ), SubResource( 145 ), SubResource( 146 ) ],
 "loop": true,
@@ -450,19 +457,57 @@ animations = [ {
 } ]
 
 [node name="forestscene" type="Node2D"]
+modulate = Color( 0.631373, 0.631373, 0.631373, 1 )
 script = ExtResource( 4 )
 
-[node name="VillageBG" type="Sprite" parent="."]
-position = Vector2( -5, -9 )
-scale = Vector2( 1.13194, 1.02778 )
+[node name="bg" type="Sprite" parent="."]
+position = Vector2( 334, 170 )
+scale = Vector2( 2.09687, 2 )
+
+[node name="Bg-2Layer-5" type="Sprite" parent="bg"]
+position = Vector2( 1.54994, 4.25 )
+scale = Vector2( 1.03949, 1.03056 )
+texture = ExtResource( 44 )
+
+[node name="Bg-2Layer-4" type="Sprite" parent="bg"]
+position = Vector2( 0, -55.5 )
+scale = Vector2( 1.00149, 1.05 )
 texture = ExtResource( 5 )
-centered = false
+
+[node name="Bg-2Layer-3" type="Sprite" parent="bg/Bg-2Layer-4"]
+position = Vector2( -11.6667, -10.4762 )
+scale = Vector2( 0.784226, 0.523809 )
+texture = ExtResource( 38 )
+
+[node name="Sprite" type="Sprite" parent="bg"]
+modulate = Color( 0.219608, 0.427451, 0.329412, 1 )
+position = Vector2( -2.62296, -45 )
+texture = ExtResource( 42 )
+
+[node name="Sprite2" type="Sprite" parent="bg"]
+modulate = Color( 0.219608, 0.427451, 0.329412, 1 )
+position = Vector2( -1.43068, -33.5 )
+texture = ExtResource( 41 )
+
+[node name="Sprite3" type="Sprite" parent="bg"]
+scale = Vector2( 2, 2 )
+
+[node name="Sprite4" type="Sprite" parent="bg"]
+modulate = Color( 0.337255, 0.337255, 0.337255, 1 )
+position = Vector2( -1.43069, -7 )
+texture = ExtResource( 39 )
+
+[node name="Bg-2Layer-1" type="Sprite" parent="bg"]
+modulate = Color( 0.662745, 0.698039, 0.666667, 1 )
+position = Vector2( 1.90761, -18.5 )
+texture = ExtResource( 40 )
 
 [node name="priest" type="Node2D" parent="."]
 position = Vector2( -105, 252 )
 script = ExtResource( 6 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="priest"]
+position = Vector2( 0, 5 )
 frames = SubResource( 161 )
 playing = true
 script = ExtResource( 6 )
@@ -472,7 +517,7 @@ position = Vector2( -45, 252 )
 script = ExtResource( 6 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="MCSprite"]
-position = Vector2( 0, 1 )
+position = Vector2( 0, 6 )
 frames = SubResource( 168 )
 playing = true
 
@@ -495,20 +540,6 @@ frames = ExtResource( 7 )
 animation = "m4"
 script = ExtResource( 8 )
 
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -4.0
-margin_top = 288.0
-margin_right = 670.0
-margin_bottom = 365.0
-color = Color( 0.223529, 0.203922, 0.180392, 1 )
-
-[node name="ColorRect2" type="ColorRect" parent="."]
-margin_left = -4.0
-margin_top = 284.0
-margin_right = 670.0
-margin_bottom = 300.0
-color = Color( 0.207843, 0.337255, 0.133333, 1 )
-
 [node name="PlayerDMG_effect" type="AnimatedSprite" parent="."]
 position = Vector2( 212, 259.758 )
 scale = Vector2( 0.822724, 0.773699 )
@@ -522,3 +553,9 @@ scale = Vector2( 0.676875, 0.598609 )
 frames = SubResource( 136 )
 animation = "h3"
 script = ExtResource( 8 )
+
+[node name="8" type="Sprite" parent="."]
+modulate = Color( 0.207843, 0.290196, 0.223529, 1 )
+position = Vector2( 340, 188.422 )
+scale = Vector2( 2.14583, 1.95087 )
+texture = ExtResource( 43 )

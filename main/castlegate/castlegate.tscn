@@ -162,7 +162,7 @@ animations = [ {
 "frames": [ SubResource( 147 ), SubResource( 148 ), SubResource( 149 ), SubResource( 150 ), SubResource( 151 ), SubResource( 152 ), SubResource( 153 ), SubResource( 154 ), SubResource( 155 ), SubResource( 156 ), SubResource( 157 ), SubResource( 158 ), SubResource( 159 ), SubResource( 160 ) ],
 "loop": true,
 "name": "heal",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [ SubResource( 141 ), SubResource( 142 ), SubResource( 143 ), SubResource( 144 ), SubResource( 145 ), SubResource( 146 ) ],
 "loop": true,

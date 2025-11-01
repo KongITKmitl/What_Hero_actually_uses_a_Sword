@@ -1,5 +1,6 @@
 from godot import exposed, export
 from godot import *
+from godot import AnimatedSprite
 
 # -------------------------------
 # ตารางเลือดของมอนสเตอร์แต่ละเลเวล
@@ -131,8 +132,9 @@ class healthbar(Control):
 			self.mcprogress_bar.value = min(self.mc_health, self.mcprogress_bar.max_value)
 
 			# เอฟเฟกต์และเสียงตอนฮีล
-			self.healEffect.play_animation()
-			self.priest_heal.play()
+			self.priest = self.get_tree().get_current_scene().get_node("priest")
+			self.priest.play_animation("heal")
+			self.get_tree().create_timer(1.50).connect("timeout", self, "_on_stop_priest_anim")
 
 			print(f"[LOG] MC healed (HP <10%) — heal +{heal_amount}, new HP = {self.mc_health}")
 
@@ -149,3 +151,9 @@ class healthbar(Control):
 		typingUI = ResourceLoader.load("res://main/UIscene/TypingUI.tscn").instance()
 		self.get_tree().get_root().add_child(typingUI)
 		print("[LOG] Spawned TypingUI for next battle")
+	
+	def _on_stop_priest_anim(self):
+			self.healEffect.play_animation()
+			self.priest_heal.play()
+			self.priest.stop_animation()
+			print("[LOG] Priest animation stopped after heal")
