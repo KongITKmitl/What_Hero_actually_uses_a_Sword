@@ -1002,33 +1002,10 @@ tile_set = SubResource( 29 )
 cell_size = Vector2( 8, 8 )
 format = 1
 
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -4.0
-margin_top = 288.0
-margin_right = 670.0
-margin_bottom = 365.0
-color = Color( 0.14902, 0.137255, 0.121569, 1 )
-
-[node name="ColorRect2" type="ColorRect" parent="."]
-margin_left = -4.0
-margin_top = 284.0
-margin_right = 670.0
-margin_bottom = 300.0
-color = Color( 0.729412, 0.376471, 0.682353, 1 )
-
 [node name="Particles2D" type="Particles2D" parent="."]
 position = Vector2( 368, 144 )
 scale = Vector2( 0.842972, 0.863573 )
-amount = 30
-lifetime = 2.25
-visibility_rect = Rect2( -300, -200, 50, 50 )
-process_material = SubResource( 170 )
-texture = ExtResource( 52 )
-
-[node name="Particles2D2" type="Particles2D" parent="."]
-position = Vector2( 368, 144 )
-scale = Vector2( 0.842972, 0.863573 )
-amount = 30
+amount = 20
 lifetime = 2.25
 visibility_rect = Rect2( -300, -200, 50, 50 )
 process_material = SubResource( 170 )
