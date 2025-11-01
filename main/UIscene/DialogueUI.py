@@ -78,7 +78,7 @@ dialogue_list = [
 	"Nay, 'tis of no import now. The Princess, thou seekest?",
 	"See with thine own eyes, and judge for thyself.",
 	"", #เลื่อนไปดูกรง # cage cg index 73 
-	"Then come—let us bring this tale to its turning point.", #start typing index 74
+	"Then come, let us bring this tale to its turning point.", #start typing index 74
 	"...",
 	"Alas...",
 	"This hath dragged on far longer than mine expectation.",
@@ -89,7 +89,7 @@ dialogue_list = [
 	"Urgh… No more…",
 	"Thou hast bested me, O silent one.",
 	"I yield. The Princess is thine to reclaim.",
-	"At long last, I may take my leave—perhaps to lands unknown,",
+	"At long last, I may take my leave. perhaps to lands unknown,",
 	"to taste a fleeting moment of peace…",
 	"What?", #l index 87
 	"Is that all?", #l
@@ -115,7 +115,7 @@ dialogue_list = [
 	"Those words would come to be spoken to the Hero",
 	"more often than any other.",
 	"Truly… I am sorry, my Hero.",
-	"And yet, I am grateful — so very grateful — that you chose me.",
+	"And yet, I am grateful. so very grateful, that you chose me.",
 	"Thank you.",
 	"...Hmm.",
 	"Beneath the warm, amber sky,",
@@ -139,7 +139,7 @@ dialogue_list = [
 	"END", #index 132
 ]
 
-text_speed = 0.001
+text_speed = 0.03
 
 
 			

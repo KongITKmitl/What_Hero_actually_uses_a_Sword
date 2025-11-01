@@ -20,7 +20,6 @@ class demontown(Node2D):
 		self.dissapear = self.get_node('DissapearEffect')
 
 		self.get_tree().create_timer(4).connect("timeout", self, "showmonster")
-		
 
 	def showmonster(self):
 		self.monster.move_to_y(256)
