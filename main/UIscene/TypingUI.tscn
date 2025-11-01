@@ -139,8 +139,8 @@ valign = 1
 
 [node name="SFXtyping" type="AudioStreamPlayer" parent="."]
 stream = SubResource( 8 )
-volume_db = -15.001
+volume_db = -12.0
 
 [node name="SFXwrong" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
-volume_db = -15.111
+volume_db = -12.0
