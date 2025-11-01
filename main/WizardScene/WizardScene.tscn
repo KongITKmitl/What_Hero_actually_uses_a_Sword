@@ -1,4 +1,4 @@
-[gd_scene load_steps=163 format=2]
+[gd_scene load_steps=164 format=2]
 
 [ext_resource path="res://main/WizardScene/WizardScene.py" type="Script" id=1]
 [ext_resource path="res://item/SpriteAndMore/SenseiIDLE.png" type="Texture" id=2]
@@ -46,6 +46,7 @@
 [ext_resource path="res://item/SpriteAndMore/MCcasting/MCcasting21.png" type="Texture" id=44]
 [ext_resource path="res://item/SpriteAndMore/MCcasting/MCcasting17.png" type="Texture" id=45]
 [ext_resource path="res://item/SpriteAndMore/MCcasting/MCcasting18.png" type="Texture" id=46]
+[ext_resource path="res://item/SoundEffect/birds39-forest.mp3" type="AudioStream" id=47]
 
 [sub_resource type="Curve" id=116]
 min_value = -360.0
@@ -763,6 +764,11 @@ script = ExtResource( 14 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 23 )
 volume_db = -20.986
+autoplay = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 47 )
+volume_db = -10.613
 autoplay = true
 
 [node name="MCSprite" type="Node2D" parent="."]
