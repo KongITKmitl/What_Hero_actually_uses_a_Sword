@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://item/PixelFont1/retro-pixel-font-ttf.woff-v2025.08.24/petty-5x5/retro-pixel-petty-5x5.ttf.woff" type="DynamicFontData" id=1]
 [ext_resource path="res://main/EndingScene/EndingScene.py" type="Script" id=2]
 [ext_resource path="res://main/movement/mover.py" type="Script" id=3]
 [ext_resource path="res://main/UIscene/EffectPlayer.py" type="Script" id=4]
+[ext_resource path="res://item/SoundEffect/EndingBGM.mp3" type="AudioStream" id=5]
+[ext_resource path="res://item/SoundEffect/ChangeDialogue.mp3" type="AudioStream" id=6]
 
 [sub_resource type="Theme" id=1]
 
@@ -61,6 +63,15 @@ custom_styles/hover = SubResource( 3 )
 custom_styles/pressed = SubResource( 4 )
 custom_styles/normal = SubResource( 5 )
 text = "Revive the priest"
+
+[node name="buttonSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+pitch_scale = 1.54
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -14.868
+autoplay = true
 
 [connection signal="button_down" from="Bprincess" to="." method="_on_Bprincess_button_down"]
 [connection signal="button_down" from="Bpriest" to="." method="_on_Bpriest_button_down"]

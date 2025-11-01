@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/bossBGM.mp3-4b2f219bae45fcaa29ef1f55645b5c81.mp3str"
+
+[deps]
+
+source_file="res://item/SoundEffect/bossBGM.mp3"
+dest_files=[ "res://.import/bossBGM.mp3-4b2f219bae45fcaa29ef1f55645b5c81.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

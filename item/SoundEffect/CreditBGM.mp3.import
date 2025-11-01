@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/CreditBGM.mp3-a286ed70399014552b414a9c186f3e27.mp3str"
+
+[deps]
+
+source_file="res://item/SoundEffect/CreditBGM.mp3"
+dest_files=[ "res://.import/CreditBGM.mp3-a286ed70399014552b414a9c186f3e27.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

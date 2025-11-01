@@ -23,4 +23,4 @@ class EndCreditScene(Node2D):
 			self.queue_free()
 	
 	def end(self):
-		self.get_tree().change_scene("res://main/StartScene/start1.tscn")
+		self.get_tree().quit()

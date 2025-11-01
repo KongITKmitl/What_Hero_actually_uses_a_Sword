@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://main/StartScene/start1.py" type="Script" id=1]
 [ext_resource path="res://item/SpriteAndMore/UiCozyFree.png" type="Texture" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://main/UIscene/EffectPlayer.py" type="Script" id=4]
 [ext_resource path="res://main/movement/mover.py" type="Script" id=5]
 [ext_resource path="res://item/SpriteAndMore/quite.png" type="Texture" id=6]
+[ext_resource path="res://item/SoundEffect/StartBGM.mp3" type="AudioStream" id=7]
+[ext_resource path="res://item/SoundEffect/ChangeDialogue.mp3" type="AudioStream" id=8]
 
 [node name="Start1" type="Node2D"]
 script = ExtResource( 1 )
@@ -39,6 +41,15 @@ margin_bottom = 363.0
 text = "Close"
 icon = ExtResource( 6 )
 flat = true
+
+[node name="buttonSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+pitch_scale = 1.49
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -13.645
+autoplay = true
 
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_QuitButton_pressed"]

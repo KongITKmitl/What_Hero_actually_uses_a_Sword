@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/EndingBGM.mp3-f7f76cf3e400ee9e1e20e7f5f10bcbee.mp3str"
+
+[deps]
+
+source_file="res://item/SoundEffect/EndingBGM.mp3"
+dest_files=[ "res://.import/EndingBGM.mp3-f7f76cf3e400ee9e1e20e7f5f10bcbee.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

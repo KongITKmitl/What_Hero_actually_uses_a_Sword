@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/farmBGM.mp3-4fbabe2a183f120e807338cade4c22bc.mp3str"
+
+[deps]
+
+source_file="res://item/SoundEffect/farmBGM.mp3"
+dest_files=[ "res://.import/farmBGM.mp3-4fbabe2a183f120e807338cade4c22bc.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

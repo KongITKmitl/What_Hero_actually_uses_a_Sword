@@ -16,15 +16,18 @@ class EndingScene(Node2D):
 		"""
 		self.Bprincess = self.get_node('Bprincess')
 		self.Bpriest = self.get_node('Bpriest')
+		self.buttonSFX = self.get_node("buttonSFX")
 		pass
 
 	def _on_Bprincess_button_down(self):
 		self.chose = 106
-		self.get_tree().create_timer(0.5).connect("timeout", self, "start_dialogue")
+		self.buttonSFX.play()
+		self.get_tree().create_timer(0.8).connect("timeout", self, "start_dialogue")
 	
 	def _on_Bpriest_button_down(self):
 		self.chose = 120
-		self.get_tree().create_timer(0,5).connect("timeout", self, "start_dialogue")
+		self.buttonSFX.play()
+		self.get_tree().create_timer(0.8).connect("timeout", self, "start_dialogue")
 		
 	def start_dialogue(self):
 		self.Bprincess.queue_free()

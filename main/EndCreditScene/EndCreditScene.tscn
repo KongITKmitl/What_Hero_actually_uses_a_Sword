@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://item/PixelFont1/retro-pixel-font-ttf.woff-v2025.08.24/cute-prop/retro-pixel-cute-prop.ttf.woff" type="DynamicFontData" id=1]
 [ext_resource path="res://main/EndCreditScene/EndCreditScene.py" type="Script" id=2]
 [ext_resource path="res://main/movement/mover.py" type="Script" id=3]
 [ext_resource path="res://main/UIscene/EffectPlayer.py" type="Script" id=4]
+[ext_resource path="res://item/SoundEffect/CreditBGM.mp3" type="AudioStream" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 12
@@ -101,3 +102,8 @@ blablabla
 blablabla
 blablabla"
 align = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -12.421
+autoplay = true

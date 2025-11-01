@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=2]
+[gd_scene load_steps=66 format=2]
 
 [ext_resource path="res://item/SpriteAndMore/priestIDLE.png" type="Texture" id=1]
 [ext_resource path="res://main/VillageScene/VillageScene.py" type="Script" id=2]
@@ -19,6 +19,8 @@
 [ext_resource path="res://item/SpriteAndMore/MCwalk.png" type="Texture" id=17]
 [ext_resource path="res://item/SpriteAndMore/PriestWALK.png" type="Texture" id=18]
 [ext_resource path="res://item/SpriteAndMore/PriestHEAL.png" type="Texture" id=19]
+[ext_resource path="res://item/SoundEffect/birds39-forest.mp3" type="AudioStream" id=20]
+[ext_resource path="res://item/SoundEffect/VillageBGM.mp3" type="AudioStream" id=21]
 
 [sub_resource type="TileSet" id=10]
 0/name = "tree.png 0"
@@ -823,3 +825,13 @@ tile_set = SubResource( 10 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 393243, 2, 0, 655355, 9, 0, 589825, 19, 0, 589829, 9, 0, 589849, 9, 0, 983050, 14, 0, 983069, 3, 0, 1048604, 13, 0, 1048606, 16, 0, 1048611, 18, 0 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 21 )
+volume_db = -15.48
+autoplay = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 20 )
+volume_db = -10.613
+autoplay = true

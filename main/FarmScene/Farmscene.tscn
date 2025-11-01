@@ -1,4 +1,4 @@
-[gd_scene load_steps=148 format=2]
+[gd_scene load_steps=150 format=2]
 
 [ext_resource path="res://main/FarmScene/Farmscene.py" type="Script" id=1]
 [ext_resource path="res://item/SpriteAndMore/MCspriteIDLE.png" type="Texture" id=2]
@@ -46,6 +46,8 @@
 [ext_resource path="res://item/SpriteAndMore/MCcasting/MCcasting18.png" type="Texture" id=44]
 [ext_resource path="res://item/SpriteAndMore/PriestWALK.png" type="Texture" id=45]
 [ext_resource path="res://item/SpriteAndMore/PriestHEAL.png" type="Texture" id=46]
+[ext_resource path="res://item/SoundEffect/farmBGM.mp3" type="AudioStream" id=47]
+[ext_resource path="res://item/SoundEffect/birds39-forest.mp3" type="AudioStream" id=48]
 
 [sub_resource type="TileSet" id=12]
 0/name = "TX Plant with Shadow.png 0"
@@ -815,3 +817,13 @@ texture = ExtResource( 13 )
 position = Vector2( 176, -72 )
 scale = Vector2( 1.12069, 1.1053 )
 texture = ExtResource( 14 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 47 )
+volume_db = -13.645
+autoplay = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 48 )
+volume_db = -10.613
+autoplay = true
