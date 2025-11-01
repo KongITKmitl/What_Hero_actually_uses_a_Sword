@@ -77,7 +77,7 @@ dialogue_list = [
 	"Dost that not fall to thee to utter, brave one?",
 	"Nay, 'tis of no import now. The Princess, thou seekest?",
 	"See with thine own eyes, and judge for thyself.",
-	"                                                               ", #เลื่อนไปดูกรง # cage cg index 73
+	"", #เลื่อนไปดูกรง # cage cg index 73 
 	"Then come—let us bring this tale to its turning point.", #start typing index 74
 	"...",
 	"Alas...",
@@ -96,7 +96,7 @@ dialogue_list = [
 	"Hath the tale come to its end?", #l
 	"Aye.",
 	"Now be swift, and leave this place, ere I rethink my mercy.", #จากนั้นกรงหล่นทับ
-	"        ", #pan camera index 92
+	"", #pan camera index 92
 	"...",
 	"…Wait a moment.",
 	"Wha—!?",
@@ -139,7 +139,7 @@ dialogue_list = [
 	"END", #index 132
 ]
 
-text_speed = 0.03
+text_speed = 0.001
 
 
 			
@@ -180,10 +180,14 @@ class DialogueUI(Control):
 		self.cgLabel = self.get_node('cgLabel')
 		self.cg = self.get_node('cg')
 		
+		self.BossDialogueBox = self.get_node("LeftDialogueBox2")
+		self.BossDialogueContent = self.get_node('LeftDialogueContent2')
 		
 		#เสียง
 		self.next_dialog_sound = self.get_node("nextdialog")
 		self.type_cg = self.get_node("typecg")
+		
+		self.priest_walk = False
 
 	def timer_setup(self):
 		self.gameplaytrigger = False
@@ -274,16 +278,24 @@ class DialogueUI(Control):
 		if self.current_dialogue_order in (0,102,103,104,105,119,131):
 			self.create_blackscreen()
 		elif 1 <= self.current_dialogue_order <= 4 or 22 <= self.current_dialogue_order <= 37 \
-		or 106 <= self.current_dialogue_order <= 118 or 120 <= self.current_dialogue_order <= 130:
+		or 106 <= self.current_dialogue_order <= 118 or 93 <= self.current_dialogue_order <= 101 or 120 <= self.current_dialogue_order <= 130:
 			self.create_cg()
 		elif self.current_dialogue_order in (41,42,43,46,47,48,52,53,54,58,64,65,67,68,87,88,89): 
 			self.create_left()
+		elif self.current_dialogue_order in (66,69)  or 70 <= self.current_dialogue_order <= 86 or 90 <= self.current_dialogue_order <= 101:
+			self.create_boss()
+			if self.current_dialogue_order in (73,92):
+				if self.current_dialogue_order == 92:
+					self.priest_walk = True
+					self.get_tree().create_timer(11).connect("timeout", self, "auto_change_dialogue")
+				else:
+					self.get_tree().create_timer(6).connect("timeout", self, "auto_change_dialogue")
+				self.get_tree().get_current_scene().pan_camera(self.priest_walk)
+				self.BossDialogueBox.visible = False
+				
 		else:
 			self.create_right()
-			if self.current_dialogue_order in (73,92):
-				self.get_tree().get_current_scene().pan_camera()
-				self.RightDialogueBox.visible = False
-				self.get_tree().create_timer(4.5).connect("timeout", self, "auto_change_dialogue")
+			
 			
 	def auto_change_dialogue(self):
 		if self.current_dialogue_order in (73,92):
@@ -310,6 +322,8 @@ class DialogueUI(Control):
 			self.cg.texture = ResourceLoader.load("res://item/SpriteAndMore/CG_EndingPrincess.png")
 		if self.current_dialogue_order == 120:
 			self.cg.texture = ResourceLoader.load("res://item/SpriteAndMore/CG_EndingPriest.png")
+		if self.current_dialogue_order == 93:
+			self.cg.texture = ResourceLoader.load("res://item/SpriteAndMore/cagefall.png")
 
 	def create_blackscreen(self):
 		self.label = self.blackscreenlabel
@@ -318,6 +332,8 @@ class DialogueUI(Control):
 		self.blackscreen.visible = True
 		self.RightDialogueBox.visible = False
 		self.LeftDialogueBox.visible = False
+		self.BossDialogueBox.visible = False
+		self.BossDialogueContent.visible = False
 	
 	def create_cg(self):
 		self.label = self.cgLabel
@@ -326,6 +342,8 @@ class DialogueUI(Control):
 		self.blackscreen.visible = False
 		self.RightDialogueBox.visible = False
 		self.LeftDialogueBox.visible = False
+		self.BossDialogueBox.visible = False
+		self.BossDialogueContent.visible = False
 	def create_right(self):
 		self.label = self.RightDialogueContent
 		
@@ -333,6 +351,8 @@ class DialogueUI(Control):
 		self.blackscreen.visible = False
 		self.RightDialogueBox.visible = True
 		self.LeftDialogueBox.visible = False
+		self.BossDialogueBox.visible = False
+		self.BossDialogueContent.visible = False
 		
 	def create_left(self):
 		self.label = self.LeftDialogueContent
@@ -341,3 +361,15 @@ class DialogueUI(Control):
 		self.blackscreen.visible = False
 		self.RightDialogueBox.visible = False
 		self.LeftDialogueBox.visible = True
+		self.BossDialogueBox.visible = False
+		self.BossDialogueContent.visible = False
+		
+	def create_boss(self):
+		self.label = self.BossDialogueContent
+		
+		self.cg.visible = False
+		self.blackscreen.visible = False
+		self.RightDialogueBox.visible = False
+		self.LeftDialogueBox.visible = False
+		self.BossDialogueBox.visible = True
+		self.BossDialogueContent.visible = True

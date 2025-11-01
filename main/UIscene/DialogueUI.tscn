@@ -140,3 +140,24 @@ volume_db = -16.384
 stream = SubResource( 2 )
 volume_db = -15.672
 pitch_scale = 1.16
+
+[node name="LeftDialogueBox2" type="Sprite" parent="."]
+position = Vector2( 343, 113 )
+texture = ExtResource( 1 )
+flip_h = true
+
+[node name="EnterButton1" type="AnimatedSprite" parent="LeftDialogueBox2"]
+position = Vector2( 70, 18 )
+scale = Vector2( 0.6, 0.6 )
+frames = SubResource( 7 )
+speed_scale = 0.5
+playing = true
+
+[node name="LeftDialogueContent2" type="Label" parent="."]
+margin_left = 258.0
+margin_top = 70.0
+margin_right = 428.0
+margin_bottom = 130.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+autowrap = true

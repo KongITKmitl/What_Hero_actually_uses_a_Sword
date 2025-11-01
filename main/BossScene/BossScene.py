@@ -45,9 +45,11 @@ class BossScene(Node2D):
 	def change_scene(self):
 		self.get_tree().change_scene("res://main/EndingScene/EndingScene.tscn")
 	
-	def pan_camera(self):
+	def pan_camera(self,walk):
 		self.camera.move_to(100,False,120)
 		self.get_tree().create_timer(4).connect("timeout", self, "reset_camera")
+		if walk:
+			self.priest.move_to(675)
 	def reset_camera(self):
 		self.camera.move_to(0,False,120)
 
