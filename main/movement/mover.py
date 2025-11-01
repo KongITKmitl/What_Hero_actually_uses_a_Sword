@@ -10,6 +10,8 @@ class Mover(Node2D):
 	flip = False
 	target_x_active = False
 	target_y_active = False
+	anim_locked = False
+	current_anim = ""
 
 	def _ready(self):
 		self.set_process(True)
@@ -66,8 +68,9 @@ class Mover(Node2D):
 			self.scale = Vector2(abs(self.scale.x), self.scale.y)
 			
 		moving = self.target_x_active or self.target_y_active
-		if not moving and self.anim and self.anim.is_playing():
-			self.anim.play("default")
+		if not moving and self.anim and not self.anim_locked:
+			if self.current_anim != "default":
+				self.play_animation("default")
 
 	def play_sound(self, path):
 		self.sound = AudioStreamPlayer.new()
@@ -78,3 +81,17 @@ class Mover(Node2D):
 
 	def change_walk_sound(self,path):
 		self.SFXpath = path
+	
+	def play_animation(self, anim_name):
+		if self.anim:
+			self.anim.play(anim_name)
+			self.current_anim = anim_name
+			self.anim_locked = True
+			print("🎬 Playing animation:", anim_name)
+		else:
+			print("⚠️ No AnimatedSprite found in MCSprite!")
+	
+	def stop_animation(self):
+		self.play_animation("default")
+		self.anim_locked = True
+		

@@ -1,6 +1,8 @@
 from godot import exposed, export
 from godot import *
 from main.preload_resources2 import get_healthbar, get_typing_ui
+from godot import AnimatedSprite
+
 dialogue_list = [
 	"Thou awakeneth, stirred by a gentle yet mischievous voice.", # Black screen
 	"Hey~~ Thou there, awake already, will thee?", #cg
@@ -224,6 +226,9 @@ class DialogueUI(Control):
 		if not self.waiting and self.gameplaytrigger:
 			self.Ingame = True
 			self.label.text = ''
+			
+			self.MCSprite = self.get_tree().get_current_scene().get_node("MCSprite")
+			self.MCSprite.play_animation("cast")	
 
 			self.healthbar_ui = get_healthbar().instance()
 			self.get_tree().get_root().add_child(self.healthbar_ui)
@@ -232,6 +237,9 @@ class DialogueUI(Control):
 			self.get_tree().get_root().add_child(self.typing_ui)
 
 			self.hide()
+
+			
+
 
 	def _on_timer_timeout(self):
 		
@@ -255,6 +263,7 @@ class DialogueUI(Control):
 		self.current_dialogue_order += 1
 		self.gameplaytrigger = False
 		self.Ingame = False
+		self.MCSprite.stop_animation()
 		self.current_text = dialogue_list[self.current_dialogue_order]
 		
 		self.check_dialogue_display()

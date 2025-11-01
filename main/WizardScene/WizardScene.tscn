@@ -1,4 +1,4 @@
-[gd_scene load_steps=141 format=2]
+[gd_scene load_steps=163 format=2]
 
 [ext_resource path="res://main/WizardScene/WizardScene.py" type="Script" id=1]
 [ext_resource path="res://item/SpriteAndMore/SenseiIDLE.png" type="Texture" id=2]
@@ -24,6 +24,28 @@
 [ext_resource path="res://item/Effect/heal.png" type="Texture" id=22]
 [ext_resource path="res://item/SoundEffect/WizardSceneBG.mp3" type="AudioStream" id=23]
 [ext_resource path="res://item/SpriteAndMore/MCwalk.png" type="Texture" id=24]
+[ext_resource path="res://item/SpriteAndMore/MCcasting/MCcasting5.png" type="Texture" id=25]
+[ext_resource path="res://item/SpriteAndMore/MCcasting/MCcasting6.png" type="Texture" id=26]
+[ext_resource path="res://item/SpriteAndMore/MCcasting/MCcasting15.png" type="Texture" id=27]
+[ext_resource path="res://item/SpriteAndMore/MCcasting/MCcasting4.png" type="Texture" id=28]
+[ext_resource path="res://item/SpriteAndMore/MCcasting/MCcasting3.png" type="Texture" id=29]
+[ext_resource path="res://item/SpriteAndMore/MCcasting/MCcasting2.png" type="Texture" id=30]
+[ext_resource path="res://item/SpriteAndMore/MCcasting/MCcasting7.png" type="Texture" id=31]
+[ext_resource path="res://item/SpriteAndMore/MCcasting/MCcasting1.png" type="Texture" id=32]
+[ext_resource path="res://item/SpriteAndMore/MCcasting/MCcasting9.png" type="Texture" id=33]
+[ext_resource path="res://item/SpriteAndMore/MCcasting/MCcasting10.png" type="Texture" id=34]
+[ext_resource path="res://item/SpriteAndMore/MCcasting/MCcasting8.png" type="Texture" id=35]
+[ext_resource path="res://item/SpriteAndMore/MCcasting/MCcasting11.png" type="Texture" id=36]
+[ext_resource path="res://item/SpriteAndMore/MCcasting/MCcasting12.png" type="Texture" id=37]
+[ext_resource path="res://item/SpriteAndMore/MCcasting/MCcasting13.png" type="Texture" id=38]
+[ext_resource path="res://item/SpriteAndMore/MCcasting/MCcasting14.png" type="Texture" id=39]
+[ext_resource path="res://item/SpriteAndMore/MCcasting/MCcasting16.png" type="Texture" id=40]
+[ext_resource path="res://item/SpriteAndMore/MCcasting/MCcasting19.png" type="Texture" id=41]
+[ext_resource path="res://item/SpriteAndMore/MCcasting/MCcasting20.png" type="Texture" id=42]
+[ext_resource path="res://item/SpriteAndMore/MCcasting/MCcasting22.png" type="Texture" id=43]
+[ext_resource path="res://item/SpriteAndMore/MCcasting/MCcasting21.png" type="Texture" id=44]
+[ext_resource path="res://item/SpriteAndMore/MCcasting/MCcasting17.png" type="Texture" id=45]
+[ext_resource path="res://item/SpriteAndMore/MCcasting/MCcasting18.png" type="Texture" id=46]
 
 [sub_resource type="Curve" id=116]
 min_value = -360.0
@@ -572,31 +594,31 @@ animations = [ {
 "speed": 10.0
 } ]
 
-[sub_resource type="AtlasTexture" id=23]
+[sub_resource type="AtlasTexture" id=140]
 atlas = ExtResource( 3 )
 region = Rect2( 0, 0, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=13]
+[sub_resource type="AtlasTexture" id=141]
 atlas = ExtResource( 3 )
 region = Rect2( 64, 64, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=14]
+[sub_resource type="AtlasTexture" id=142]
 atlas = ExtResource( 3 )
 region = Rect2( 0, 64, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=15]
+[sub_resource type="AtlasTexture" id=143]
 atlas = ExtResource( 3 )
 region = Rect2( 128, 64, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=16]
+[sub_resource type="AtlasTexture" id=144]
 atlas = ExtResource( 3 )
 region = Rect2( 0, 128, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=17]
+[sub_resource type="AtlasTexture" id=145]
 atlas = ExtResource( 3 )
 region = Rect2( 64, 128, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=18]
+[sub_resource type="AtlasTexture" id=146]
 atlas = ExtResource( 3 )
 region = Rect2( 128, 128, 64, 64 )
 
@@ -608,9 +630,14 @@ region = Rect2( 0, 64, 64, 64 )
 atlas = ExtResource( 24 )
 region = Rect2( 64, 64, 64, 64 )
 
-[sub_resource type="SpriteFrames" id=20]
+[sub_resource type="SpriteFrames" id=147]
 animations = [ {
-"frames": [ SubResource( 23 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 23 ) ],
+"frames": [ ExtResource( 32 ), ExtResource( 30 ), ExtResource( 29 ), ExtResource( 28 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 31 ), ExtResource( 35 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 27 ), ExtResource( 40 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 44 ), ExtResource( 43 ) ],
+"loop": true,
+"name": "cast",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 140 ), SubResource( 141 ), SubResource( 142 ), SubResource( 143 ), SubResource( 144 ), SubResource( 145 ), SubResource( 146 ), SubResource( 140 ) ],
 "loop": true,
 "name": "default",
 "speed": 4.0
@@ -739,9 +766,9 @@ volume_db = -20.986
 autoplay = true
 
 [node name="MCSprite" type="Node2D" parent="."]
+position = Vector2( 150, 252 )
 script = ExtResource( 5 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="MCSprite"]
-position = Vector2( 150, 252 )
-frames = SubResource( 20 )
+frames = SubResource( 147 )
 playing = true
