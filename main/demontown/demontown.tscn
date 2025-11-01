@@ -1,4 +1,4 @@
-[gd_scene load_steps=147 format=2]
+[gd_scene load_steps=149 format=2]
 
 [ext_resource path="res://item/SpriteAndMore/priestIDLE.png" type="Texture" id=1]
 [ext_resource path="res://item/SpriteAndMore/Skeleton.png" type="Texture" id=2]
@@ -49,6 +49,8 @@
 [ext_resource path="res://item/SpriteAndMore/PriestWALK.png" type="Texture" id=47]
 [ext_resource path="res://item/SpriteAndMore/PriestHEAL.png" type="Texture" id=48]
 [ext_resource path="res://item/SoundEffect/DemonTownBGM.mp3" type="AudioStream" id=49]
+[ext_resource path="res://item/itembosstown/pinkfloor.png" type="Texture" id=50]
+[ext_resource path="res://item/itembosstown/tile pink.png" type="Texture" id=51]
 
 [sub_resource type="TileSet" id=27]
 0/name = "Platformer Asset All H.png 0"
@@ -249,6 +251,76 @@
 10/shape_one_way_margin = 0.0
 10/shapes = [  ]
 10/z_index = 0
+11/name = "tile pink.png 11"
+11/texture = ExtResource( 51 )
+11/tex_offset = Vector2( 0, 0 )
+11/modulate = Color( 1, 1, 1, 1 )
+11/region = Rect2( 832, 448, 160, 160 )
+11/tile_mode = 0
+11/occluder_offset = Vector2( 0, 0 )
+11/navigation_offset = Vector2( 0, 0 )
+11/shape_offset = Vector2( 0, 0 )
+11/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+11/shape_one_way = false
+11/shape_one_way_margin = 0.0
+11/shapes = [  ]
+11/z_index = 0
+12/name = "tile pink.png 12"
+12/texture = ExtResource( 51 )
+12/tex_offset = Vector2( 0, 0 )
+12/modulate = Color( 1, 1, 1, 1 )
+12/region = Rect2( 672, 448, 160, 160 )
+12/tile_mode = 0
+12/occluder_offset = Vector2( 0, 0 )
+12/navigation_offset = Vector2( 0, 0 )
+12/shape_offset = Vector2( 0, 0 )
+12/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+12/shape_one_way = false
+12/shape_one_way_margin = 0.0
+12/shapes = [  ]
+12/z_index = 0
+13/name = "tile pink.png 13"
+13/texture = ExtResource( 51 )
+13/tex_offset = Vector2( 0, 0 )
+13/modulate = Color( 1, 1, 1, 1 )
+13/region = Rect2( 352, 576, 64, 32 )
+13/tile_mode = 0
+13/occluder_offset = Vector2( 0, 0 )
+13/navigation_offset = Vector2( 0, 0 )
+13/shape_offset = Vector2( 0, 0 )
+13/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+13/shape_one_way = false
+13/shape_one_way_margin = 0.0
+13/shapes = [  ]
+13/z_index = 0
+14/name = "tile pink.png 14"
+14/texture = ExtResource( 51 )
+14/tex_offset = Vector2( 0, 0 )
+14/modulate = Color( 1, 1, 1, 1 )
+14/region = Rect2( 416, 544, 128, 64 )
+14/tile_mode = 0
+14/occluder_offset = Vector2( 0, 0 )
+14/navigation_offset = Vector2( 0, 0 )
+14/shape_offset = Vector2( 0, 0 )
+14/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+14/shape_one_way = false
+14/shape_one_way_margin = 0.0
+14/shapes = [  ]
+14/z_index = 0
+15/name = "tile pink.png 15"
+15/texture = ExtResource( 51 )
+15/tex_offset = Vector2( 0, 0 )
+15/modulate = Color( 1, 1, 1, 1 )
+15/region = Rect2( 544, 544, 128, 64 )
+15/tile_mode = 0
+15/occluder_offset = Vector2( 0, 0 )
+15/navigation_offset = Vector2( 0, 0 )
+15/shape_offset = Vector2( 0, 0 )
+15/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+15/shape_one_way = false
+15/shape_one_way_margin = 0.0
+15/shapes = [  ]
+15/z_index = 0
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
@@ -559,6 +631,27 @@ animations = [ {
 1/shape_one_way_margin = 0.0
 1/shapes = [  ]
 1/z_index = 0
+2/name = "pinkfloor.png 2"
+2/texture = ExtResource( 50 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 0, 0, 96, 96 )
+2/tile_mode = 2
+2/autotile/icon_coordinate = Vector2( 0, 0 )
+2/autotile/tile_size = Vector2( 32, 32 )
+2/autotile/spacing = 0
+2/autotile/occluder_map = [  ]
+2/autotile/navpoly_map = [  ]
+2/autotile/priority_map = [  ]
+2/autotile/z_index_map = [  ]
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape_one_way = false
+2/shape_one_way_margin = 0.0
+2/shapes = [  ]
+2/z_index = 0
 
 [sub_resource type="AtlasTexture" id=136]
 atlas = ExtResource( 21 )
@@ -842,7 +935,7 @@ position = Vector2( -2, -5 )
 tile_set = SubResource( 28 )
 cell_size = Vector2( 8, 8 )
 format = 1
-tile_data = PoolIntArray( 786433, 1, 0, 786470, 1, 0, 786501, 1, 0, 1179648, 0, 0, 1638438, 9, 0, 1769489, 8, 0, 1966094, 10, 0, 1966109, 10, 0, 1966125, 10, 0, 1966127, 4, 0, 1966146, 10, 0, 1966150, 3, 0, 2097183, 2, 0, 2097193, 5, 0 )
+tile_data = PoolIntArray( 1638438, 9, 0, 1769489, 8, 0, 1769522, 8, 0, 1835035, 15, 0, 1835045, 14, 0, 1835072, 14, 0, 1966094, 10, 0, 1966109, 10, 0, 1966125, 10, 0, 1966146, 10, 0, 2097161, 13, 0, 2097193, 5, 0, 2097213, 13, 0 )
 
 [node name="priest" type="Node2D" parent="."]
 position = Vector2( -105, 252 )
@@ -888,7 +981,6 @@ position = Vector2( -2, -5 )
 tile_set = SubResource( 29 )
 cell_size = Vector2( 8, 8 )
 format = 1
-tile_data = PoolIntArray( 2031614, 1, 0, 2097185, 0, 0 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_left = -4.0
@@ -909,7 +1001,7 @@ position = Vector2( 0, -1 )
 tile_set = SubResource( 26 )
 cell_size = Vector2( 8, 8 )
 format = 1
-tile_data = PoolIntArray( 2359295, 1, 0, 2293763, 1, 1, 2293767, 1, 1, 2293771, 1, 1, 2293775, 1, 1, 2293779, 1, 1, 2293783, 1, 1, 2293787, 1, 1, 2293791, 1, 1, 2293795, 1, 1, 2293799, 1, 1, 2293803, 1, 1, 2293807, 1, 1, 2293810, 1, 1, 2293814, 1, 1, 2293818, 1, 1, 2293822, 1, 1, 2293826, 1, 1, 2293830, 1, 1, 2293834, 1, 1, 2293837, 1, 2, 2621439, 1, 65536, 2555907, 1, 65537, 2555911, 1, 65537, 2555915, 1, 65537, 2555919, 1, 65537, 2555920, 1, 65537, 2555924, 1, 65537, 2555928, 1, 65537, 2555932, 1, 65537, 2555936, 1, 65537, 2555940, 1, 65537, 2555944, 1, 65537, 2555948, 1, 65537, 2555949, 1, 65537, 2555953, 1, 65537, 2555957, 1, 65537, 2555961, 1, 65537, 2555965, 1, 65537, 2555969, 1, 65537, 2555973, 1, 65537, 2555977, 1, 65537, 2555981, 1, 65538, 2621451, 1, 65537, 2883583, 1, 65536, 2818051, 1, 65537, 2818055, 1, 65537, 2818059, 1, 65537, 2818063, 1, 65537, 2818067, 1, 65537, 2818071, 1, 65537, 2818075, 1, 65537, 2818079, 1, 65537, 2818083, 1, 65537, 2818087, 1, 65537, 2818091, 1, 65537, 2818095, 1, 65537, 2818099, 1, 65537, 2818103, 1, 65537, 2818107, 1, 65537, 2818111, 1, 65537, 2818115, 1, 65537, 2818119, 1, 65537, 2818121, 1, 65537, 2818125, 1, 65538 )
+tile_data = PoolIntArray( 2359295, 0, 0, 2293763, 0, 1, 2293767, 0, 1, 2293771, 0, 1, 2293775, 0, 1, 2293779, 0, 1, 2293783, 0, 1, 2293787, 0, 1, 2293791, 0, 1, 2293795, 0, 1, 2293799, 0, 1, 2293803, 0, 1, 2293807, 0, 1, 2293811, 0, 1, 2293815, 0, 1, 2293819, 0, 1, 2293823, 0, 1, 2293827, 0, 1, 2293831, 0, 1, 2293834, 0, 1, 2293837, 0, 2, 2621439, 0, 65536, 2555907, 0, 65537, 2555911, 0, 65537, 2555915, 0, 65537, 2555919, 0, 65537, 2555923, 0, 65537, 2555927, 0, 65537, 2555931, 0, 65537, 2555935, 0, 65537, 2555939, 0, 65537, 2555943, 0, 65537, 2555947, 0, 65537, 2555951, 0, 65537, 2555955, 0, 65537, 2555959, 0, 65537, 2555963, 0, 65537, 2555967, 0, 65537, 2555971, 0, 65537, 2555975, 0, 65537, 2555977, 0, 65537, 2555981, 0, 65538, 2883583, 0, 65536, 2818051, 0, 65537, 2818055, 0, 65537, 2818059, 0, 65537, 2818063, 0, 65537, 2818067, 0, 65537, 2818071, 0, 65537, 2818075, 0, 65537, 2818079, 0, 65537, 2818083, 0, 65537, 2818087, 0, 65537, 2818091, 0, 65537, 2818095, 0, 65537, 2818099, 0, 65537, 2818103, 0, 65537, 2818107, 0, 65537, 2818111, 0, 65537, 2818115, 0, 65537, 2818119, 0, 65537, 2818121, 0, 65537, 2818125, 0, 65538 )
 
 [node name="PlayerDMG_effect" type="AnimatedSprite" parent="."]
 position = Vector2( 212, 253 )
