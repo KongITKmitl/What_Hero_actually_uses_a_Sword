@@ -752,7 +752,7 @@ format = 1
 tile_data = PoolIntArray( 524307, 8, 0 )
 
 [node name="บ้าน" type="TileMap" parent="tree"]
-position = Vector2( -544, -214 )
+position = Vector2( -544, -213 )
 scale = Vector2( 1.8354, 1.72807 )
 tile_set = SubResource( 10 )
 cell_size = Vector2( 16, 16 )
