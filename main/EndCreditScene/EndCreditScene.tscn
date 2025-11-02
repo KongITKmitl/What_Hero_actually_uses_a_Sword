@@ -35,9 +35,7 @@ margin_top = 395.0
 margin_right = 550.5
 margin_bottom = 2052.0
 custom_fonts/font = SubResource( 1 )
-text = "End Credit
-
-What Hero actually uses a Sword!?!
+text = "What Hero actually uses a Sword!?!
 by Monkeynology
 
 credits
@@ -92,6 +90,10 @@ Pixel Valley by Kauzz
 pixel-art-platformer-village-props by Cainos
 mondstadt-theme-background-pixel-art by The Flavare
 
+--Tile set & Background Forest Scene--
+
+forest-parallax-backgrounds-320x180px
+parallax-sunset-mountains
 
 --Tile set & Background Castle Gate Scene--
 
@@ -110,7 +112,6 @@ pixel-art-platformer-village-props by Cainos
 generic-dungeon-pack by Vaca Roxa
 Free Castle Interior Pixel Game Backgrounds by Krawper
 
-
 --Effect--
 
 Free Smoke Fx Pixel 2 by BDragon1727
@@ -123,8 +124,12 @@ Effect and FX Pixel Part 14 by BDragon1727
 Retro Pixel Font by okamijin kobayashi
 
 
-THANK YOU FOR PLAYING OUR GAMES
-"
+
+
+
+
+
+THANK YOU FOR PLAYING OUR GAMES"
 align = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

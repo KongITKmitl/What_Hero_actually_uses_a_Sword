@@ -6,7 +6,7 @@ from godot import *
 class EndCreditScene(Node2D):
 
 	speed = export(float, default=50.0)
-	target_y = export(float, default=-1500.0)
+	target_y = export(float, default=-2000.0)
 
 	def _ready(self):
 		self.content = self.get_node("content")
