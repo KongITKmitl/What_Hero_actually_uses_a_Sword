@@ -30,77 +30,101 @@ color = Color( 0, 0, 0, 1 )
 
 [node name="content" type="Label" parent="."]
 anchor_right = 1.0
-margin_left = 211.0
-margin_top = 395.181
-margin_right = 433.0
-margin_bottom = 1712.18
+margin_left = 57.5
+margin_top = 395.0
+margin_right = 550.5
+margin_bottom = 2052.0
 custom_fonts/font = SubResource( 1 )
 text = "End Credit
 
 What Hero actually uses a Sword!?!
 by Monkeynology
 
-credit
-blablabla
-blablabla
-blablabla
-blablabla
-blablabla
-blablabla
-blablabla
-blablabla
-blablabla
-blablabla
-blablabla
+credits
 
-blablabla
-blablabla
-blablabla
-blablabla
-blablabla
-blablabla
-blablabla
-blablabla
+--Sound Effect--
 
-blablabla
-blablabla
-blablabla
+Typing Sound 01 by Soul_Serenity_Sounds
+Healing Magic (6) by yodguard
+Magic Smite by freesound_community
+fire magic (1) by yodguard
+Videogame Death Sound by freesound_community
+click by u_u4pf5h7zip
+Error 09 by Universfield
+Footsteps in a hallway by freesound_community
+Footsteps_Grass_1 by freesound_community
+Forest Ambience by AudioPapkin
+One page book flip by freesound_community
+UI click by freesound_community
 
-blablabla
-blablabla
-blablabla
-blablabla
 
-blablabla
-blablabla
-blablabla
+--Background Music--
 
-blablabla
-blablabla
-blablabla
-blablabla
-blablabla
-blablabla
+Medieval Star by matthewmikemusic
+Medieval Castle by Melodigne
+RPG Medieval Animated Music by Andorios
+Calming Medieval Melody by LVBratija
+Chasing Fairies by MMAudio
+Final Lullaby by SoyKhaler
+Medieval Escape by LVBratija
+The Longest Siege by Edermaseda
 
-blablabla
-blablabla
-blablabla
-blablabla
 
-blablabla
-blablabla
-blablabla
-blablabla
-blablabla
+--Tile set & Background Wizard Scene--
 
-blablabla
-blablabla
-blablabla
-blablabla
-blablabla
+Free Pixel Art Forest by edermunizz
+pixel-art-top-down-basic by Cainos
+STRINGSTAR FIELDS by Trixie
 
-blablabla
-blablabla"
+
+--Tile set & Background Village Scene--
+
+Pixel Valley by Kauzz
+pixel-art-platformer-village-props by Cainos
+pixel-art-top-down-basic by Cainos
+Free Ocean and Clouds Pixel Backgrounds by Free Game Assets (GUI, Sprite, Tilesets)
+
+
+--Tile set & Background Farm Scene--
+
+Free Summer Pixel Art Backgrounds by CraftPix.net
+Pixel Valley by Kauzz
+pixel-art-platformer-village-props by Cainos
+mondstadt-theme-background-pixel-art by The Flavare
+
+
+--Tile set & Background Castle Gate Scene--
+
+Free Castle Interior Pixel Game Backgrounds by Krawper
+Free Undead Pixel Tileset Top Down by Free Game Assets (GUI, Sprite, Tilesets)
+
+
+--Tile set & Background Demon Town Scene--
+
+Cake Valley by toadgirl
+pixel-art-platformer-village-props by Cainos
+
+
+--Tile set & Background Boss Scene--
+
+generic-dungeon-pack by Vaca Roxa
+Free Castle Interior Pixel Game Backgrounds by Krawper
+
+
+--Effect--
+
+Free Smoke Fx Pixel 2 by BDragon1727
+750 Effect and FX Pixel All by BDragon1727
+Effect and FX Pixel Part 14 by BDragon1727
+
+
+--Font--
+
+Retro Pixel Font by okamijin kobayashi
+
+
+THANK YOU FOR PLAYING OUR GAMES
+"
 align = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
