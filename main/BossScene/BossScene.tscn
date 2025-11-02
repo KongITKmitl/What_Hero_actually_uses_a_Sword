@@ -40,7 +40,7 @@
 [ext_resource path="res://item/SoundEffect/bossBGM.mp3" type="AudioStream" id=38]
 [ext_resource path="res://item/Background/background 1/background 2/orig.png" type="Texture" id=39]
 [ext_resource path="res://item/Background/background 1/background 2/3.png" type="Texture" id=40]
-[ext_resource path="res://item/itemgoblin/Plan 2.png" type="Texture" id=41]
+[ext_resource path="res://item/Background/catlegate/Plan 2.png" type="Texture" id=41]
 [ext_resource path="res://item/Background/background 1/background 2/5.png" type="Texture" id=42]
 [ext_resource path="res://item/realasset/castalbg/castalbg.png" type="Texture" id=43]
 [ext_resource path="res://item/realasset/castalbg/cas1 (1).png" type="Texture" id=44]

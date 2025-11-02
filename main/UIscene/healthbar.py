@@ -2,9 +2,6 @@ from godot import exposed, export
 from godot import *
 from godot import AnimatedSprite
 
-# -------------------------------
-# ตารางเลือดของมอนสเตอร์แต่ละเลเวล
-# -------------------------------
 monster_healthlist = {
 	1: 800,
 	2: 1600,
@@ -15,18 +12,15 @@ monster_healthlist = {
 	7: 15000
 }
 
-# ตัวแปรเก็บเลเวลของมอนสเตอร์ปัจจุบัน (ใช้ร่วมกันทุกซีน)
 base_mon = 1
 
 @exposed
 class healthbar(Control):
-	"""สคริปต์ healthbar ใช้ควบคุมระบบเลือดของมอนสเตอร์และผู้เล่น"""
 
 	def _ready(self):
 		global base_mon
 		print("[LOG] _ready() called — base_mon =", base_mon)
 
-		# ดึง node ที่จำเป็นจากซีนหลัก
 		self.DialogueUI = self.get_tree().get_current_scene().get_node('dialogueUI')
 		self.monEffect = self.get_tree().get_current_scene().get_node('MonsterDMG_effect')
 		self.playerEffect = self.get_tree().get_current_scene().get_node('PlayerDMG_effect')
@@ -34,7 +28,7 @@ class healthbar(Control):
 
 		# รีเซ็ตค่าพลังชีวิตเริ่มต้น
 		self.monster_health = monster_healthlist[base_mon]
-		self.mc_health = ((monster_healthlist[base_mon]) / 4) * 5  # MC มีเลือดมากกว่ามอน
+		self.mc_health = ((monster_healthlist[base_mon]) / 4) * 5
 		self.pending_mc_damage = 0
 
 		# ProgressBar ของมอนสเตอร์
@@ -47,11 +41,11 @@ class healthbar(Control):
 		self.mcprogress_bar.max_value = self.mc_health
 		self.mcprogress_bar.value = self.mc_health
 
-		# Label "DIE" สำหรับตอน MC ตาย
+		# lable mc ตาย
 		self.die_lable = self.get_node("DIE")
 		self.die_lable.hide()
 		
-		#transition ตอนตาย
+		# transition ตอนตาย
 		self.DeadTransition = self.get_node('DeadTransition')
 		self.DeadTransition.hide()
 
@@ -60,11 +54,11 @@ class healthbar(Control):
 		self.delay_timer.connect("timeout", self, "_on_delay_timeout")
 		self.delay_timer.stop()
 		
-		# เสียงทั้งหมด
+		# เสียง
 		self.mc_die_sound = self.get_node("mc_die")
-		self.mon_damage = self.get_node("montakedamage")   # เสียงมอนโดนโจมตี
-		self.mc_damage = self.get_node("mctakedamage")     # เสียง MC โดนโจมตี
-		self.priest_heal = self.get_node("heal")           # เสียงตอนฮีล
+		self.mon_damage = self.get_node("montakedamage")
+		self.mc_damage = self.get_node("mctakedamage")
+		self.priest_heal = self.get_node("heal")
 
 		print("[LOG] Ready complete")
 
@@ -80,7 +74,7 @@ class healthbar(Control):
 		self.mon_damage.play()
 		print(f"[LOG] Monster took {damage} damage → {self.monster_health}/{self.progress_bar.max_value}")
 
-		# ดาเมจที่ MC จะได้รับ = ดาเมจจริงที่มอนโดน × 1.5
+		# ดาเมจที่ mc = ดาเมจจริงที่มอนโดน × 1.5
 		actual_damage = prev_health - self.monster_health
 		self.pending_mc_damage += actual_damage * 1.5
 
@@ -108,7 +102,7 @@ class healthbar(Control):
 		self.mc_damage.play()
 		print(f"[LOG] MC took damage → {self.mc_health}/{self.mcprogress_bar.max_value}")
 
-		# ถ้า MC ตาย
+		# mc ตาย
 		if self.mc_health <= 0:
 			self.mc_health = 0
 			self.die_lable.show()
@@ -129,7 +123,7 @@ class healthbar(Control):
 
 	def heal_mc_if_low(self):
 		max_mc_health = ((monster_healthlist[base_mon]) / 4) * 5
-		threshold = max_mc_health * 0.1  # 10% ของ HP สูงสุด
+		threshold = max_mc_health * 0.1  # 10 % ของ max hp
 
 		if self.mc_health < threshold and self.mc_health > 0:
 			heal_amount = max_mc_health * 0.15
@@ -145,11 +139,18 @@ class healthbar(Control):
 
 
 	def _on_die_timeout(self):
+		global base_mon
 		current_scene = self.get_tree().get_current_scene()
 		scene_path = current_scene.filename
-		print(f"[LOG] Reloading scene: {scene_path} with base_mon = {base_mon}")
-		self.get_tree().change_scene(scene_path)
-		self.queue_free()
+		if base_mon == 7:
+			print(f"[LOG] Reloading scene: {scene_path} with base_mon = 6")
+			base_mon = 6
+			self.get_tree().change_scene(scene_path)
+			self.queue_free()
+		else:
+			print(f"[LOG] Reloading scene: {scene_path} with base_mon = {base_mon}")
+			self.get_tree().change_scene(scene_path)
+			self.queue_free()
 
 	def playtransition(self):
 		self.DeadTransition.show()
