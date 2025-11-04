@@ -59,3 +59,18 @@ Exporting the project hasn't been tested at all (however exporting for linux sho
 Have fun ;-)
 
   - touilleMan
+วิธีการติดตั้ง Project
+--------------------
+ทำการ Git clone project ใน command prompt หรือ clone ใน Github desktop git clone https://github.com/Mstxz/Elven-Abyss-Game.git
+เปิดโฟลเดอร์ ที่ทำการ clone มา
+เปิดโฟลเดอร์ ที่ชื่อว่า Godot_Main
+เปิดโปรแกรมที่ชื่่อว่า Godot_v3.6-stable_win64 และเล่นได้เลย
+
+Contributors
+--------------------
+Villainfic : นางสาวพัชรพรรณ	โกสินธุ์วัฒนะ รหัสนักศึกษา 68070120
+MIKAtuajing : นายรัฐธรรมนูญ นิราศ รหัสนักศึกษา 68070158
+UwahhUnidaa : นางสาววงศ์วรัณ รุจิรัตนาลัย รหัสนักศึกษา 68070163
+WXCHX : นายวชิราวิทย์ โพธิจักร์ รหัสนักศึกษา 68070165
+AIMVIEW : นางสาวสิริน พรประทาน รหัสนักศึกษา 68070188
+
